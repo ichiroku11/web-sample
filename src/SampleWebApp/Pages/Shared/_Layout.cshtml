@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title - Web sample</title>
+	@RenderSection("style", required: false)
+</head>
+<body>
+	<header>
+		<h1>
+			@ViewBag.Title
+			@if (!string.IsNullOrEmpty(ViewBag.Subtitle)) {
+				<small>@ViewBag.Subtitle</small>
+			}
+		</h1>
+	</header>
+	<main>
+		@RenderBody()
+	</main>
+	<footer>
+	</footer>
+	@RenderSection("script", required: false)
+</body>
+</html>
