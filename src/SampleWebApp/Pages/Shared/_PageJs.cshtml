@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment Env
+@{
+	var page = ViewContext.RouteData.Values["page"] as string;
+
+	// 現在のページに対応するjsファイルが見つかればscriptタグを作成する
+	// 例
+	// 現在のページ：/index
+	// jsファイル：~/js/index.js
+	var jsPath = @$"js{page.ToLower()}.js";
+	var jsFile = Env.WebRootFileProvider.GetFileInfo(jsPath);
+}
+@if (jsFile.Exists) {
+	<script src="~/@jsPath" asp-append-version="true"></script>
+}

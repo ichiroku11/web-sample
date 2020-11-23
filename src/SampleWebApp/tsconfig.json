@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
-		"noImplicitAny": false,
+		"module": "es2015",
+		"moduleResolution": "node",
 		"noEmitOnError": true,
 		"noImplicitReturns": true,
 		"removeComments": false,
 		"sourceMap": true,
 		"strict": true,
-		"target": "es5"
+		"target": "es2019"
 	},
 	"exclude": [
 		"node_modules",
