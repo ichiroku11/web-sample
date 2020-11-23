@@ -3,7 +3,11 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<title>@ViewBag.Title - Web sample</title>
-	@RenderSection("style", required: false)
+	@if (IsSectionDefined("style")) {
+		@RenderSection("style")
+	} else {
+		<partial name="_PageCss" />
+	}
 </head>
 <body>
 	<header>
@@ -19,7 +23,10 @@
 	</main>
 	<footer>
 	</footer>
-	<partial name="_PageJs" />
-	@RenderSection("script", required: false)
+	@if (IsSectionDefined("script")) {
+		@RenderSection("script")
+	} else {
+		<partial name="_PageJs" />
+	}
 </body>
 </html>
