@@ -36,8 +36,15 @@ const scssConfig = {
 
 // TypeScript
 const tsConfig = {
+	// https://webpack.js.org/guides/typescript/#source-maps
+	devtool: "inline-source-map",
 	entry: {
-		index: path.resolve(__dirname, "scripts/index.ts")
+		lib: path.resolve(__dirname, "scripts/lib.ts"),
+		index: {
+			import: path.resolve(__dirname, "scripts/index.ts"),
+			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
+			dependOn: "lib"
+		}
 	},
 	module: {
 		rules: [

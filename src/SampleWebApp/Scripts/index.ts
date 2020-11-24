@@ -1,4 +1,5 @@
+import { Sample } from "./lib";
 
 document.addEventListener("DOMContentLoaded", () => {
-	console.log("loaded");
+	console.log(Sample.message());
 });
