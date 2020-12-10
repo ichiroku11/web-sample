@@ -10,7 +10,8 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const scssConfig = {
 	entry: {
 		lib: path.resolve(__dirname, "styles/lib.scss"),
-		index: path.resolve(__dirname, "styles/index.scss")
+		index: path.resolve(__dirname, "styles/index.scss"),
+		"ts/test": path.resolve(__dirname, "styles/ts/test.scss")
 	},
 	module: {
 		rules: [
