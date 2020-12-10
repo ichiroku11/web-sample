@@ -46,7 +46,8 @@ const tsConfig = {
 			import: path.resolve(__dirname, "scripts/index.ts"),
 			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
 			dependOn: "lib"
-		}
+		},
+		"ts/test": path.resolve(__dirname, "scripts/ts/test.ts")
 	},
 	module: {
 		rules: [
