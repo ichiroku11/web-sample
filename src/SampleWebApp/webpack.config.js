@@ -11,6 +11,7 @@ const scssConfig = {
 	entry: {
 		lib: path.resolve(__dirname, "styles/lib.scss"),
 		index: path.resolve(__dirname, "styles/index.scss"),
+		"ts/sudoku": path.resolve(__dirname, "styles/ts/sudoku.scss"),
 		"ts/test": path.resolve(__dirname, "styles/ts/test.scss")
 	},
 	module: {
@@ -47,6 +48,8 @@ const tsConfig = {
 			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
 			dependOn: "lib"
 		},
+		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
+		"ts/sudoku": path.resolve(__dirname, "scripts/ts/sudoku.ts"),
 		"ts/test": path.resolve(__dirname, "scripts/ts/test.ts")
 	},
 	module: {

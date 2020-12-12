@@ -1,0 +1,55 @@
+:root {
+	--border-bold: 2px solid #344861;
+	--border-thin: 1px solid #bec6d4;
+	--cell-size: 50px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#sudoku-view {
+}
+
+#sudoku-view > table {
+	border-collapse: collapse;
+}
+
+/* 行ごとの横線 */
+#sudoku-view tr {
+	border-top: var(--border-thin);
+}
+
+#sudoku-view tr:first-child {
+	border-top: var(--border-bold);
+}
+
+#sudoku-view tr:nth-child(3n) {
+	border-bottom: var(--border-bold);
+}
+
+#sudoku-view td {
+	border-left: var(--border-thin);
+	color: #4a90e2;
+	cursor: pointer;
+	font-size: 2rem;
+	height: var(--cell-size);
+	text-align: center;
+	width: var(--cell-size);
+}
+
+#sudoku-view td.fixed {
+	color: #666;
+}
+
+#sudoku-view td:hover {
+	background: #ddeeff;
+}
+
+#sudoku-view td:first-child {
+	border-left: var(--border-bold);
+}
+
+#sudoku-view td:nth-child(3n) {
+	border-right: var(--border-bold);
+}
