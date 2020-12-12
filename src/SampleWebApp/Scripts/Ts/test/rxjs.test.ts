@@ -1,10 +1,6 @@
 import { Assert, Test } from "../unittestlib";
-
-export const rxjsCreatingOperatorsTest = new Test("RxJS.ToDo");
-
-// todo:
-/*
 import { empty } from "rxjs";
+
 export const rxjsCreatingOperatorsTest = new Test("RxJS.CreatingOperatorsTest")
 	.fact("empty_completeだけが呼ばれる", () => {
 		// Arrange
@@ -22,4 +18,4 @@ export const rxjsCreatingOperatorsTest = new Test("RxJS.CreatingOperatorsTest")
 
 		Assert.true(completed);
 	});
-*/
+
