@@ -11,6 +11,7 @@ const scssConfig = {
 	entry: {
 		lib: path.resolve(__dirname, "styles/lib.scss"),
 		index: path.resolve(__dirname, "styles/index.scss"),
+		"ts/imagedataurl": path.resolve(__dirname, "styles/ts/imagedataurl.scss"),
 		"ts/sudoku": path.resolve(__dirname, "styles/ts/sudoku.scss"),
 		"ts/test": path.resolve(__dirname, "styles/ts/test.scss")
 	},
@@ -49,7 +50,9 @@ const tsConfig = {
 			dependOn: "lib"
 		},
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
+		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
 		"ts/sudoku": path.resolve(__dirname, "scripts/ts/sudoku.ts"),
+		"ts/svgclock": path.resolve(__dirname, "scripts/ts/svgclock.ts"),
 		"ts/test": path.resolve(__dirname, "scripts/ts/test.ts")
 	},
 	module: {
