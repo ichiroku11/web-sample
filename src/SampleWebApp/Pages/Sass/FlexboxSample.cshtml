@@ -1,0 +1,117 @@
+@page
+@{
+	Layout = null;
+
+	var asideNavs = new[] {
+		(icon: Svg.HouseDoorFill, label: "Home", active: true),
+		(icon: Svg.Cart, label: "Card", active: false),
+		(icon: Svg.TagsFill, label: "Coupons", active: false),
+		(icon: Svg.StarFill, label: "Favorite Items", active: false),
+		(icon: Svg.GearFill, label: "Settings", active: false),
+	};
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Flexboxを使ったサンプル - SASS/CSS Sample</title>
+	<partial name="_PageCss" />
+</head>
+<body>
+	<header>
+		<h1 class="header-logo"><a href="#">Xxx Store</a></h1>
+		<div class="header-nav">
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Works</a></li>
+				</ul>
+			</nav>
+			<a href="#" class="header-user">
+				<span>Xxxx Xxxxx</span>
+				<partial name="_Svg" model="Svg.PersonCircle" />
+			</a>
+		</div>
+	</header>
+	<div class="wrapper">
+		<aside>
+			<nav>
+				<ul>
+					@foreach (var (icon, label, active) in asideNavs) {
+						<li>
+							<a class="@(active ? "active": "")" href="#">
+								<partial name="_Svg" model="icon" />
+								<span>@label</span>
+							</a>
+						</li>
+					}
+				</ul>
+			</nav>
+		</aside>
+		<main>
+			<section>
+				<h2>
+					<partial name="_Svg" model="Svg.AwardFill" />
+					<span>Top Sellers</span>
+				</h2>
+				<ul class="top-shellers">
+					@foreach (var index in Enumerable.Range(1, 8)) {
+						<li>
+							<partial name="_Svg" model="Svg.PersonCircle" />
+							<div>
+								<h3>Xxxx Xxxxx</h3>
+								<p>154 orders</p>
+							</div>
+						</li>
+					}
+				</ul>
+				<hr />
+				<h2>
+					<partial name="_Svg" model="Svg.AwardFill" />
+					<span>Top Articles</span>
+				</h2>
+				<ul class="top-articles">
+					@foreach (var index in Enumerable.Range(0, 4)) {
+						<li class="card">
+							<div class="card-image"></div>
+							<div class="card-body">
+								<h3>How to design in a logo in 5 steps</h3>
+								<p>By Xxxx Xxxxx</p>
+							</div>
+						</li>
+					}
+				</ul>
+			</section>
+			<section>
+				<h2>
+					<partial name="_Svg" model="Svg.AwardFill" />
+					<span>Latest Bla Bla</span>
+				</h2>
+				<form action="" class="search">
+					<input type="text" name="" placeholder="What are you looking for?" />
+					<button>Search</button>
+				</form>
+				<hr />
+				<ul class="top-articles">
+					@foreach (var index in Enumerable.Range(0, 3)) {
+						<li class="card stacked">
+							<div class="card-image"></div>
+							<div class="card-body">
+								<h3>How to design in a logo in 5 steps</h3>
+								<p>By Xxxx Xxxxx</p>
+							</div>
+						</li>
+					}
+				</ul>
+			</section>
+		</main>
+	</div>
+	@* // todo: 参考 *@
+	@*
+		<footer>
+			<a href="https://coliss.com/articles/build-websites/operation/css/flexbox-real-world-use-cases.html">CSS Flexboxで、Webページによく使用されるUIコンポーネントを実装するテクニックのまとめ | コリス</a>
+		</footer>
+	*@
+</body>
+</html>

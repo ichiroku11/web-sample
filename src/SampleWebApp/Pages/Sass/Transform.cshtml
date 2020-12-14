@@ -1,0 +1,30 @@
+@page
+@{
+	ViewBag.Title = "Transform";
+
+	var samples = new[] {
+		("none", "none"),
+		("translate(100px, 50%)", "translate"),
+		("scale(2, 0.5)", "scale"),
+		("rotate(0.25turn)", "rotate"),
+		("scale(0.5) translate(-100%, -100%)", "scaletranslate"),
+		("skew(30deg, 20deg)", "skew"),
+	};
+}
+
+@foreach (var (title, css) in samples) {
+<section class="app-sample">
+	<h3>transform: @title;</h3>
+	<div class="transform-container">
+		<div class="transform-item transform-@css">
+			<partial name="_Svg" model="Svg.CodeSlash" />
+		</div>
+	</div>
+</section>
+}
+
+<section class="app-reference">
+	<ul>
+		<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/transform">transform - CSS: カスケーディングスタイルシート | MDN</a></li>
+	</ul>
+</section>

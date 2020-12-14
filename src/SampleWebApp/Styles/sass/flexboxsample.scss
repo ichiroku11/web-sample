@@ -1,0 +1,331 @@
+$back-color: #edf2f7;
+$main-color: #1a6ccc;
+
+body {
+	background: $back-color;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+// header
+header {
+	align-items: center;
+	background-color: $main-color;
+	box-shadow: 0 5px 13px 0 rgba(#000, .15);
+	display: flex;
+	padding: 0 8px;
+
+	a {
+		color: #fff;
+	}
+}
+
+.header-logo {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.header-nav {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+
+	ul {
+		display: flex;
+	}
+
+	a {
+		padding: 8px;
+	}
+}
+
+.header-user {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+
+	svg {
+		height: 32px;
+		margin-left: 10px;
+		width: 32px;
+	}
+}
+
+@media (max-width: 600px) {
+	.header {
+		padding: .5rem;
+	}
+
+	.header-logo {
+		margin: 1rem 0;
+	}
+
+	.header-nav {
+		margin-left: initial;
+	}
+
+	.header-user {
+		display: none;
+	}
+}
+
+
+// main
+.wrapper {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	grid-gap: 24px;
+	margin: 1rem auto;
+	max-width: 950px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	nav,
+	section {
+		background: #fff;
+		border-radius: 5px;
+		box-shadow: 0 4px 4px 0 rgba(#000, .05);
+	}
+}
+
+aside > nav {
+	padding: .5rem .5rem 1rem 0;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+	}
+
+	a {
+		$active-cColor: #f3f7fc;
+		$height: 2.5rem;
+
+		align-items: center;
+		border-radius: 0 $height * 0.5 $height * 0.5 0;
+		color: #c3c3c3;
+		cursor: pointer;
+		display: flex;
+		height: $height;
+		padding: 0 1rem;
+		width: 100%;
+		text-decoration: none;
+
+		&.active,
+		&:hover {
+			background: $active-cColor;
+			color: $main-color;
+			background: $active-cColor;
+			color: $main-color;
+		}
+
+		svg {
+			height: 1.5rem;
+			width: 1.5rem;
+			margin-right: 1rem;
+		}
+
+		span {
+			font-weight: bold;
+		}
+	}
+}
+
+main > section {
+	padding: .5rem 1rem;
+
+	& + section {
+		margin-top: 18px;
+	}
+
+	h2 {
+		align-items: center;
+		display: flex;
+		font-size: 1.2rem;
+		margin: 0;
+
+		svg {
+			color: #e6af32;
+			margin-right: .5rem;
+		}
+
+		span {
+			color: $main-color;
+		}
+	}
+
+	hr {
+		border: 1px solid $back-color;
+		margin-left: -1rem;
+		margin-right: -1rem;
+	}
+}
+
+.top-shellers {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1rem 0;
+
+	li {
+		align-items: center;
+		color: #5c5c5c;
+		display: flex;
+		flex: 0 0 25%;
+		margin-bottom: 1rem;
+	}
+
+	svg {
+		height: 42px;
+		width: 42px;
+		margin-right: .2rem;
+	}
+
+	h3 {
+		font-size: .9rem;
+		margin: 0;
+	}
+
+	p {
+		font-size: .7rem;
+		margin: 0;
+	}
+}
+
+@media (min-width: 400px) {
+	.top-shellers {
+		li {
+			flex: 0 0 50%;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.top-shellers {
+		li {
+			flex: 0 0 33%;
+		}
+	}
+}
+
+@media (min-width: 900px) {
+	.top-shellers {
+		li {
+			flex: 0 0 25%;
+		}
+	}
+}
+
+.top-articles {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 1rem 0;
+
+	.card {
+		align-items: center;
+		color: #5c5c5c;
+		display: flex;
+		flex: 0 0 50%;
+		margin-bottom: 1rem;
+	}
+
+	.card-image {
+		background-color: $main-color;
+		border-radius: 5px;
+		display: block;
+		flex: 0 0 auto;
+		height: 80px;
+		width: 120px;
+		margin-right: .5rem;
+	}
+
+	.card-body {
+		flex: 0 1 auto;
+	}
+
+	.stacked {
+		&.card {
+			flex: 0 0 30%;
+			flex-direction: column;
+			margin-right: .75rem;
+		}
+
+		.card-image {
+			flex: 0 0 auto;
+			height: 100px;
+			margin-right: 0;
+			margin-bottom: .5rem;
+			width: 180px;
+		}
+
+		.card-body {
+		}
+	}
+
+	h3 {
+		font-size: .9rem;
+		margin: 0;
+	}
+
+	p {
+		font-size: .7rem;
+		margin: 0;
+	}
+}
+
+
+@media (max-width: 700px) {
+	.top-articles {
+		.card {
+			flex: 0 0 100%;
+		}
+
+		.card.stacked {
+			flex: 0 0 100%;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.top-articles {
+		.card.stacked {
+			flex: 0 0 30%;
+		}
+	}
+}
+
+
+.search {
+	display: flex;
+	margin: 1rem 0;
+
+	input, button {
+		font-size: .9rem;
+		border-radius: 1.5rem;
+	}
+
+	input {
+		border: 2px solid #e2e2e2;
+		flex-grow: 1;
+		padding: 8px;
+		margin-right: 12px;
+	}
+
+	button {
+		background-color: $main-color;
+		border: none;
+		color: #fff;
+		padding: 8px 16px;
+	}
+}
+
+// footer

@@ -1,0 +1,100 @@
+@page "{layout}"
+@model OneLineLayoutModel
+@{
+	// 参考
+	// http://photoshopvip.net/123968
+	ViewBag.Title = "Ten modern layouts in one line of CSS";
+	ViewBag.Subtitle = Model.Layout.GetDisplayName();
+}
+<section class="app-sample oll-sample@((int)Model.Layout)">
+	@if (Model.Layout == OneLineLayout.SuperCentered) {
+		<div class="oll-parent oll-blue">
+			<div class="oll-child oll-coral" contenteditable>
+				:)
+			</div>
+		</div>
+	} else if (Model.Layout == OneLineLayout.DeconstructedPancake) {
+		<div class="oll-parent">
+			@foreach (var index in Enumerable.Range(1, 3)) {
+				<div class="oll-box oll-green">@index</div>
+			}
+		</div>
+	} else if (Model.Layout == OneLineLayout.SidebarSays) {
+		<div class="oll-parent">
+			<aside class="oll-yellow">Min: 150px<br />Max: 25%</aside>
+			<main class="oll-purple">This element takes the second grid position (1fr), meaning it takes up the rest of the remaining space.</main>
+		</div>
+	} else if (Model.Layout == OneLineLayout.PancakeStack) {
+		<div class="oll-parent">
+			<header class="oll-blue" contenteditable>Header</header>
+			<main class="oll-coral" contenteditable>Main</main>
+			<footer class="oll-purple" contenteditable>Footer</footer>
+		</div>
+	} else if (Model.Layout == OneLineLayout.ClassicHolyGrailLayout) {
+		<div class="oll-parent">
+			<header class="oll-pink" contenteditable>Header</header>
+			<aside class="oll-sidebar oll-sidebar-left oll-blue" contenteditable>Sidebar(Left)</aside>
+			<main class="oll-coral" contenteditable>Main</main>
+			<aside class="oll-sidebar oll-sidebar-right oll-yellow" contenteditable>Sidebar(Right)</aside>
+			<footer class="oll-green" contenteditable>Footer</footer>
+		</div>
+	} else if (Model.Layout == OneLineLayout.TwelveSpanGrid) {
+		<div class="oll-parent">
+			<div class="oll-span oll-span-12 oll-green">Span 12</div>
+			<div class="oll-span oll-span-6 oll-coral">Sapn 6</div>
+			<div class="oll-span oll-span-4 oll-blue">Sapn 4</div>
+			<div class="oll-span oll-span-2 oll-yellow">Sapn 2</div>
+		</div>
+	} else if (Model.Layout == OneLineLayout.RepeatAutoMinMax) {
+		<h4>auto-fit</h4>
+		<div class="oll-parent oll-parent-autofit">
+			<div class="oll-pink">1</div>
+			<div class="oll-purple">2</div>
+			<div class="oll-blue">3</div>
+			<div class="oll-green">4</div>
+		</div>
+		<h4>auto-fill</h4>
+		<div class="oll-parent oll-parent-autofill">
+			<div class="oll-pink">1</div>
+			<div class="oll-purple">2</div>
+			<div class="oll-blue">3</div>
+			<div class="oll-green">4</div>
+		</div>
+	} else if (Model.Layout == OneLineLayout.LineUp) {
+		<div class="oll-parent">
+			<div class="oll-card-container">
+				<div class="oll-card oll-yellow">
+					<h3>Title - Card 1</h3>
+					<p contenteditable>Medium length description with a few more words here.</p>
+					<div class="oll-card-visual oll-pink"></div>
+				</div>
+				<div class="oll-card oll-yellow">
+					<h3>Title - Card 2</h3>
+					<p contenteditable>Long Description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+					<div class="oll-card-visual oll-blue"></div>
+				</div>
+				<div class="oll-card oll-yellow">
+					<h3>Title - Card 3</h3>
+					<p contenteditable>Short Description.</p>
+					<div class="oll-card-visual oll-green"></div>
+				</div>
+			</div>
+		</div>
+	} else if (Model.Layout == OneLineLayout.ClampingMyStyle) {
+		<div class="oll-parent">
+			<div class="oll-card oll-pink">
+				<h3>Title - Here</h3>
+				<div class="oll-card-visual oll-yellow"></div>
+				<p>Descriptive Text. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed est error repellat veritatis.</p>
+			</div>
+		</div>
+	} else if (Model.Layout == OneLineLayout.RespectForAspect) {
+		<div class="oll-parent">
+			<div class="oll-card oll-blue">
+				<h3>Video Title</h3>
+				<div class="oll-card-visual oll-green"></div>
+				<p>Descriptive Text. This demo works in Chromium 84+.</p>
+			</div>
+		</div>
+	}
+</section>

@@ -1,0 +1,199 @@
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 100;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity: 100;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes left2right {
+	0% {
+		margin-left: 0;
+	}
+
+	100% {
+		margin-left: calc(100% - 2rem);
+	}
+}
+
+@keyframes red2orange {
+	0% {
+		color: red;
+	}
+
+	100% {
+		color: orange;
+	}
+}
+
+
+.animation-sample-fadeinout {
+	.animation-container {
+		align-items: center;
+		background-color: #f2f2f2;
+		display: flex;
+		height: 20rem;
+		width: 30rem;
+		justify-content: center;
+	}
+
+	svg {
+		animation-delay: 1s;
+		animation-direction: normal;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: 1;
+		animation-play-state: running;
+		animation-timing-function: linear;
+		height: 10rem;
+		width: 10rem;
+	}
+
+	.animation-fadein svg {
+		opacity: 0;
+		animation-name: fadein;
+	}
+
+	.animation-fadeout svg {
+		animation-name: fadeout;
+	}
+}
+
+.animation-sample-timing,
+.animation-sample-direction,
+.animation-sample-fill-mode {
+	.animation-container {
+		display: flex;
+		flex-flow: column;
+	}
+
+	.animation-item {
+		border-bottom: 1px solid #f2f2f2;
+		display: flex;
+
+		h5 {
+			flex-basis: 20%;
+			margin-bottom: 0.2rem;
+			padding-left: 10px;
+		}
+
+		p {
+			flex-basis: 80%;
+			margin-bottom: 0.2rem;
+			padding-right: 10px;
+		}
+	}
+}
+
+.animation-sample-timing {
+	.animation-item svg {
+		animation-delay: 1s;
+		animation-duration: 4s;
+		animation-fill-mode: forwards;
+		animation-name: left2right;
+		height: 2rem;
+		width: 2rem;
+	}
+
+	.animation-item-ease svg {
+		animation-timing-function: ease;
+	}
+
+	.animation-item-ease-in svg {
+		animation-timing-function: ease-in;
+	}
+
+	.animation-item-ease-out svg {
+		animation-timing-function: ease-out;
+	}
+
+	.animation-item-ease-in-out svg {
+		animation-timing-function: ease-in-out;
+	}
+
+	.animation-item-linear svg {
+		animation-timing-function: linear;
+	}
+
+	.animation-item-steps svg {
+		animation-timing-function: steps(4, jump-both);
+	}
+
+	.animation-item-cubic-bezier svg {
+		animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+	}
+}
+
+.animation-sample-direction {
+	.animation-item svg {
+		animation-delay: 1s;
+		animation-duration: 4s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: infinite;
+		animation-name: left2right;
+		animation-timing-function: ease-in-out;
+		height: 2rem;
+		width: 2rem;
+	}
+
+	.animation-item-normal svg {
+		animation-direction: normal;
+	}
+
+	.animation-item-reverse svg {
+		animation-direction: reverse;
+	}
+
+	.animation-item-alternate svg {
+		animation-direction: alternate;
+	}
+
+	.animation-item-alternate-reverse svg {
+		animation-direction: alternate-reverse;
+	}
+}
+
+.animation-sample-fill-mode {
+	.animation-item {
+		p {
+			flex-basis: 40%;
+		}
+
+		svg {
+			animation-delay: 3s;
+			animation-duration: 5s;
+			animation-name: red2orange;
+			animation-timing-function: linear;
+			height: 4rem;
+			width: 4rem;
+		}
+	}
+
+	.animation-item-none svg {
+		animation-fill-mode: none;
+	}
+
+	.animation-item-forwards svg {
+		animation-fill-mode: forwards;
+	}
+
+	.animation-item-backwards svg {
+		animation-fill-mode: backwards;
+	}
+
+	.animation-item-both svg {
+		animation-fill-mode: both;
+	}
+}

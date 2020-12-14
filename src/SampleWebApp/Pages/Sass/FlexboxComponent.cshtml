@@ -1,0 +1,104 @@
+@page
+@{
+	ViewBag.Title = "Flexboxを使ったコンポーネント";
+}
+
+@functions {
+	// ChevronLeft以外
+	private static IEnumerable<Svg> _menuIcons = new[] {
+		Svg.Archive,
+		Svg.Star,
+		Svg.Tag,
+		Svg.Trash,
+		Svg.ThreeDots,
+	};
+}
+@* メニューアイテムの均等割 *@
+<section class="app-sample fc-sample-menu">
+	<h3>メニューアイテム1</h3>
+	<div class="fc-menu-container">
+		<ul>
+			@foreach (var icon in _menuIcons) {
+				<li><a href="#"><partial name="_Svg" model="icon" /></a></li>
+			}
+		</ul>
+	</div>
+</section>
+
+@* よくあるメニューアイテム（「戻る」が左） *@
+<section class="app-sample fc-sample-menu2">
+	<h3>メニューアイテム2</h3>
+	<div class="fc-menu-container">
+		<ul>
+			<li><a href="#"><partial name="_Svg" model="Svg.ChevronLeft" /></a></li>
+		</ul>
+		<ul>
+			@foreach (var icon in _menuIcons) {
+				<li><a href="#"><partial name="_Svg" model="icon" /></a></li>
+			}
+		</ul>
+	</div>
+</section>
+
+@functions {
+	// ChevronLeft以外
+	private static IEnumerable<(Svg icon, string label)> _actionItems = new[] {
+		(Svg.HandThumbsUp, "Like"),
+		(Svg.ChatLeft, "Comment"),
+		(Svg.Upload, "Share"),
+		(Svg.ThreeDots, ""),
+	};
+}
+<section class="app-sample fc-sample-action">
+	<h3>アクションフッタ</h3>
+	<ul>
+		@foreach (var (icon, label) in _actionItems) {
+			<li><a href="#"><partial name="_Svg" model="icon" />@label</a></li>
+		}
+	</ul>
+</section>
+
+@* カラーパレット *@
+<section class="app-sample fc-sample-palette">
+	<h3>カラーパレット</h3>
+	<ul>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
+	</ul>
+</section>
+
+@* カード *@
+<section class="app-sample fc-sample-card">
+	<h3>カード</h3>
+	<div class="fc-card-container">
+		<div class="fc-card-option-row">
+			<input class="fc-card-option-input" checked id="fc-card-option-1" type="radio" name="fc-card-options" />
+			<label class="fc-card-option-label" for="fc-card-option-1">
+				<span class="fc-card-option-label-text">1<sub>gb</sub></span>
+			</label>
+			<input class="fc-card-option-input" id="fc-card-option-2" type="radio" name="fc-card-options" />
+			<label class="fc-card-option-label" for="fc-card-option-2">
+				<span class="fc-card-option-label-text">5<sub>gb</sub></span>
+			</label>
+		</div>
+		<div class="fc-card-option-row">
+			<input class="fc-card-option-input" id="fc-card-option-3" type="radio" name="fc-card-options" />
+			<label class="fc-card-option-label" for="fc-card-option-3">
+				<span class="fc-card-option-label-text">10<sub>gb</sub></span>
+			</label>
+			<input class="fc-card-option-input" id="fc-card-option-4" type="radio" name="fc-card-options" />
+			<label class="fc-card-option-label" for="fc-card-option-4">
+				<span class="fc-card-option-label-text">20<sub>gb</sub></span>
+			</label>
+		</div>
+	</div>
+</section>
+
+<section class="app-reference">
+	<ul>
+		<li><a href="https://coliss.com/articles/build-websites/operation/css/about-flex-property.html">知っておくと便利！レイアウト・コンポーネントの実装で役立つ、flexプロパティの実践的な使い方を徹底解説 | コリス</a></li>
+	</ul>
+</section>

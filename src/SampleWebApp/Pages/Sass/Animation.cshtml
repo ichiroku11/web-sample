@@ -1,0 +1,63 @@
+@page
+@{
+	ViewBag.Title = "Animation";
+}
+<section class="app-sample animation-sample-fadeinout">
+	<h3>fadein</h3>
+	<div class="animation-container animation-fadein">
+		<div class="animation-item">
+			<partial name="_Svg" model="Svg.CodeSlash" />
+		</div>
+	</div>
+</section>
+
+<section class="app-sample animation-sample-fadeinout">
+	<h3>fadeout</h3>
+	<div class="animation-container animation-fadeout">
+		<div class="animation-item">
+			<partial name="_Svg" model="Svg.CodeSlash" />
+		</div>
+	</div>
+</section>
+
+<section class="app-sample animation-sample-timing">
+	<h3>animation-timing-function</h3>
+	<div class="animation-container">
+		@foreach (var value in new[] { "ease", "ease-in", "ease-out", "ease-in-out", "linear", "steps", "cubic-bezier" }) {
+			<div class="animation-item animation-item-@value">
+				<h5>@value</h5>
+				<p><partial name="_Svg" model="Svg.Truck" /></p>
+			</div>
+		}
+	</div>
+</section>
+
+<section class="app-sample animation-sample-direction">
+	<h3>animation-direction</h3>
+	<div class="animation-container">
+		@foreach (var value in new[] { "normal", "reverse", "alternate", "alternate-reverse" }) {
+			<div class="animation-item animation-item-@value">
+				<h5>@value</h5>
+				<p><partial name="_Svg" model="Svg.Truck" /></p>
+			</div>
+		}
+	</div>
+</section>
+
+<section class="app-sample animation-sample-fill-mode">
+	<h3>animation-fill-mode</h3>
+	<div class="animation-container">
+		@foreach (var value in new[] { "none", "forwards", "backwards", "both" }) {
+			<div class="animation-item animation-item-@value">
+				<h5>@value</h5>
+				<p><partial name="_Svg" model="Svg.DropletFill" /></p>
+			</div>
+		}
+	</div>
+</section>
+
+<section class="app-reference">
+	<ul>
+		<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Animations">CSS アニメーション - CSS: カスケーディングスタイルシート | MDN</a></li>
+	</ul>
+</section>

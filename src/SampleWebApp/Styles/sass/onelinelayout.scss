@@ -1,0 +1,278 @@
+.app-sample {
+	// 色定義
+	--coral: hsl(23, 83%, 82%);
+	--coral-border: hsl(23, 99%, 75%);
+	--pink: hsl(335, 52%, 92%);
+	--pink-border: hsl(335, 82%, 86%);
+	--yellow: hsl(42, 97%, 85%);
+	--yellow-border: hsl(42, 100%, 73%);
+	--green: hsl(100, 64%, 86%);
+	--green-border: hsl(100, 41%, 76%);
+	--blue: hsl(187, 61%, 79%);
+	--blue-border: hsl(187, 54%, 68%);
+	--purple: hsl(283, 24%, 86%);
+	--purple-border: hsl(283, 43%, 80%);
+	--light-gray-blue: hsl(182, 29%, 96%);
+
+	margin: 0;
+
+	.oll-parent {
+		box-shadow: 0 0 6px 4px rgb(128, 128, 128, .2);
+		overflow: hidden;
+		resize: both;
+		// 初期のサイズ
+		height: 400px;
+		width: 600px;
+
+		& > * {
+			padding: .5rem;
+		}
+	}
+
+	.oll-coral {
+		background-color: var(--coral);
+		border: 1px solid var(--coral-border);
+	}
+
+	.oll-pink {
+		background-color: var(--pink);
+		border: 1px solid var(--pink-border);
+	}
+
+	.oll-yellow {
+		background-color: var(--yellow);
+		border: 1px solid var(--yellow-border);
+	}
+
+	.oll-green {
+		background-color: var(--green);
+		border: 1px solid var(--green-border);
+	}
+
+	.oll-blue {
+		background-color: var(--blue);
+		border: 1px solid var(--blue-border);
+	}
+
+	.oll-purple {
+		background-color: var(--purple);
+		border: 1px solid var(--purple-border)
+	}
+}
+
+.oll-sample1 {
+	.oll-parent {
+		// コンテンツを中央にそろえるる
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		// align-items、justify-itemsの2つとplace-itemsは同じ
+		//place-items: center;
+	}
+
+	.oll-child {
+		border-radius: 10px;
+		padding: .75rem;
+	}
+}
+
+.oll-sample2 {
+	.oll-parent {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.oll-box {
+		// ボックスを伸縮させない
+		flex: 0 1 150px;
+		// ボックスを伸縮させるなら
+		//flex: 0 1 150px;
+
+		// コンテンツを中央にそろえるる
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		//
+		border-radius: 10px;
+		margin: 5px;
+	}
+}
+
+.oll-sample3 {
+	.oll-parent {
+		display: grid;
+		grid-template-columns: minmax(150px, 25%) 1fr;
+	}
+}
+
+.oll-sample4 {
+	.oll-parent {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+	}
+}
+
+.oll-sample5 {
+	.oll-parent {
+		display: grid;
+		grid-template: auto 1fr auto / auto 1fr auto;
+	}
+
+	header {
+		grid-column: 1 / 4;
+		grid-row: 1 / 2;
+	}
+
+	.oll-sidebar {
+		grid-row: 2 / 3;
+	}
+
+	.oll-sidebar-left {
+		grid-column: 1 / 2;
+	}
+
+	.oll-sidebar-right {
+		grid-column: 3 / 4;
+	}
+
+	main {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	}
+
+	footer {
+		grid-column: 1 / 4;
+		grid-row: 3 / 4;
+	}
+}
+
+.oll-sample6 {
+	.oll-parent {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	.oll-span {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+	}
+
+	.oll-span-12 {
+		grid-column: 1 / span 12;
+	}
+
+	.oll-span-6 {
+		grid-column: 1 / span 6;
+	}
+
+	.oll-span-4 {
+		grid-column: 4 / span 4;
+	}
+
+	.oll-span-2 {
+		grid-column: 3 / span 2;
+	}
+}
+
+.oll-sample7 {
+	.oll-parent {
+		display: grid;
+		grid-gap: 1rem;
+
+		& > * {
+			display: grid;
+			align-items: center;
+			justify-items: center;
+			border-radius: 10px;
+		}
+	}
+
+	.oll-parent-autofit {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
+
+	.oll-parent-autofill {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+}
+
+.oll-sample8 {
+	.oll-parent {
+		display: grid;
+		align-items: center;
+	}
+
+	.oll-card-container {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		height: auto;
+	}
+
+	.oll-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1rem;
+	}
+
+	h3 {
+		margin: 0;
+	}
+
+	.oll-card-visual {
+		height: 100px;
+		width: 100%;
+	}
+}
+
+.oll-sample9 {
+	.oll-parent {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+	}
+
+	.oll-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1rem;
+		width: clamp(23ch, 50%, 43ch);
+	}
+
+	h3 {
+		margin-top: 0;
+	}
+
+	.oll-card-visual {
+		height: 100px;
+		width: 100%;
+	}
+}
+
+.oll-sample10 {
+	.oll-parent {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+	}
+
+	.oll-card {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		width: 50%;
+	}
+
+	h3 {
+		margin-top: 0;
+	}
+
+	.oll-card-visual {
+		// Chrome84+とあるけどダメっぽい？
+		//aspect-ratio: 16 / 9;
+	}
+}

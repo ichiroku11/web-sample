@@ -1,0 +1,148 @@
+@page
+@{
+	ViewBag.Title = "Flexbox";
+}
+
+<section class="app-sample flex-sample-default">
+	<h3>Default</h3>
+	<div class="flex-container">
+		<partial name="_FlexItems" model="3" />
+	</div>
+</section>
+
+<h2>コンテナ（親要素）に指定するプロパティ</h2>
+
+<section class="app-sample flex-sample-basic">
+	<h3>Basic</h3>
+	<p>コンテナに<code>display: flex;</code>を設定すると横並び</p>
+	<div class="flex-container">
+		<partial name="_FlexItems" model="3" />
+	</div>
+</section>
+
+<section class="app-sample flex-sample-dir">
+	<h3>flex-direction</h3>
+	@foreach (var value in new[] { "row", "row-reverse", "column", "column-reverse" }) {
+		<p><code>flex-direction: @value;</code></p>
+		<div class="flex-container flex-dir-@value">
+			<partial name="_FlexItems" model="3" />
+		</div>
+	}
+</section>
+
+<section class="app-sample flex-sample-wrap">
+	<h3>flex-wrap</h3>
+	@foreach (var value in new[] { "nowrap", "wrap", "wrap-reverse" }) {
+		<p><code>flex-wrap: @value;</code></p>
+		<div class="flex-container flex-wrap-@value">
+			<partial name="_FlexItems" model="9" />
+		</div>
+	}
+</section>
+
+<section class="app-sample">
+	<h3>flex-flow</h3>
+	<p>flex-direction/flex-wrapのショートハンド</p>
+</section>
+
+<section class="app-sample flex-sample-jc">
+	<h3>justify-content</h3>
+	@foreach (var value in new[] { "flex-start", "flex-end", "start", "center", "end", "space-between", "space-around", "space-evenly", "stretch" }) {
+		<p><code>justify-content: @value;</code></p>
+		<div class="flex-container flex-jc-@value">
+			<partial name="_FlexItems" model="5" />
+		</div>
+	}
+</section>
+
+<section class="app-sample flex-sample-ai">
+	<h3>align-items</h3>
+	@foreach (var value in new[] { "stretch", "flex-start", "flex-end", "center", "baseline" }) {
+		<p><code>align-items: @value;</code></p>
+		<div class="flex-container flex-ai-@value">
+			<partial name="_FlexItems" model="5" />
+		</div>
+	}
+</section>
+
+<section class="app-sample flex-sample-ac">
+	<h3>align-content</h3>
+	@foreach (var value in new[] { "stretch", "flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly" }) {
+		<p><code>align-content: @value;</code></p>
+		<div class="flex-container flex-ac-@value">
+			<partial name="_FlexItems" model="9" />
+		</div>
+	}
+</section>
+
+<h2>アイテム（子要素）に指定するプロパティ</h2>
+
+<section class="app-sample flex-sample-order">
+	<h3>order</h3>
+	<p><code>order: n;</code></p>
+	<div class="flex-container">
+		<div class="flex-item">Item 1<small>order: 1</small></div>
+		<div class="flex-item">Item 2<small>order: 0</small></div>
+		<div class="flex-item">Item 3<small>order: 0</small></div>
+		<div class="flex-item">Item 4<small>order: -1</small></div>
+	</div>
+</section>
+
+<section class="app-sample flex-sample-grow">
+	<h3>flex-grow</h3>
+	<p><code>flex-grow: n;</code></p>
+	<div class="flex-container">
+		<div class="flex-item">Item 1<small>flex-grow: 1</small></div>
+		<div class="flex-item">Item 2<small>flex-grow: 3</small></div>
+		<div class="flex-item">Item 3<small>flex-grow: 1</small></div>
+		<div class="flex-item">Item 4<small>flex-grow: 2</small></div>
+	</div>
+</section>
+
+<section class="app-sample flex-sample-shrink">
+	<h3>flex-shrink</h3>
+	<p><code>flex-shrink: n;</code></p>
+	<div class="flex-container">
+		<div class="flex-item">Item 1<small>flex-shrink: 1</small></div>
+		<div class="flex-item">Item 2<small>flex-shrink: 3</small></div>
+		<div class="flex-item">Item 3<small>flex-shrink: 1</small></div>
+		<div class="flex-item">Item 4<small>flex-shrink: 2</small></div>
+		<div class="flex-item">Item 5<small>flex-shrink: 1</small></div>
+		<div class="flex-item">Item 6<small>flex-shrink: 1</small></div>
+		<div class="flex-item">Item 7<small>flex-shrink: 1</small></div>
+	</div>
+</section>
+
+<section class="app-sample flex-sample-basis">
+	<h3>flex-basis</h3>
+	<p><code>flex-basis: auto | width;</code></p>
+	<div class="flex-container">
+		<div class="flex-item">Item 1<small>flex-basis: 30%</small></div>
+		<div class="flex-item">Item 2<small>flex-basis: auto</small></div>
+		<div class="flex-item">Item 3<small>flex-basis: 200px</small></div>
+	</div>
+</section>
+
+<section class="app-sample">
+	<h3>flex</h3>
+	<p>flex-grow/flex-shrink/flex-basisのショートハンド</p>
+</section>
+
+<section class="app-sample flex-sample-as">
+	<h3>align-self</h3>
+	<p><code>align-items: stretch;<br />align-self: *;</code></p>
+	<div class="flex-container">
+		<div class="flex-item">Item 1<small>align-self: auto</small></div>
+		<div class="flex-item">Item 2<small>align-self: flex-start</small></div>
+		<div class="flex-item">Item 3<small>align-self: flex-end</small></div>
+		<div class="flex-item">Item 4<small>align-self: center</small></div>
+	</div>
+</section>
+
+<section class="app-reference">
+	<ul>
+		<li><a href="https://coliss.com/articles/build-websites/operation/css/css3-flexbox-properties-by-scotch.html">CSS Flexbox の基礎知識と使い方をやさしく解説 | コリス</a></li>
+		<li><a href="https://www.webcreatorbox.com/tech/flexbox">これからのCSSレイアウトはFlexboxで決まり！ | Webクリエイターボックス</a></li>
+		<li><a href="https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet">日本語対応！CSS Flexboxのチートシートを作ったので配布します | Webクリエイターボックス</a></li>
+	</ul>
+</section>
