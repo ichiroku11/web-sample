@@ -1,3 +1,37 @@
 * {
 	box-sizing: border-box;
 }
+
+body {
+	margin: 0;
+}
+
+header {
+	.app-header-container {
+		padding: 16px 32px;
+		align-items: center;
+		background-color: #0d1117;
+		color: #f0f6fc;
+		display: flex;
+	}
+
+	nav {
+		a {
+			text-decoration: none;
+
+			&:hover, &:visited {
+				color: #f0f6fc;
+			}
+
+			&:not(:first-child) {
+				margin-left: 4px;
+			}
+		}
+	}
+}
+
+main {
+	.app-main-container {
+		margin: 3px;
+	}
+}

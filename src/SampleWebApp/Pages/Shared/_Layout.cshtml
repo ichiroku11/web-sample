@@ -12,15 +12,23 @@
 </head>
 <body>
 	<header>
-		<h1>
-			@ViewBag.Title
-			@if (!string.IsNullOrEmpty(ViewBag.Subtitle)) {
-				<small>@ViewBag.Subtitle</small>
-			}
-		</h1>
+		<div class="app-header-container">
+			<nav>
+				<a asp-page="/Ts/Index">TypeScript</a>
+				<a asp-page="/Sass/Index">Sass</a>
+			</nav>
+		</div>
 	</header>
 	<main>
-		@RenderBody()
+		<div class="app-main-container">
+			<h1>
+				@ViewBag.Title
+				@if (!string.IsNullOrEmpty(ViewBag.Subtitle)) {
+					<small>@ViewBag.Subtitle</small>
+				}
+			</h1>
+			@RenderBody()
+		</div>
 	</main>
 	<footer>
 	</footer>
