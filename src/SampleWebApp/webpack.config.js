@@ -9,8 +9,9 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 // Sass
 const scssConfig = {
 	entry: {
-		lib: path.resolve(__dirname, "styles/lib.scss"),
+		icon: path.resolve(__dirname, "styles/icon.scss"),
 		index: path.resolve(__dirname, "styles/index.scss"),
+		lib: path.resolve(__dirname, "styles/lib.scss"),
 		"sass/animation": path.resolve(__dirname, "styles/sass/animation.scss"),
 		"sass/boxsizing": path.resolve(__dirname, "styles/sass/boxsizing.scss"),
 		"sass/detailssummary": path.resolve(__dirname, "styles/sass/detailssummary.scss"),

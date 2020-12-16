@@ -1,0 +1,15 @@
+@page
+@{
+	ViewBag.Title = "Icon";
+}
+
+<div class="icon-container">
+	@foreach (var icon in IconHelper.All) {
+		<div class="icon-item">
+			<div class="icon-image">
+				<partial name="_Svg" model="icon" />
+			</div>
+			<div class="icon-name">@icon</div>
+		</div>
+	}
+</div>

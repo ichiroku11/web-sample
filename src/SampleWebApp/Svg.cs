@@ -56,4 +56,14 @@ namespace SampleWebApp {
 
 		Upload,
 	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public static class IconHelper {
+		/// <summary>
+		/// 
+		/// </summary>
+		public static IEnumerable<Svg> All = Enum.GetValues<Svg>().Cast<Svg>().Where(svg => svg != Svg.None);
+	}
 }
