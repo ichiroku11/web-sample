@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace SampleWebApp {
 	/// <summary>
-	/// SVG
+	/// アイコン
 	/// </summary>
-	public enum Svg {
+	public enum Icon {
 		None = 0,
 
 		Archive,
@@ -64,6 +64,6 @@ namespace SampleWebApp {
 		/// <summary>
 		/// 
 		/// </summary>
-		public static IEnumerable<Svg> All = Enum.GetValues<Svg>().Cast<Svg>().Where(svg => svg != Svg.None);
+		public static IEnumerable<Icon> All = Enum.GetValues<Icon>().Cast<Icon>().Where(icon => icon != Icon.None);
 	}
 }

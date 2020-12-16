@@ -3,11 +3,11 @@
 	Layout = null;
 
 	var asideNavs = new[] {
-		(icon: Svg.HouseDoorFill, label: "Home", active: true),
-		(icon: Svg.Cart, label: "Card", active: false),
-		(icon: Svg.TagsFill, label: "Coupons", active: false),
-		(icon: Svg.StarFill, label: "Favorite Items", active: false),
-		(icon: Svg.GearFill, label: "Settings", active: false),
+		(icon: Icon.HouseDoorFill, label: "Home", active: true),
+		(icon: Icon.Cart, label: "Card", active: false),
+		(icon: Icon.TagsFill, label: "Coupons", active: false),
+		(icon: Icon.StarFill, label: "Favorite Items", active: false),
+		(icon: Icon.GearFill, label: "Settings", active: false),
 	};
 }
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
 			</nav>
 			<a href="#" class="header-user">
 				<span>Xxxx Xxxxx</span>
-				<partial name="_Svg" model="Svg.PersonCircle" />
+				<partial name="_Icon" model="Icon.PersonCircle" />
 			</a>
 		</div>
 	</header>
@@ -41,7 +41,7 @@
 					@foreach (var (icon, label, active) in asideNavs) {
 						<li>
 							<a class="@(active ? "active": "")" href="#">
-								<partial name="_Svg" model="icon" />
+								<partial name="_Icon" model="icon" />
 								<span>@label</span>
 							</a>
 						</li>
@@ -52,13 +52,13 @@
 		<main>
 			<section>
 				<h2>
-					<partial name="_Svg" model="Svg.AwardFill" />
+					<partial name="_Icon" model="Icon.AwardFill" />
 					<span>Top Sellers</span>
 				</h2>
 				<ul class="top-shellers">
 					@foreach (var index in Enumerable.Range(1, 8)) {
 						<li>
-							<partial name="_Svg" model="Svg.PersonCircle" />
+							<partial name="_Icon" model="Icon.PersonCircle" />
 							<div>
 								<h3>Xxxx Xxxxx</h3>
 								<p>154 orders</p>
@@ -68,7 +68,7 @@
 				</ul>
 				<hr />
 				<h2>
-					<partial name="_Svg" model="Svg.AwardFill" />
+					<partial name="_Icon" model="Icon.AwardFill" />
 					<span>Top Articles</span>
 				</h2>
 				<ul class="top-articles">
@@ -85,7 +85,7 @@
 			</section>
 			<section>
 				<h2>
-					<partial name="_Svg" model="Svg.AwardFill" />
+					<partial name="_Icon" model="Icon.AwardFill" />
 					<span>Latest Bla Bla</span>
 				</h2>
 				<form action="" class="search">

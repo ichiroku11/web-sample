@@ -5,12 +5,12 @@
 
 @functions {
 	// ChevronLeft以外
-	private static IEnumerable<Svg> _menuIcons = new[] {
-		Svg.Archive,
-		Svg.Star,
-		Svg.Tag,
-		Svg.Trash,
-		Svg.ThreeDots,
+	private static IEnumerable<Icon> _menuIcons = new[] {
+		Icon.Archive,
+		Icon.Star,
+		Icon.Tag,
+		Icon.Trash,
+		Icon.ThreeDots,
 	};
 }
 @* メニューアイテムの均等割 *@
@@ -19,7 +19,7 @@
 	<div class="fc-menu-container">
 		<ul>
 			@foreach (var icon in _menuIcons) {
-				<li><a href="#"><partial name="_Svg" model="icon" /></a></li>
+				<li><a href="#"><partial name="_Icon" model="icon" /></a></li>
 			}
 		</ul>
 	</div>
@@ -30,11 +30,11 @@
 	<h3>メニューアイテム2</h3>
 	<div class="fc-menu-container">
 		<ul>
-			<li><a href="#"><partial name="_Svg" model="Svg.ChevronLeft" /></a></li>
+			<li><a href="#"><partial name="_Icon" model="Icon.ChevronLeft" /></a></li>
 		</ul>
 		<ul>
 			@foreach (var icon in _menuIcons) {
-				<li><a href="#"><partial name="_Svg" model="icon" /></a></li>
+				<li><a href="#"><partial name="_Icon" model="icon" /></a></li>
 			}
 		</ul>
 	</div>
@@ -42,18 +42,18 @@
 
 @functions {
 	// ChevronLeft以外
-	private static IEnumerable<(Svg icon, string label)> _actionItems = new[] {
-		(Svg.HandThumbsUp, "Like"),
-		(Svg.ChatLeft, "Comment"),
-		(Svg.Upload, "Share"),
-		(Svg.ThreeDots, ""),
+	private static IEnumerable<(Icon icon, string label)> _actionItems = new[] {
+		(Icon.HandThumbsUp, "Like"),
+		(Icon.ChatLeft, "Comment"),
+		(Icon.Upload, "Share"),
+		(Icon.ThreeDots, ""),
 	};
 }
 <section class="app-sample fc-sample-action">
 	<h3>アクションフッタ</h3>
 	<ul>
 		@foreach (var (icon, label) in _actionItems) {
-			<li><a href="#"><partial name="_Svg" model="icon" />@label</a></li>
+			<li><a href="#"><partial name="_Icon" model="icon" />@label</a></li>
 		}
 	</ul>
 </section>
