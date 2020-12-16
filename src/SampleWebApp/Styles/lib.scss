@@ -1,3 +1,8 @@
+:root {
+	--color-header-item: #f0f6fc;
+	--color-header-item-hover: rgba(240, 246, 252, 0.7);
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -11,20 +16,26 @@ header {
 		padding: 16px 32px;
 		align-items: center;
 		background-color: #0d1117;
-		color: #f0f6fc;
+		color: var(--color-header-item);
 		display: flex;
 	}
 
 	nav {
+		font-weight: 600;
+
 		a {
 			text-decoration: none;
 
-			&:hover, &:visited {
-				color: #f0f6fc;
+			&:hover {
+				color: var(--color-header-item-hover);
+			}
+
+			&:visited {
+				color: var(--color-header-item);
 			}
 
 			&:not(:first-child) {
-				margin-left: 4px;
+				margin-left: 10px;
 			}
 		}
 	}
