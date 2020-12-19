@@ -44,6 +44,12 @@ header {
 main {
 	.app-main-container {
 		margin: 3px;
+
+		> h1 {
+			small {
+				display: block;
+			}
+		}
 	}
 
 	.app-sample {
