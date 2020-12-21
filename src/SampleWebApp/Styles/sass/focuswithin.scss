@@ -1,6 +1,16 @@
-form {
+
+.app-sample {
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
 
-form:focus-within {
-	background: #f4d35e;
+form {
+	border: 1px dashed #333;
+	padding: 25px;
+	transition: background 0.3s ease;
+
+	&:focus-within {
+		background: #f4d35e;
+	}
 }
