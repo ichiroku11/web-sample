@@ -14,6 +14,7 @@ const scssConfig = {
 		lib: path.resolve(__dirname, "styles/lib.scss"),
 		"sass/animation": path.resolve(__dirname, "styles/sass/animation.scss"),
 		"sass/boxsizing": path.resolve(__dirname, "styles/sass/boxsizing.scss"),
+		"sass/centering": path.resolve(__dirname, "styles/sass/centering.scss"),
 		"sass/detailssummary": path.resolve(__dirname, "styles/sass/detailssummary.scss"),
 		"sass/flexbox": path.resolve(__dirname, "styles/sass/flexbox.scss"),
 		"sass/flexboxcomponent": path.resolve(__dirname, "styles/sass/flexboxcomponent.scss"),
