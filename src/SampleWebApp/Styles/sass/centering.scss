@@ -1,0 +1,25 @@
+
+.ce-container {
+	background: #ccc;
+	border-radius: 5px;
+	border-color: pink;
+	overflow: hidden;
+	resize: both;
+
+	width: 400px;
+	height: 200px;
+}
+
+.ce-item {
+	background: #fff;
+	border-radius: 5px;
+	padding: 1ch;
+}
+
+.ce-sample-content-center {
+	.ce-container {
+		display: grid;
+		place-content: center;
+		gap: 1ch;
+	}
+}
