@@ -1,11 +1,15 @@
 
+.ce-container-wrapper {
+	display: flex;
+	justify-content: space-evenly;
+}
+
 .ce-container {
 	background: #ccc;
 	border-radius: 5px;
 	border-color: pink;
 	overflow: hidden;
 	resize: both;
-
 	width: 400px;
 	height: 200px;
 }
