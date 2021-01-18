@@ -2,16 +2,18 @@
 @{
 	ViewBag.Title = "Centering";
 
-	void render(string content) {
+	void render(string content, bool repeat = true) {
 		<div class="ce-container-wrapper">
 			<div class="ce-container">
 				<div class="ce-item" contenteditable>@content</div>
 			</div>
-			<div class="ce-container">
-				@foreach (var _ in Enumerable.Repeat(0, 3)) {
-					<div class="ce-item" contenteditable>@content</div>
-				}
-			</div>
+			@if (repeat) {
+				<div class="ce-container">
+					@foreach (var _ in Enumerable.Repeat(0, 3)) {
+						<div class="ce-item" contenteditable>@content</div>
+					}
+				</div>
+			}
 		</div>
 	}
 }
@@ -30,16 +32,22 @@
 	}
 </section>
 
-<section class="app-sample">
+<section class="app-sample ce-sample-autobot">
 	<h3>3. Autobot</h3>
+	@{
+		render("Autbot");
+	}
 </section>
 
 <section class="app-sample">
 	<h3>4. Fluffy Center</h3>
 </section>
 
-<section class="app-sample">
+<section class="app-sample ce-sample-popnplop">
 	<h3>5. Pop & Plop</h3>
+	@{
+		render("Pop & Plop", repeat: false);
+	}
 </section>
 
 <section class="app-reference">

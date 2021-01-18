@@ -7,7 +7,7 @@
 .ce-container {
 	background: #ccc;
 	border-radius: 5px;
-	border-color: pink;
+	border: solid 2px pink;
 	overflow: hidden;
 	resize: both;
 	width: 400px;
@@ -35,5 +35,28 @@
 		align-items: center;
 		justify-content: center;
 		gap: 1ch;
+	}
+}
+
+.ce-sample-autobot {
+	.ce-container {
+		display: flex;
+
+		> * {
+			margin: auto;
+		}
+	}
+}
+
+.ce-sample-popnplop {
+	.ce-container {
+		position: relative;
+	}
+
+	.ce-item {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
