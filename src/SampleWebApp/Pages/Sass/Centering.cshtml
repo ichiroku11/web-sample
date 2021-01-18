@@ -1,20 +1,26 @@
 @page
 @{
 	ViewBag.Title = "Centering";
+
+	void render(string content) {
+		<div class="ce-container-wrapper">
+			<div class="ce-container">
+				<div class="ce-item" contenteditable>@content</div>
+			</div>
+			<div class="ce-container">
+				@foreach (var _ in Enumerable.Repeat(0, 3)) {
+					<div class="ce-item" contenteditable>@content</div>
+				}
+			</div>
+		</div>
+	}
 }
 
 <section class="app-sample ce-sample-content-center">
 	<h3>1. Content Center</h3>
-	<div class="ce-container-wrapper">
-		<div class="ce-container">
-			<div class="ce-item" contenteditable>Content Center</div>
-		</div>
-		<div class="ce-container">
-			<div class="ce-item" contenteditable>Content Center</div>
-			<div class="ce-item" contenteditable>Content Center</div>
-			<div class="ce-item" contenteditable>Content Center</div>
-		</div>
-	</div>
+	@{
+		render("Content Center");
+	}
 </section>
 
 <section class="app-sample">
