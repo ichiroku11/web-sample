@@ -1,5 +1,8 @@
-@page
+@page "{task}"
 @model GridTutorialModel
 @{
 	// https://coliss.com/articles/build-websites/operation/css/css-grid-with-5-layouts.html
+	ViewBag.Title = "CSS grid with 5 Layouts";
+	ViewBag.Subtitle = Model.TaskDescription;
 }
+
