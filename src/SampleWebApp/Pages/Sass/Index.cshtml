@@ -23,6 +23,14 @@
 		</ul>
 	</li>
 	<li><a asp-page="./GridRepeat">Grid repeat()</a></li>
+	<li>
+		Gridチュートリアル
+		<ul>
+			@foreach (var task in Enumerable.Range(1, 5)) {
+				<li><a asp-page="./GridTutorial" asp-route-task="@task">@GridTutorialModel.GetTaskDescription(task)</a></li>
+			}
+		</ul>
+	</li>
 	<li><a asp-page="./Media">Media</a></li>
 	<li>
 		Ten modern layouts in one line of CSS

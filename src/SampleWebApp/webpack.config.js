@@ -25,6 +25,7 @@ const scssConfig = {
 		"sass/gridfullbleed": path.resolve(__dirname, "styles/sass/gridfullbleed.scss"),
 		"sass/gridlayout": path.resolve(__dirname, "styles/sass/gridlayout.scss"),
 		"sass/gridrepeat": path.resolve(__dirname, "styles/sass/gridrepeat.scss"),
+		"sass/gridtutorial": path.resolve(__dirname, "styles/sass/gridtutorial.scss"),
 		"sass/media": path.resolve(__dirname, "styles/sass/media.scss"),
 		"sass/onelinelayout": path.resolve(__dirname, "styles/sass/onelinelayout.scss"),
 		"sass/transform": path.resolve(__dirname, "styles/sass/transform.scss"),

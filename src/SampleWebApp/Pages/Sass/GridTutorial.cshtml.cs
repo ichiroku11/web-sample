@@ -11,6 +11,23 @@ namespace SampleWebApp.Pages.Sass {
 	/// </summary>
 	public class GridTutorialModel : PageModel {
 		/// <summary>
+		/// タスクの説明
+		/// </summary>
+		/// <param name="task"></param>
+		/// <returns></returns>
+		public static string GetTaskDescription(int task) {
+			var description = task switch {
+				1 => "Pancake Stack",
+				2 => "Simple 12 Columns Grid Layout",
+				3 => "Responsive Layout without and with grid-template-areas",
+				4 => "Responsive Layout Without Media Query",
+				5 => "12 x 12 Chess Grid",
+				_ => throw new InvalidOperationException(),
+			};
+			return $"{task}. {description}";
+		}
+
+		/// <summary>
 		/// タスク
 		/// </summary>
 		[BindProperty(SupportsGet = true)]
@@ -19,15 +36,7 @@ namespace SampleWebApp.Pages.Sass {
 		/// <summary>
 		/// タスクの説明
 		/// </summary>
-		public string TaskDescription
-			=> Task switch {
-				1 => "Pancake Stack",
-				2 => "Simple 12 Columns Grid Layout",
-				3 => "Responsive Layout without and with grid-template-areas",
-				4 => "Responsive Layout Without Media Query",
-				5 => "12 x 12 Chess Grid",
-				_ => throw new InvalidOperationException(),
-			};
+		public string TaskDescription => GetTaskDescription(Task);
 
 		/// <summary>
 		/// 
