@@ -6,10 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SampleWebApp.Pages.Sass {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class GridTutorialModel : PageModel {
+		/// <summary>
+		/// タスク
+		/// </summary>
 		[BindProperty(SupportsGet = true)]
 		public int Task { get; set; } = 1;
 
+		/// <summary>
+		/// タスクの説明
+		/// </summary>
 		public string TaskDescription
 			=> Task switch {
 				1 => "Pancake Stack",
@@ -20,7 +29,16 @@ namespace SampleWebApp.Pages.Sass {
 				_ => throw new InvalidOperationException(),
 			};
 
-		public void OnGet() {
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public IActionResult OnGet() {
+			if (Task is < 1 or > 5) {
+				return NotFound();
+			}
+
+			return Page();
 		}
 	}
 }
