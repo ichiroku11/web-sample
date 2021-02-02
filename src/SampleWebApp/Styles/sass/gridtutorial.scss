@@ -1,0 +1,23 @@
+
+.gt-container {
+	overflow: hidden;
+	resize: both;
+
+	// 初期のサイズ
+	height: 400px;
+	width: 600px;
+
+	.gt-header, .gt-main, .gt-footer {
+		border: 2px solid #c31;
+		border-radius: .5ch;
+
+		padding: 1ch;
+	}
+
+	&.gt-task-1 {
+		display: grid;
+
+		grid-template-rows: auto 1fr auto;
+		grid-gap: .2ch;
+	}
+}
