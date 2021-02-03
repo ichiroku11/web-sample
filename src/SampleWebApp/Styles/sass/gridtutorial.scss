@@ -1,23 +1,36 @@
 
 .gt-container {
+	background: #eee;
 	overflow: hidden;
 	resize: both;
-
 	// 初期のサイズ
 	height: 400px;
-	width: 600px;
+	width: 800px;
 
-	.gt-header, .gt-main, .gt-footer {
+	.gt-item {
+		background: #fff;
 		border: 2px solid #c31;
 		border-radius: .5ch;
-
 		padding: 1ch;
 	}
+}
 
-	&.gt-task-1 {
-		display: grid;
+.gt-container-task1 {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-gap: .2ch;
+}
 
-		grid-template-rows: auto 1fr auto;
-		grid-gap: .2ch;
+.gt-container-task2 {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	column-gap: 5px;
+
+	.gt-item:first-child {
+		grid-column: 2 / span 4;
+	}
+
+	.gt-item:last-child {
+		grid-column: 6 / span 6;
 	}
 }

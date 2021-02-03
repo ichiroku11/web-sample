@@ -6,10 +6,13 @@
 	ViewBag.Subtitle = Model.TaskDescription;
 }
 
-<div class="gt-container gt-task-@Model.Task">
+<div class="gt-container gt-container-task@(Model.Task)">
 	@if (Model.Task == 1) {
-		<div class="gt-header">header</div>
-		<div class="gt-main">main</div>
-		<div class="gt-footer">footer</div>
+		<div class="gt-item">header</div>
+		<div class="gt-item">main</div>
+		<div class="gt-item">footer</div>
+	} else if (Model.Task == 2) {
+		<div class="gt-item">1</div>
+		<div class="gt-item">2</div>
 	}
 </div>
