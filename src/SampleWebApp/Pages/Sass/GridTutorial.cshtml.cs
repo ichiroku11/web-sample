@@ -19,9 +19,10 @@ namespace SampleWebApp.Pages.Sass {
 			var description = task switch {
 				1 => "Pancake Stack",
 				2 => "Simple 12 Columns Grid Layout",
-				3 => "Responsive Layout without and with grid-template-areas",
-				4 => "Responsive Layout Without Media Query",
-				5 => "12 x 12 Chess Grid",
+				3 => "Responsive Layout without grid-template-areas",
+				4 => "Responsive Layout with grid-template-areas",
+				5 => "Responsive Layout Without Media Query",
+				6 => "12 x 12 Chess Grid",
 				_ => throw new InvalidOperationException(),
 			};
 			return $"{task}. {description}";
