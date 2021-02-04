@@ -48,17 +48,14 @@
 
 		.gt-item-header {
 			grid-column: 1 / span 12;
-			grid-row: 1;
 		}
 
 		.gt-item-navigation {
 			grid-column: 1 / span 12;
-			grid-row: 2;
 		}
 
 		.gt-item-main {
 			grid-column: 3 / span 10;
-			grid-row: 3;
 		}
 
 		.gt-item-sidebar {
@@ -68,12 +65,10 @@
 
 		.gt-item-ads {
 			grid-column: 1 / span 2;
-			grid-row: 4;
 		}
 
 		.gt-item-footer {
 			grid-column: 3 / span 10;
-			grid-row: 4;
 		}
 	}
 
