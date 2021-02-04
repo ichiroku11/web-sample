@@ -4,7 +4,7 @@
 	overflow: hidden;
 	resize: both;
 	// 初期のサイズ
-	height: 400px;
+	height: 600px;
 	width: 800px;
 
 	.gt-item {
@@ -32,5 +32,52 @@
 
 	.gt-item:last-child {
 		grid-column: 6 / span 6;
+	}
+}
+
+.gt-container-task3 {
+	display: grid;
+	// Mobile
+	grid-template-rows: auto auto 1fr auto auto auto;
+	grid-gap: 12px;
+
+	// Tablet
+	@media (min-width: 720px) {
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: auto auto 1fr auto;
+
+		.gt-item-header {
+			grid-column: 1 / span 12;
+			grid-row: 1;
+		}
+
+		.gt-item-navigation {
+			grid-column: 1 / span 12;
+			grid-row: 2;
+		}
+
+		.gt-item-main {
+			grid-column: 3 / span 10;
+			grid-row: 3;
+		}
+
+		.gt-item-sidebar {
+			grid-column: 1 / span 2;
+			grid-row: 3;
+		}
+
+		.gt-item-ads {
+			grid-column: 1 / span 2;
+			grid-row: 4;
+		}
+
+		.gt-item-footer {
+			grid-column: 3 / span 10;
+			grid-row: 4;
+		}
+	}
+
+	// Desktop
+	@media (min-width: 1020px) {
 	}
 }
