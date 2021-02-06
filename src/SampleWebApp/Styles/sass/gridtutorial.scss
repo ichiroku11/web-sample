@@ -165,3 +165,11 @@
 		grid-area: footer;
 	}
 }
+
+.gt-container-task5 {
+	display: grid;
+
+	// カラムを150px以下にせず、スペースを均等に分配する
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	grid-gap: 24px;
+}
