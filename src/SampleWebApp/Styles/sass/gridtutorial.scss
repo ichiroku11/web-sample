@@ -3,7 +3,7 @@
 	background: #eee;
 
 	// 初期のサイズ
-	height: 600px;
+	height: calc(100vh - 250px);
 	width: calc(100vw - 6px);
 
 	.gt-item {
@@ -34,12 +34,13 @@
 	}
 }
 
+// without grid-template-areas
 .gt-container-task3 {
 	display: grid;
+	grid-gap: 12px;
 
 	// Mobile
 	grid-template-rows: auto auto 1fr auto auto auto;
-	grid-gap: 12px;
 
 	// Tablet
 	@media (min-width: 720px) {
@@ -50,7 +51,7 @@
 			grid-column: 1 / span 12;
 		}
 
-		.gt-item-navigation {
+		.gt-item-nav {
 			grid-column: 1 / span 12;
 		}
 
@@ -81,7 +82,7 @@
 			grid-column: 1 / span 12;
 		}
 
-		.gt-item-navigation {
+		.gt-item-nav {
 			grid-column: 3 / span 8;
 		}
 
@@ -102,5 +103,65 @@
 		.gt-item-footer {
 			grid-column: 1 / span 12;
 		}
+	}
+}
+
+// with grid-template-areas
+.gt-container-task4 {
+	display: grid;
+	grid-gap: 12px;
+
+	// Mobile
+	grid-template-areas:
+		"header"
+		"nav"
+		"main"
+		"sidebar"
+		"ads"
+		"footer";
+	grid-template-rows: auto auto 1fr auto auto auto;
+
+	// Tablet
+	@media (min-width: 720px) {
+		grid-template-areas:
+			"header header header header header header"
+			"nav nav nav nav nav nav"
+			"sidebar main main main main main"
+			"ads footer footer footer footer footer";
+		grid-template-rows: auto auto 1fr auto;
+	}
+
+	// Desktop
+	@media (min-width: 1020px) {
+		grid-template-areas:
+			"header header header header header header"
+			"sidebar nav nav nav nav ads"
+			"sidebar main main main main ads"
+			"footer footer footer footer footer footer";
+		grid-template-rows: auto auto 1fr auto;
+	}
+
+	.gt-item-header {
+		grid-area: header;
+	}
+
+	.gt-item-nav {
+		grid-area: nav;
+	}
+
+	.gt-item-main {
+		grid-area: main;
+	}
+
+	.gt-item-sidebar {
+		grid-area: sidebar;
+	}
+
+	.gt-item-ads {
+		grid-area: ads;
+	}
+
+	.gt-item-footer {
+		grid-area: footer;
 	}
 }
