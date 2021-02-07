@@ -11,7 +11,13 @@ namespace SampleWebApp.Pages.Sass {
 	/// </summary>
 	public class GridTutorialModel : PageModel {
 		/// <summary>
-		/// タスクの説明
+		/// タスクの番号を取得
+		/// </summary>
+		/// <returns></returns>
+		public static IEnumerable<int> GetTasks() => Enumerable.Range(1, 6);
+
+		/// <summary>
+		/// タスクの説明を取得
 		/// </summary>
 		/// <param name="task"></param>
 		/// <returns></returns>
@@ -44,7 +50,7 @@ namespace SampleWebApp.Pages.Sass {
 		/// </summary>
 		/// <returns></returns>
 		public IActionResult OnGet() {
-			if (Task is < 1 or > 5) {
+			if (!GetTasks().Contains(Task)) {
 				return NotFound();
 			}
 

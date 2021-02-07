@@ -26,7 +26,7 @@
 	<li>
 		Gridチュートリアル
 		<ul>
-			@foreach (var task in Enumerable.Range(1, 5)) {
+			@foreach (var task in GridTutorialModel.GetTasks()) {
 				<li><a asp-page="./GridTutorial" asp-route-task="@task">@GridTutorialModel.GetTaskDescription(task)</a></li>
 			}
 		</ul>

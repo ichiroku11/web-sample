@@ -173,3 +173,35 @@
 	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	grid-gap: 24px;
 }
+
+.gt-container-task6 {
+	display: grid;
+
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(12, 1fr);
+
+	.gt-item {
+		grid-column-end: span 3;
+		grid-row-end: span 3;
+
+		&:first-child {
+			grid-column-start: 10;
+			grid-row-start: 10;
+		}
+
+		&:nth-child(2) {
+			grid-column-start: 4;
+			grid-row-start: 4;
+		}
+
+		&:nth-child(3) {
+			grid-column-start: 7;
+			grid-row-start: 7;
+		}
+
+		&:last-child {
+			grid-column-start: 1;
+			grid-row-start: 1;
+		}
+	}
+}
