@@ -7,30 +7,37 @@
 }
 
 <div class="gt-container gt-container-task@(Model.Task)">
-	@if (Model.Task == 1) {
-		<div class="gt-item">header</div>
-		<div class="gt-item">main</div>
-		<div class="gt-item">footer</div>
-	} else if (Model.Task == 2) {
-		<div class="gt-item">1</div>
-		<div class="gt-item">2</div>
-	} else if (Model.Task is 3 or 4) {
-		<div class="gt-item gt-item-header">header</div>
-		<div class="gt-item gt-item-nav">nav</div>
-		<div class="gt-item gt-item-main">main</div>
-		<div class="gt-item gt-item-sidebar">sidebar</div>
-		<div class="gt-item gt-item-ads">ads</div>
-		<div class="gt-item gt-item-footer">footer</div>
-	} else if (Model.Task == 5) {
-		<div class="gt-item">1</div>
-		<div class="gt-item">2</div>
-		<div class="gt-item">3</div>
-		<div class="gt-item">4</div>
-		<div class="gt-item">5</div>
-	} else if (Model.Task == 6) {
-		<div class="gt-item">1</div>
-		<div class="gt-item">2</div>
-		<div class="gt-item">3</div>
-		<div class="gt-item">4</div>
+	@switch (Model.Task) {
+		case "1":
+			<div class="gt-item">header</div>
+			<div class="gt-item">main</div>
+			<div class="gt-item">footer</div>
+			break;
+		case "2":
+			<div class="gt-item">1</div>
+			<div class="gt-item">2</div>
+			break;
+		case "3a":
+		case "3b":
+			<div class="gt-item gt-item-header">header</div>
+			<div class="gt-item gt-item-nav">nav</div>
+			<div class="gt-item gt-item-main">main</div>
+			<div class="gt-item gt-item-sidebar">sidebar</div>
+			<div class="gt-item gt-item-ads">ads</div>
+			<div class="gt-item gt-item-footer">footer</div>
+			break;
+		case "4":
+			<div class="gt-item">1</div>
+			<div class="gt-item">2</div>
+			<div class="gt-item">3</div>
+			<div class="gt-item">4</div>
+			<div class="gt-item">5</div>
+			break;
+		case "5":
+			<div class="gt-item">1</div>
+			<div class="gt-item">2</div>
+			<div class="gt-item">3</div>
+			<div class="gt-item">4</div>
+			break;
 	}
 </div>

@@ -10,35 +10,34 @@ namespace SampleWebApp.Pages.Sass {
 	/// 
 	/// </summary>
 	public class GridTutorialModel : PageModel {
+
+		private static readonly Dictionary<string, string> _tasks = new(StringComparer.OrdinalIgnoreCase) {
+			["1"] = "Pancake Stack",
+			["2"] = "Simple 12 Columns Grid Layout",
+			["3a"] = "Responsive Layout without grid-template-areas",
+			["3b"] = "Responsive Layout with grid-template-areas",
+			["4"] = "Responsive Layout Without Media Query",
+			["5"] = "12 x 12 Chess Grid",
+		};
+
 		/// <summary>
 		/// タスクの番号を取得
 		/// </summary>
 		/// <returns></returns>
-		public static IEnumerable<int> GetTasks() => Enumerable.Range(1, 6);
+		public static IEnumerable<string> GetTasks() => _tasks.Keys.OrderBy(key => key);
 
 		/// <summary>
 		/// タスクの説明を取得
 		/// </summary>
 		/// <param name="task"></param>
 		/// <returns></returns>
-		public static string GetTaskDescription(int task) {
-			var description = task switch {
-				1 => "Pancake Stack",
-				2 => "Simple 12 Columns Grid Layout",
-				3 => "Responsive Layout without grid-template-areas",
-				4 => "Responsive Layout with grid-template-areas",
-				5 => "Responsive Layout Without Media Query",
-				6 => "12 x 12 Chess Grid",
-				_ => throw new InvalidOperationException(),
-			};
-			return $"{task}. {description}";
-		}
+		public static string GetTaskDescription(string task) => $"{task}. {_tasks[task]}";
 
 		/// <summary>
 		/// タスク
 		/// </summary>
 		[BindProperty(SupportsGet = true)]
-		public int Task { get; set; } = 1;
+		public string Task { get; set; } = GetTasks().First();
 
 		/// <summary>
 		/// タスクの説明
@@ -50,7 +49,7 @@ namespace SampleWebApp.Pages.Sass {
 		/// </summary>
 		/// <returns></returns>
 		public IActionResult OnGet() {
-			if (!GetTasks().Contains(Task)) {
+			if (!_tasks.ContainsKey(Task)) {
 				return NotFound();
 			}
 

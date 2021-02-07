@@ -35,7 +35,7 @@
 }
 
 // without grid-template-areas
-.gt-container-task3 {
+.gt-container-task3a {
 	display: grid;
 	grid-gap: 12px;
 
@@ -107,7 +107,7 @@
 }
 
 // with grid-template-areas
-.gt-container-task4 {
+.gt-container-task3b {
 	display: grid;
 	grid-gap: 12px;
 
@@ -166,7 +166,7 @@
 	}
 }
 
-.gt-container-task5 {
+.gt-container-task4 {
 	display: grid;
 
 	// カラムを150px以下にせず、スペースを均等に分配する
@@ -174,7 +174,7 @@
 	grid-gap: 24px;
 }
 
-.gt-container-task6 {
+.gt-container-task5 {
 	display: grid;
 
 	grid-template-columns: repeat(12, 1fr);
