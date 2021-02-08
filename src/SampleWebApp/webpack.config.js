@@ -68,6 +68,7 @@ const tsConfig = {
 			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
 			dependOn: "lib"
 		},
+		"ts/fadeinout": path.resolve(__dirname, "scripts/ts/fadeinout.ts"),
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
 		"ts/sudoku": path.resolve(__dirname, "scripts/ts/sudoku.ts"),
