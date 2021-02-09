@@ -12,6 +12,11 @@ import { Assert, Test } from "../unittestlib";
 // await
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/await
 
+
+async function test1Async() {
+	return 1;
+}
+
 export const asyncAwaitTest = new Test("AsyncAwaitTest")
 	.fact("asyncawait_試す", async () => {
 		// Arrange
@@ -21,6 +26,16 @@ export const asyncAwaitTest = new Test("AsyncAwaitTest")
 		});
 
 		// Assert
+		Assert.equal(1, value);
+	})
+	.fact("asyncawait_asyncな関数はPromiseをかえす", async () => {
+		// Arrange
+		// Act
+		const promise = test1Async();
+		const value = await promise;
+
+		// Assert
+		Assert.true(promise.then != undefined);
 		Assert.equal(1, value);
 	});
 
