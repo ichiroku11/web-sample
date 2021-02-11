@@ -1,10 +1,10 @@
 /**
  * 指定したミリ秒後に完了する
- * @param delayMs
+ * @param delay
  */
-async function delay(delayMs: number): Promise<void> {
+async function delay(delay: number): Promise<void> {
 	return new Promise<void>((resolve, _) => {
-		window.setTimeout(() => resolve(), delayMs);
+		window.setTimeout(() => resolve(), delay);
 	});
 }
 
