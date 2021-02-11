@@ -8,34 +8,50 @@ async function delay(delayMs: number): Promise<void> {
 	});
 }
 
+// 参考
+// https://fuyu.hatenablog.com/entry/2021/01/13/235035
+
 /**
  * フェードイン（指定ミリ秒間で不透明にする）する
  * @param element 対象要素
- * @param durationMs アニメーション期間（ミリ秒）
+ * @param duration アニメーション期間（ミリ秒）
  */
-async function fadeIn(element: HTMLElement, durationMs: number): Promise<void> {
-	// todo: animation
-	return new Promise<void>((resolve, _) => {
-		window.setTimeout(() => {
-			element.style.opacity = "1";
-			resolve();
-		}, durationMs);
-	});
+async function fadeIn(element: HTMLElement, duration: number): Promise<void> {
+	const start = performance.now();
+
+	let opacity = 0;
+	while (opacity < 1) {
+		element.style.opacity = opacity.toString();
+
+		// requestAnimationFrameのコールバック引数は「コールバックの呼び出しを開始した現在時刻」
+		// その時刻をresolveの引数に渡すので、Promiseをawaitすると取得できる
+		// https://developer.mozilla.org/ja/docs/Web/API/Window/requestAnimationFrame
+		const now = await new Promise<number>((resolve, _) => window.requestAnimationFrame(resolve));
+
+		opacity = (now - start) / duration;
+	}
+
+	element.style.opacity = "1";
 }
 
 /**
  * フェードアウト（指定ミリ秒間で透明にする）する
  * @param element 対象要素
- * @param durationMs アニメーション期間（ミリ秒）
+ * @param duration アニメーション期間（ミリ秒）
  */
-async function fadeOut(element: HTMLElement, durationMs: number): Promise<void> {
-	return new Promise<void>((resolve, _) => {
-		// todo: animation
-		window.setTimeout(() => {
-			element.style.opacity = "0";
-			resolve();
-		}, durationMs);
-	});
+async function fadeOut(element: HTMLElement, duration: number): Promise<void> {
+	const start = performance.now();
+
+	let opacity = 1;
+	while (opacity > 0) {
+		element.style.opacity = opacity.toString();
+
+		const now = await new Promise<number>((resolve, _) => window.requestAnimationFrame(resolve));
+
+		opacity = 1 - (now - start) / duration;
+	}
+
+	element.style.opacity = "0";
 }
 
 document.addEventListener("DOMContentLoaded", async _ => {
@@ -44,10 +60,9 @@ document.addEventListener("DOMContentLoaded", async _ => {
 		return;
 	}
 
-	element.innerText = "あいうえお";
-
 	// 最初は透明
 	element.style.opacity = "0";
+	element.innerText = "あいうえお";
 
 	// 2sでフェードイン
 	// 2s間そのまま
