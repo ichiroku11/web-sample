@@ -76,4 +76,22 @@ export const asyncAwaitTest = new Test("AsyncAwaitTest")
 
 		// Assert
 		Assert.equal("error!", message);
+	})
+	.fact("asyncawait_asyncな関数で例外をスローしてもfinallyで処理できる", async () => {
+		// Arrange
+		let failed = false;
+		let completed = false;
+
+		// Act
+		try {
+			await test3Async();
+		} catch {
+			failed = true;
+		} finally {
+			completed = true;
+		}
+
+		// Assert
+		Assert.true(failed);
+		Assert.true(completed);
 	});
