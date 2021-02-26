@@ -71,6 +71,7 @@ const tsConfig = {
 		"ts/fadeinout": path.resolve(__dirname, "scripts/ts/fadeinout.ts"),
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
+		"ts/history": path.resolve(__dirname, "scripts/ts/history.ts"),
 		"ts/sudoku": path.resolve(__dirname, "scripts/ts/sudoku.ts"),
 		"ts/svgclock": path.resolve(__dirname, "scripts/ts/svgclock.ts"),
 		"ts/test": path.resolve(__dirname, "scripts/ts/test.ts")
@@ -97,4 +98,3 @@ module.exports = [
 	scssConfig,
 	tsConfig
 ];
-
