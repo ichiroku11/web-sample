@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", _ => {
-	let page = 1;
 	const input = document.querySelector<HTMLInputElement>(".input-page")!;
 	const textarea = document.querySelector<HTMLTextAreaElement>(".textarea-state")!;
 
+	let page = 1;
 	const updatePageValue = () => {
 		input.setAttribute("value", page.toString());
 	};
@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", _ => {
 		const state = (event as PopStateEvent).state;
 		const json = JSON.stringify(state);
 
-		textarea.append(json);
-		textarea.append("\n");
+		textarea.append(`${document.location} ${json}\n`);
 	});
 
 	document.querySelector<HTMLButtonElement>(".button-push-state")?.addEventListener("click", _ => {
