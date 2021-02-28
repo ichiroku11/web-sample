@@ -34,13 +34,7 @@ export class EightPuzzleTableView {
 	}
 
 	private getCell(x: number, y: number): HTMLTableCellElement {
-		const tr = this._table.querySelector<HTMLTableRowElement>(`tr:nth-child(${y + 1})`);
-		if (!tr) {
-			// todo:
-			throw new Error();
-		}
-
-		const td = tr.querySelector<HTMLTableCellElement>(`td:nth-child(${x + 1})`);
+		const td = this._table.querySelector<HTMLTableCellElement>(`tr:nth-child(${y + 1}) > td:nth-child(${x + 1})`);
 		if (!td) {
 			// todo:
 			throw new Error();
