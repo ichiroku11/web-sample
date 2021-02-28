@@ -4,7 +4,7 @@ const cellCount = 3;
 const cellRange = range(0, cellCount);
 
 /*
- * 8 Puzzle table要素ビュー
+ * 8パズルtable要素ビュー
  */
 export class EightPuzzleTableView {
 	private readonly _table: HTMLTableElement;
