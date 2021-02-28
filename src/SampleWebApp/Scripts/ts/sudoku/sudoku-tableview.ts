@@ -1,4 +1,5 @@
-import { range, sudokuCellCount, SudokuComponent, SudokuDefault, SudokuUndefinedOrDigit } from "./sudoku-helper";
+import { range } from "../../lib";
+import { sudokuCellCount, SudokuComponent, SudokuDefault, SudokuUndefinedOrDigit } from "./sudoku-helper";
 
 /*
  * 数独table要素ビュー

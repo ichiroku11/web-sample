@@ -1,3 +1,8 @@
+import { range } from "../../lib";
+
+const cellCount = 3;
+const cellRange = range(0, cellCount);
+
 /*
  * 8 Puzzle table要素ビュー
  */
@@ -19,9 +24,9 @@ export class EightPuzzleTableView {
 		const table = document.createElement("table");
 		const tbody = document.createElement("tbody");
 
-		for (const _ of [0, 1, 2]) {
+		for (const _ of cellRange) {
 			const tr = document.createElement("tr");
-			for (const _ of [0, 1, 2]) {
+			for (const _ of cellRange) {
 				const td = document.createElement("td");
 
 				tr.appendChild(td);
@@ -46,8 +51,8 @@ export class EightPuzzleTableView {
 	public init(): void {
 		let value = 1;
 
-		for (const y of [0, 1, 2]) {
-			for (const x of [0, 1, 2]) {
+		for (const y of cellRange) {
+			for (const x of cellRange) {
 				const td = this.getCell(x, y);
 				td.textContent = value === 9
 					? ""

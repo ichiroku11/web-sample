@@ -69,12 +69,18 @@ const tsConfig = {
 			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
 			dependOn: "lib"
 		},
-		"ts/eightpuzzle": path.resolve(__dirname, "scripts/ts/eightpuzzle.ts"),
+		"ts/eightpuzzle": {
+			import: path.resolve(__dirname, "scripts/ts/eightpuzzle.ts"),
+			dependOn: "lib"
+		},
 		"ts/fadeinout": path.resolve(__dirname, "scripts/ts/fadeinout.ts"),
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
 		"ts/history": path.resolve(__dirname, "scripts/ts/history.ts"),
-		"ts/sudoku": path.resolve(__dirname, "scripts/ts/sudoku.ts"),
+		"ts/sudoku": {
+			import: path.resolve(__dirname, "scripts/ts/sudoku.ts"),
+			dependOn: "lib"
+		},
 		"ts/svgclock": path.resolve(__dirname, "scripts/ts/svgclock.ts"),
 		"ts/test": path.resolve(__dirname, "scripts/ts/test.ts")
 	},
