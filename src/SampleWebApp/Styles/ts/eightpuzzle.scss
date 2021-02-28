@@ -1,0 +1,23 @@
+:root {
+	--cell-size: 100px;
+}
+
+#eight-puzzle-view {
+	> table {
+		border-collapse: collapse;
+	}
+
+	td {
+		border: 2px solid #344861;
+		color: #4a90e2;
+		cursor: pointer;
+		font-size: 4rem;
+		height: var(--cell-size);
+		text-align: center;
+		width: var(--cell-size);
+
+		&:hover {
+			background: #ddeeff;
+		}
+	}
+}

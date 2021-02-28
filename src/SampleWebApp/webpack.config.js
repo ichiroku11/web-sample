@@ -30,6 +30,7 @@ const scssConfig = {
 		"sass/onelinelayout": path.resolve(__dirname, "styles/sass/onelinelayout.scss"),
 		"sass/transform": path.resolve(__dirname, "styles/sass/transform.scss"),
 		"sass/transition": path.resolve(__dirname, "styles/sass/transition.scss"),
+		"ts/eightpuzzle": path.resolve(__dirname, "styles/ts/eightpuzzle.scss"),
 		"ts/imagedataurl": path.resolve(__dirname, "styles/ts/imagedataurl.scss"),
 		"ts/sudoku": path.resolve(__dirname, "styles/ts/sudoku.scss"),
 		"ts/test": path.resolve(__dirname, "styles/ts/test.scss")
@@ -68,7 +69,7 @@ const tsConfig = {
 			// https://webpack.js.org/guides/code-splitting/#prevent-duplication
 			dependOn: "lib"
 		},
-		"ts/8puzzle": path.resolve(__dirname, "scripts/ts/8puzzle.ts"),
+		"ts/eightpuzzle": path.resolve(__dirname, "scripts/ts/eightpuzzle.ts"),
 		"ts/fadeinout": path.resolve(__dirname, "scripts/ts/fadeinout.ts"),
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
