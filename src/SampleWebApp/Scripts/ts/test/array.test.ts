@@ -56,6 +56,22 @@ export const arrayTest = new Test("ArrayTest")
 		// Assert
 		Assert.equal([1, 2, 3], actual);
 	})
+	.fact("from_文字列から文字の配列を取得する", () => {
+		// Arrange
+		// Act
+		const actual = Array.from("123");
+
+		// Assert
+		Assert.equal(["1", "2", "3"], actual);
+	})
+	.fact("from_文字列から文字の配列を取得して別の型に変換する", () => {
+		// Arrange
+		// Act
+		const actual = Array.from("123", value => parseInt(value, 10));
+
+		// Assert
+		Assert.equal([1, 2, 3], actual);
+	})
 	.fact("from_Setから配列に変換する", () => {
 		// Arrange
 		const set = new Set([1, 2, 3]);
