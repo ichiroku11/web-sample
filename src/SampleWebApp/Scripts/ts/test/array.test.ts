@@ -66,6 +66,26 @@ export const arrayTest = new Test("ArrayTest")
 		// Assert
 		Assert.equal([1, 2, 3], actual);
 	})
+	.fact("join_number型の配列からカンマ区切りで連結した文字列を取得する", () => {
+		// Arrange
+		const array = [1, 2, 3];
+
+		// Act
+		const actual = array.join();
+
+		// Assert
+		Assert.equal("1,2,3", actual);
+	})
+	.fact("join_number型の配列から空文字で連結した文字列を取得する", () => {
+		// Arrange
+		const array = [1, 2, 3];
+
+		// Act
+		const actual = array.join("");
+
+		// Assert
+		Assert.equal("123", actual);
+	})
 	.fact("map_試す", () => {
 		// Arrange
 		// Act
