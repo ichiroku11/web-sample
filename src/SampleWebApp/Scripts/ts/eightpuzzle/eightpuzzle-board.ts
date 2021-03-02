@@ -52,11 +52,47 @@ export class EightPuzzleBoard {
 	}
 
 	// 空きマスの上下左右のタイルをスライドする
-	public slide(position: EightPuzzleSlidePosition): EightPuzzleBoard {
-		// 空きマスの位置を探す
-		const index = this._tiles.indexOf(eightPuzzleTileEmpty);
+	public slide(position: EightPuzzleSlidePosition): EightPuzzleBoard | null {
+		// 空きマスのインデックス
+		const indexEmpty = this._tiles.indexOf(eightPuzzleTileEmpty);
 
+		// 空きマスの(x, y)座標（x:右とy:下が正方向）
+		const empty = {
+			x: Math.floor(indexEmpty % 3),
+			y: Math.floor(indexEmpty / 3),
+		};
+
+		// スライドするタイルの(x, y)座標
+		let tile = {
+			x: empty.x,
+			y: empty.y
+		};
+		switch (position) {
+			case "top":
+				tile.y++;
+				break;
+			case "left":
+				tile.x++;
+				break;
+			case "right":
+				tile.x++;
+				break;
+			case "bottom":
+				tile.y++;
+				break;
+		}
+
+		if (tile.x < 0 || tile.x >= 3) {
+			return null;
+		}
+		if (tile.y < 0 || tile.y >= 3) {
+			return null;
+		}
+
+		// スライドするタイルのインデックス
+		const indexTile = tile.x + tile.y;
 		// todo:
+
 		return this;
 	}
 
