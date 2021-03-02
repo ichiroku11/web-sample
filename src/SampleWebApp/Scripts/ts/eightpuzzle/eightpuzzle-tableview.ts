@@ -48,6 +48,7 @@ export class EightPuzzleTableView {
 		return td;
 	}
 
+	// todo: タイルの状態を利用する？
 	public init(): void {
 		let value = 1;
 
