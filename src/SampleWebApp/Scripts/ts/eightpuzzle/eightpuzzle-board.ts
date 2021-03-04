@@ -8,7 +8,7 @@ const eightPuzzleTiles = [eightPuzzleTileEmpty, 1, 2, 3, 4, 5, 6, 7, 8] as const
 type EightPuzzleTile = typeof eightPuzzleTiles[number];
 
 // スライドするタイルの位置（空のマスが基準）
-const eightPuzzleSlideDirs = ["top", "bottom", "left", "right"] as const;
+export const eightPuzzleSlideDirs = ["top", "bottom", "left", "right"] as const;
 
 export type EightPuzzleSlideDir = typeof eightPuzzleSlideDirs[number];
 
