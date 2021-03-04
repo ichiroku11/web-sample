@@ -55,6 +55,25 @@ export class EightPuzzleBoard {
 		this._tiles = tiles;
 	}
 
+	private tile(x: number, y: number): EightPuzzleTile { 
+		// todo:
+		if (x < 0 || x >= 3 || y < 0 || y >= 3) {
+			throw new Error();
+		}
+
+		const tileIndex = x + y * 3;
+
+		return this._tiles[tileIndex];
+	}
+
+	public tileAsString(x: number, y: number): string {
+		const tile = this.tile(x, y);
+
+		return tile === eightPuzzleTileEmpty
+			? ""
+			: tile.toString();
+	}
+
 	// 指定した位置（上下左右）の座標を取得
 	private slidePos(original: EightPuzzleBoardPos, position: EightPuzzleSlideDir): EightPuzzleBoardPos | null {
 		let result = {
@@ -78,6 +97,7 @@ export class EightPuzzleBoard {
 		}
 
 		// 範囲外
+		// todo:
 		if (result.x < 0 || result.x >= 3 || result.y < 0 || result.y >= 3) {
 			return null;
 		}
@@ -103,6 +123,7 @@ export class EightPuzzleBoard {
 		}
 
 		// スライドするタイルのインデックス
+		// todo:
 		const tileIndex = tilePos.x + tilePos.y * 3;
 
 		// 空きマスと対象のタイルを入れ替える

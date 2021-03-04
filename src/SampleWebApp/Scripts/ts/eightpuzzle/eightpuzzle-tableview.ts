@@ -1,5 +1,7 @@
 import { range } from "../../lib";
+import { EightPuzzleBoard } from "./eightpuzzle-board";
 
+// todo:
 const cellCount = 3;
 const cellRange = range(0, cellCount);
 
@@ -7,13 +9,15 @@ const cellRange = range(0, cellCount);
  * 8パズルtable要素ビュー
  */
 export class EightPuzzleTableView {
+	private readonly _board: EightPuzzleBoard;
 	private readonly _table: HTMLTableElement;
 
 	/**
-	 * 
+	 * @param board ボード
 	 * @param selector コンテナのセレクタ
 	 */
-	public constructor(selector: string) {
+	public constructor(board: EightPuzzleBoard, selector: string) {
+		this._board = board;
 		this._table = this.create();
 
 		document.querySelector(selector)?.appendChild(this._table);
@@ -24,10 +28,12 @@ export class EightPuzzleTableView {
 		const table = document.createElement("table");
 		const tbody = document.createElement("tbody");
 
-		for (const _ of cellRange) {
+		for (const y of cellRange) {
 			const tr = document.createElement("tr");
-			for (const _ of cellRange) {
+			for (const x of cellRange) {
 				const td = document.createElement("td");
+
+				td.textContent = this._board.tileAsString(x, y);
 
 				tr.appendChild(td);
 			}
@@ -38,6 +44,8 @@ export class EightPuzzleTableView {
 		return table;
 	}
 
+	// todo: 不要
+	/*
 	private getCell(x: number, y: number): HTMLTableCellElement {
 		const td = this._table.querySelector<HTMLTableCellElement>(`tr:nth-child(${y + 1}) > td:nth-child(${x + 1})`);
 		if (!td) {
@@ -48,8 +56,7 @@ export class EightPuzzleTableView {
 		return td;
 	}
 
-	// todo: タイルの状態を利用する？
-	public init(): void {
+	public update(): void {
 		let value = 1;
 
 		for (const y of cellRange) {
@@ -62,4 +69,5 @@ export class EightPuzzleTableView {
 			}
 		}
 	}
+	*/
 }
