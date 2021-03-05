@@ -4,17 +4,18 @@ import { EightPuzzleBoard, eightPuzzleSlideDirs } from "./eightpuzzle-board";
  * 8パズルリゾルバ
  */
 export class EightPuzzleResolver {
-
-	private readonly _prevs = new Map<string, string>();
+	private readonly _prevs = new Map<string, string | null>();
 
 	// 構築する
 	public build(): void {
-		this._prevs.clear();
-
 		// ゴールからスタートへの幅優先探索
 		const goal = EightPuzzleBoard.createGaol();
+
+		this._prevs.clear();
+		this._prevs.set(goal.toJson(), null);
+
+		// 未探索
 		const todos: EightPuzzleBoard[] = [goal];
-		const dists = new Map<string, number>([[goal.toJson(), 0]]);
 
 		while (todos.length > 0) {
 			const current = todos.shift();
@@ -31,12 +32,11 @@ export class EightPuzzleResolver {
 				}
 
 				// すでに探索済み
-				if (dists.has(next.toJson())) {
+				if (this._prevs.has(next.toJson())) {
 					continue;
 				}
 
 				todos.push(next);
-				dists.set(next.toJson(), dists.get(current.toJson())! + 1);
 				this._prevs.set(next.toJson(), current.toJson());
 			}
 		}
@@ -46,10 +46,15 @@ export class EightPuzzleResolver {
 	public resolve(start: EightPuzzleBoard): EightPuzzleBoard[] {
 		const result: EightPuzzleBoard[] = [];
 
-		let current = start;
-		while (this._prevs.has(current.toJson())) {
-			current = EightPuzzleBoard.fromJson(this._prevs.get(current.toJson())!);
-			result.push(current);
+		let temp = start;
+		while (this._prevs.has(temp.toJson())) {
+			const next = this._prevs.get(temp.toJson());
+			if (!next) {
+				break;
+			}
+
+			temp = EightPuzzleBoard.fromJson(next);
+			result.push(temp);
 		}
 
 		return result;
