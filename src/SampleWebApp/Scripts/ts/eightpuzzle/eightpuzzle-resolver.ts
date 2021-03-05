@@ -4,25 +4,26 @@ import { EightPuzzleBoard, eightPuzzleSlideDirs } from "./eightpuzzle-board";
  * 8パズルリゾルバ
  */
 export class EightPuzzleResolver {
+	// 前のボードから次のボードへのマップ
 	private readonly _prevs = new Map<string, string | null>();
 
-	// 構築する
-	public build(): void {
-		// ゴールからスタートへの幅優先探索
+	/**
+	 * ゴールの状態からスタートの状態への幅優先探索
+	 */
+	private search(): void {
 		const goal = EightPuzzleBoard.goal;
-
-		this._prevs.clear();
 		this._prevs.set(goal.json, null);
 
-		// 未探索
-		const todos: EightPuzzleBoard[] = [goal];
+		// 未探索ボードのキュー
+		const unsearched: EightPuzzleBoard[] = [goal];
 
-		while (todos.length > 0) {
-			const current = todos.shift();
+		while (unsearched.length > 0) {
+			const current = unsearched.shift();
 			if (!current) {
 				break;
 			}
 
+			// 4方にスライドさせる
 			for (var dir of eightPuzzleSlideDirs) {
 				const next = current.slide(dir);
 
@@ -36,14 +37,24 @@ export class EightPuzzleResolver {
 					continue;
 				}
 
-				todos.push(next);
+				// スライド後のボードを未探索キューに登録
+				unsearched.push(next);
+
+				// スライド前後のボードをマップに登録
 				this._prevs.set(next.json, current.json);
 			}
 		}
 	}
 
-	// 解決する
+	/**
+	 * 8パズルを解く
+	 * @param start
+	 */
 	public resolve(start: EightPuzzleBoard): EightPuzzleBoard[] {
+		if (this._prevs.size === 0) {
+			this.search();
+		}
+
 		const result: EightPuzzleBoard[] = [];
 
 		let temp = start;
