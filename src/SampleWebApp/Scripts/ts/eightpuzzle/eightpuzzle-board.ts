@@ -23,9 +23,7 @@ type EightPuzzleBoardPos = {
  * 8パズルボード
  */
 export class EightPuzzleBoard {
-	public static createGaol(): EightPuzzleBoard {
-		return new EightPuzzleBoard([1, 2, 3, 4, 5, 6, 7, 8, 0]);
-	}
+	public static goal = new EightPuzzleBoard([1, 2, 3, 4, 5, 6, 7, 8, 0]);
 
 	public static fromJson(json: string): EightPuzzleBoard {
 		const tiles = JSON.parse(json);

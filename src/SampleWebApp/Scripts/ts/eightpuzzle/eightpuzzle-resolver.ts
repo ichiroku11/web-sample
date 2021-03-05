@@ -9,7 +9,7 @@ export class EightPuzzleResolver {
 	// 構築する
 	public build(): void {
 		// ゴールからスタートへの幅優先探索
-		const goal = EightPuzzleBoard.createGaol();
+		const goal = EightPuzzleBoard.goal;
 
 		this._prevs.clear();
 		this._prevs.set(goal.json, null);
