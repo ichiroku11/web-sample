@@ -49,10 +49,16 @@ export class EightPuzzleBoard {
 	}
 
 	private readonly _tiles: EightPuzzleTile[];
+	private readonly _json: string;
 
 	public constructor(tiles: EightPuzzleTile[]) {
 		EightPuzzleBoard.validate(tiles);
 		this._tiles = tiles;
+		this._json = JSON.stringify(this._tiles);
+	}
+
+	public get json(): string {
+		return this._json;
 	}
 
 	private tile(x: number, y: number): EightPuzzleTile { 
@@ -130,9 +136,5 @@ export class EightPuzzleBoard {
 		const tiles = [...this._tiles];
 		[tiles[emptyIndex], tiles[tileIndex]] = [tiles[tileIndex], tiles[emptyIndex]];
 		return new EightPuzzleBoard(tiles);
-	}
-
-	public toJson(): string {
-		return JSON.stringify(this._tiles);
 	}
 }

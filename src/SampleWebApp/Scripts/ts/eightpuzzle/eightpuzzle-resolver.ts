@@ -12,7 +12,7 @@ export class EightPuzzleResolver {
 		const goal = EightPuzzleBoard.createGaol();
 
 		this._prevs.clear();
-		this._prevs.set(goal.toJson(), null);
+		this._prevs.set(goal.json, null);
 
 		// 未探索
 		const todos: EightPuzzleBoard[] = [goal];
@@ -32,12 +32,12 @@ export class EightPuzzleResolver {
 				}
 
 				// すでに探索済み
-				if (this._prevs.has(next.toJson())) {
+				if (this._prevs.has(next.json)) {
 					continue;
 				}
 
 				todos.push(next);
-				this._prevs.set(next.toJson(), current.toJson());
+				this._prevs.set(next.json, current.json);
 			}
 		}
 	}
@@ -47,8 +47,8 @@ export class EightPuzzleResolver {
 		const result: EightPuzzleBoard[] = [];
 
 		let temp = start;
-		while (this._prevs.has(temp.toJson())) {
-			const next = this._prevs.get(temp.toJson());
+		while (this._prevs.has(temp.json)) {
+			const next = this._prevs.get(temp.json);
 			if (!next) {
 				break;
 			}
