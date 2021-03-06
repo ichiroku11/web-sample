@@ -20,7 +20,11 @@ export class EightPuzzleTableView {
 		this._board = board;
 		this._table = this.create();
 
-		document.querySelector(selector)?.appendChild(this._table);
+		const element = document.querySelector(selector);
+		if (element) {
+			element.innerHTML = "";
+			element.appendChild(this._table);
+		}
 	}
 
 	/** table要素を生成する */

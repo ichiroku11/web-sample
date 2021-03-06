@@ -3,16 +3,41 @@ import { EightPuzzleResolver } from "./eightpuzzle/eightpuzzle-resolver";
 import { EightPuzzleTableView } from "./eightpuzzle/eightpuzzle-tableview";
 
 document.addEventListener("DOMContentLoaded", _ => {
-	new EightPuzzleTableView(EightPuzzleBoard.goal, "#eight-puzzle-view");
-
 	const resolver = new EightPuzzleResolver();
 
-	document.querySelector<HTMLButtonElement>("#eight-puzzle-button-resolve")?.addEventListener("click", _ => {
-		const start = new EightPuzzleBoard([1, 0, 3, 4, 2, 5, 7, 8, 6]);
+	let question: EightPuzzleBoard;
+	const generate = () => {
+		question = EightPuzzleBoard.random();
+		new EightPuzzleTableView(question, "#ep-question");
+	};
+	generate();
 
-		const results = resolver.resolve(start);
-		for (const result of results) {
-			console.dir(result.json);
+	document.querySelector<HTMLButtonElement>("#ep-button-generate")?.addEventListener("click", _ => {
+		generate();
+	});
+
+	document.querySelector<HTMLButtonElement>("#ep-button-resolve")?.addEventListener("click", _ => {
+		const container = document.querySelector("#ep-result");
+		if (!container) {
+			return;
 		}
+		container.innerHTML = "";
+
+		const results = resolver.resolve(question);
+		if (results.length === 0) {
+			container.textContent = "Not found";
+			return;
+		}
+
+		results.forEach((result, index) => {
+			const id = `ep-result${index}`;
+
+			const div = document.createElement("div");
+			div.setAttribute("id", id)
+			container.appendChild(div);
+			new EightPuzzleTableView(result, `#${id}`);
+
+			console.dir(result.json);
+		})
 	});
 });

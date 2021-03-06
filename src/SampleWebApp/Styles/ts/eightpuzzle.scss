@@ -1,9 +1,16 @@
 :root {
-	--cell-size: 100px;
+	--cell-size: 50px;
 }
 
-#eight-puzzle-view {
-	> table {
+#ep-container {
+	padding-top: .5rem;
+
+	p {
+		margin-top: 1rem;
+		margin-bottom: .25rem;
+	}
+
+	table {
 		border-collapse: collapse;
 	}
 
@@ -11,7 +18,7 @@
 		border: 2px solid #344861;
 		color: #4a90e2;
 		cursor: pointer;
-		font-size: 4rem;
+		font-size: 2rem;
 		height: var(--cell-size);
 		text-align: center;
 		width: var(--cell-size);
@@ -19,5 +26,13 @@
 		&:hover {
 			background: #ddeeff;
 		}
+	}
+}
+
+#ep-result {
+	display: flex;
+
+	> :not(:first-child) {
+		padding-left: .25em;
 	}
 }

@@ -2,7 +2,8 @@
 // 0は空きマスとする
 const eightPuzzleTileEmpty = 0;
 
-// スライドするタイル
+// タイル
+// todo: TileNumbers?
 const eightPuzzleTiles = [eightPuzzleTileEmpty, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 type EightPuzzleTile = typeof eightPuzzleTiles[number];
@@ -25,6 +26,14 @@ export class EightPuzzleBoard {
 	 * ゴール
 	 */
 	public static goal = new EightPuzzleBoard([1, 2, 3, 4, 5, 6, 7, 8, 0]);
+
+	/**
+	 * ランダムに生成
+	 */
+	public static random(): EightPuzzleBoard {
+		// todo:
+		return new EightPuzzleBoard([1, 0, 3, 4, 2, 5, 7, 8, 6]);
+	}
 
 	/**
 	 * JSON文字列からボードを生成
