@@ -31,8 +31,15 @@ export class EightPuzzleBoard {
 	 * ランダムに生成
 	 */
 	public static random(): EightPuzzleBoard {
-		// todo:
-		return new EightPuzzleBoard([1, 0, 3, 4, 2, 5, 7, 8, 6]);
+		const tiles: EightPuzzleTile[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+
+		// シャッフル
+		for (let index = tiles.length - 1; index > 0; index--) {
+			const target = Math.floor(Math.random() * (index + 1));
+			[tiles[index], tiles[target]] = [tiles[target], tiles[index]];
+		}
+
+		return new EightPuzzleBoard(tiles);
 	}
 
 	/**

@@ -31,8 +31,10 @@
 
 #ep-result {
 	display: flex;
+	flex-wrap: wrap;
 
-	> :not(:first-child) {
-		padding-left: .25em;
+	> * {
+		padding-right: .25em;
+		padding-bottom: .25em;
 	}
 }

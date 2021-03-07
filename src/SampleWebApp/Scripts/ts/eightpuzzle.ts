@@ -6,17 +6,11 @@ document.addEventListener("DOMContentLoaded", _ => {
 	const resolver = new EightPuzzleResolver();
 
 	let question: EightPuzzleBoard;
-	const generate = () => {
+	const random = () => {
 		question = EightPuzzleBoard.random();
 		new EightPuzzleTableView(question, "#ep-question");
 	};
-	generate();
-
-	document.querySelector<HTMLButtonElement>("#ep-button-generate")?.addEventListener("click", _ => {
-		generate();
-	});
-
-	document.querySelector<HTMLButtonElement>("#ep-button-resolve")?.addEventListener("click", _ => {
+	const resolve = () => {
 		const container = document.querySelector("#ep-result");
 		if (!container) {
 			return;
@@ -39,5 +33,13 @@ document.addEventListener("DOMContentLoaded", _ => {
 
 			console.dir(result.json);
 		})
+	};
+
+	random();
+	resolve();
+
+	document.querySelector<HTMLButtonElement>("#ep-button-random")?.addEventListener("click", _ => {
+		random();
+		resolve();
 	});
 });
