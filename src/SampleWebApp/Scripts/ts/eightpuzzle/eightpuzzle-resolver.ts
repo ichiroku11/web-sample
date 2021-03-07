@@ -24,7 +24,7 @@ export class EightPuzzleResolver {
 			}
 
 			// 4方にスライドさせる
-			for (var dir of eightPuzzleSlideDirs) {
+			for (let dir of eightPuzzleSlideDirs) {
 				const next = current.slide(dir);
 
 				// スライドできない
