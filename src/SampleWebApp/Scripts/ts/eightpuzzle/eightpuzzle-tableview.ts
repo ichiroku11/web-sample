@@ -1,7 +1,6 @@
 import { range } from "../../lib";
 import { EightPuzzleBoard } from "./eightpuzzle-board";
 
-// todo:
 const cellCount = 3;
 const cellRange = range(0, cellCount);
 
@@ -47,31 +46,4 @@ export class EightPuzzleTableView {
 
 		return table;
 	}
-
-	// todo: 不要
-	/*
-	private getCell(x: number, y: number): HTMLTableCellElement {
-		const td = this._table.querySelector<HTMLTableCellElement>(`tr:nth-child(${y + 1}) > td:nth-child(${x + 1})`);
-		if (!td) {
-			// todo:
-			throw new Error();
-		}
-
-		return td;
-	}
-
-	public update(): void {
-		let value = 1;
-
-		for (const y of cellRange) {
-			for (const x of cellRange) {
-				const td = this.getCell(x, y);
-				td.textContent = value === 9
-					? ""
-					: value.toString();
-				value++;
-			}
-		}
-	}
-	*/
 }

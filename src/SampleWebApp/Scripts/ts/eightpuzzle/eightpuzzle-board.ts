@@ -1,22 +1,28 @@
 
-// 0は空きマスとする
-const eightPuzzleTileEmpty = 0;
+// 空きマスの値
+const tileEmpty = 0;
+
+// タイルの値
+const tiles = [tileEmpty, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 // タイル
-// todo: TileNumbers?
-const eightPuzzleTiles = [eightPuzzleTileEmpty, 1, 2, 3, 4, 5, 6, 7, 8] as const;
+type Tile = typeof tiles[number];
 
-type EightPuzzleTile = typeof eightPuzzleTiles[number];
-
-// スライドするタイルの位置（空のマスが基準）
-export const eightPuzzleSlideDirs = ["top", "bottom", "left", "right"] as const;
-
-export type EightPuzzleSlideDir = typeof eightPuzzleSlideDirs[number];
-
-type EightPuzzleBoardPos = {
+// ボード上の座標
+type BoardPos = {
 	x: number,
 	y: number,
 };
+
+/**
+ * スライドするタイルの位置の値
+ */
+export const eightPuzzleSlideDirs = ["top", "bottom", "left", "right"] as const;
+
+/**
+ * スライドするタイルの位置（空のマスが基準）
+ */
+export type EightPuzzleSlideDir = typeof eightPuzzleSlideDirs[number];
 
 /**
  * 8パズルボード
@@ -31,7 +37,7 @@ export class EightPuzzleBoard {
 	 * ランダムに生成
 	 */
 	public static random(): EightPuzzleBoard {
-		const tiles: EightPuzzleTile[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+		const tiles: Tile[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
 
 		// シャッフル
 		for (let index = tiles.length - 1; index > 0; index--) {
@@ -49,7 +55,7 @@ export class EightPuzzleBoard {
 	public static fromJson(json: string): EightPuzzleBoard {
 		const tiles = JSON.parse(json);
 
-		if (!Array.isArray<EightPuzzleTile>(tiles)) {
+		if (!Array.isArray<Tile>(tiles)) {
 			// todo:
 			throw new Error();
 		}
@@ -61,24 +67,24 @@ export class EightPuzzleBoard {
 	 * タイル配列を検証
 	 * @param tiles
 	 */
-	private static validate(tiles: EightPuzzleTile[]): void {
-		// todo: 0～8までの数字が1つずつかどうか
+	private static validate(tiles: Tile[]): void {
 		if (tiles.length !== 9) {
 			// todo:
 			throw new Error();
 		}
 
+		// todo: 0～8までの数字が1つずつかどうか？
 		// todo: 他にもありそう
 	}
 
-	private readonly _tiles: EightPuzzleTile[];
+	private readonly _tiles: Tile[];
 	private readonly _json: string;
 
 	/**
 	 * 
 	 * @param tiles
 	 */
-	public constructor(tiles: EightPuzzleTile[]) {
+	public constructor(tiles: Tile[]) {
 		EightPuzzleBoard.validate(tiles);
 		this._tiles = tiles;
 		this._json = JSON.stringify(this._tiles);
@@ -90,18 +96,26 @@ export class EightPuzzleBoard {
 	}
 
 	/**
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	private index(x: number, y: number): number {
+		return x + y * 3;
+	}
+
+	/**
 	 * 座標からタイルの値を取得
 	 * @param x
 	 * @param y
 	 */
-	private tile(x: number, y: number): EightPuzzleTile { 
+	private tile(x: number, y: number): Tile {
 		// todo:
 		if (x < 0 || x >= 3 || y < 0 || y >= 3) {
 			throw new Error();
 		}
 
-		// todo; (x, y) => index
-		const tileIndex = x + y * 3;
+		const tileIndex = this.index(x, y);
 
 		return this._tiles[tileIndex];
 	}
@@ -114,7 +128,7 @@ export class EightPuzzleBoard {
 	public tileAsString(x: number, y: number): string {
 		const tile = this.tile(x, y);
 
-		return tile === eightPuzzleTileEmpty
+		return tile === tileEmpty
 			? ""
 			: tile.toString();
 	}
@@ -124,7 +138,7 @@ export class EightPuzzleBoard {
 	 * @param original
 	 * @param position
 	 */
-	private slidePos(original: EightPuzzleBoardPos, position: EightPuzzleSlideDir): EightPuzzleBoardPos | null {
+	private slidePos(original: BoardPos, position: EightPuzzleSlideDir): BoardPos | null {
 		let result = {
 			x: original.x,
 			y: original.y
@@ -160,7 +174,7 @@ export class EightPuzzleBoard {
 	 */
 	public slide(dir: EightPuzzleSlideDir): EightPuzzleBoard | null {
 		// 空きマスのインデックス
-		const emptyIndex = this._tiles.indexOf(eightPuzzleTileEmpty);
+		const emptyIndex = this._tiles.indexOf(tileEmpty);
 
 		// 空きマスの(x, y)座標（x:右とy:下が正方向）
 		// todo; index => (x, y)
@@ -176,8 +190,7 @@ export class EightPuzzleBoard {
 		}
 
 		// スライドするタイルのインデックス
-		// todo; (x, y) => index
-		const tileIndex = tilePos.x + tilePos.y * 3;
+		const tileIndex = this.index(tilePos.x, tilePos.y);
 
 		// 空きマスと対象のタイルを入れ替える
 		const tiles = [...this._tiles];
