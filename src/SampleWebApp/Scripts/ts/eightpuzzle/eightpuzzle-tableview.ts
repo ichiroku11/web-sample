@@ -15,15 +15,21 @@ export class EightPuzzleTableView {
 	 * @param board ボード
 	 * @param selector コンテナのセレクタ
 	 */
-	public constructor(board: EightPuzzleBoard, selector: string) {
+	public constructor(board: EightPuzzleBoard, element: HTMLElement);
+	public constructor(board: EightPuzzleBoard, selector: string);
+	public constructor(board: EightPuzzleBoard, elementOrSelector: HTMLElement | string) {
 		this._board = board;
 		this._table = this.create();
 
-		const element = document.querySelector(selector);
-		if (element) {
-			element.innerHTML = "";
-			element.appendChild(this._table);
+		const element = typeof elementOrSelector === "string"
+			? document.querySelector<HTMLElement>(elementOrSelector)
+			: elementOrSelector;
+		if (!element) {
+			// todo:
+			throw new Error();
 		}
+		element.innerHTML = "";
+		element.appendChild(this._table);
 	}
 
 	/** table要素を生成する */

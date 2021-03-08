@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", _ => {
 		if (!container) {
 			return;
 		}
-		container.innerHTML = "";
+		container.innerHTML = "In progress...";
 
 		const results = await resolver.resolve(question);
 		if (results.length === 0) {
@@ -25,13 +25,21 @@ document.addEventListener("DOMContentLoaded", _ => {
 			return;
 		}
 
+		container.innerHTML = "";
 		results.forEach((result, index) => {
-			const id = `ep-result${index}`;
+			const view = document.createElement("div");
+			view.classList.add("ep-result-view");
+			new EightPuzzleTableView(result, view);
+			container.appendChild(view);
 
-			const div = document.createElement("div");
-			div.setAttribute("id", id)
-			container.appendChild(div);
-			new EightPuzzleTableView(result, `#${id}`);
+			if (index >= results.length - 1) {
+				return;
+			}
+
+			const arrow = document.createElement("div");
+			arrow.classList.add("ep-result-arrow");
+			arrow.textContent = "→";
+			container.appendChild(arrow);
 		})
 	};
 
