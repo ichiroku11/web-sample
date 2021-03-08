@@ -1,9 +1,9 @@
 
 // 空きマスの値
-const tileEmpty = 0;
+const emptyTile = 0;
 
 // タイルの値
-const tiles = [tileEmpty, 1, 2, 3, 4, 5, 6, 7, 8] as const;
+const tiles = [emptyTile, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 // タイル
 type Tile = typeof tiles[number];
@@ -86,6 +86,7 @@ export class EightPuzzleBoard {
 	 */
 	public constructor(tiles: Tile[]) {
 		EightPuzzleBoard.validate(tiles);
+
 		this._tiles = tiles;
 		this._json = JSON.stringify(this._tiles);
 	}
@@ -96,7 +97,7 @@ export class EightPuzzleBoard {
 	}
 
 	/**
-	 * 
+	 * 座標から配列のインデックスを取得
 	 * @param x
 	 * @param y
 	 */
@@ -105,13 +106,22 @@ export class EightPuzzleBoard {
 	}
 
 	/**
+	 * ボード上の座標が有効かどうか
+	 * @param x
+	 * @param y
+	 */
+	private isValidPos(x: number, y: number): boolean {
+		return x >= 0 && x < 3 && y >= 0 && y < 3;
+	}
+
+	/**
 	 * 座標からタイルの値を取得
 	 * @param x
 	 * @param y
 	 */
 	private tile(x: number, y: number): Tile {
-		// todo:
-		if (x < 0 || x >= 3 || y < 0 || y >= 3) {
+		if (!this.isValidPos(x, y)) {
+			// todo:
 			throw new Error();
 		}
 
@@ -128,7 +138,7 @@ export class EightPuzzleBoard {
 	public tileAsString(x: number, y: number): string {
 		const tile = this.tile(x, y);
 
-		return tile === tileEmpty
+		return tile === emptyTile
 			? ""
 			: tile.toString();
 	}
@@ -160,8 +170,7 @@ export class EightPuzzleBoard {
 		}
 
 		// 範囲外
-		// todo:
-		if (result.x < 0 || result.x >= 3 || result.y < 0 || result.y >= 3) {
+		if (!this.isValidPos(result.x, result.y)) {
 			return null;
 		}
 
@@ -174,10 +183,9 @@ export class EightPuzzleBoard {
 	 */
 	public slide(dir: EightPuzzleSlideDir): EightPuzzleBoard | null {
 		// 空きマスのインデックス
-		const emptyIndex = this._tiles.indexOf(tileEmpty);
+		const emptyIndex = this._tiles.indexOf(emptyTile);
 
 		// 空きマスの(x, y)座標（x:右とy:下が正方向）
-		// todo; index => (x, y)
 		const emptyPos = {
 			x: Math.floor(emptyIndex % 3),
 			y: Math.floor(emptyIndex / 3),
