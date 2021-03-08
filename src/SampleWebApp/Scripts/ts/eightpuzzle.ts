@@ -6,18 +6,20 @@ document.addEventListener("DOMContentLoaded", _ => {
 	const resolver = new EightPuzzleResolver();
 
 	let question: EightPuzzleBoard;
+
 	const random = () => {
 		question = EightPuzzleBoard.random();
 		new EightPuzzleTableView(question, "#ep-question");
 	};
-	const resolve = () => {
+
+	const resolve = async () => {
 		const container = document.querySelector("#ep-result");
 		if (!container) {
 			return;
 		}
 		container.innerHTML = "";
 
-		const results = resolver.resolve(question);
+		const results = await resolver.resolve(question);
 		if (results.length === 0) {
 			container.textContent = "Not found";
 			return;
@@ -30,16 +32,14 @@ document.addEventListener("DOMContentLoaded", _ => {
 			div.setAttribute("id", id)
 			container.appendChild(div);
 			new EightPuzzleTableView(result, `#${id}`);
-
-			console.dir(result.json);
 		})
 	};
-
-	random();
-	resolve();
 
 	document.querySelector<HTMLButtonElement>("#ep-button-random")?.addEventListener("click", _ => {
 		random();
 		resolve();
 	});
+
+	random();
+	resolve();
 });
