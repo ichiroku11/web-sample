@@ -56,6 +56,22 @@ export const arrayTest = new Test("ArrayTest")
 		// Assert
 		Assert.equal([1, 2, 3], actual);
 	})
+	.fact("from_文字列から文字の配列を取得する", () => {
+		// Arrange
+		// Act
+		const actual = Array.from("123");
+
+		// Assert
+		Assert.equal(["1", "2", "3"], actual);
+	})
+	.fact("from_文字列から文字の配列を取得して別の型に変換する", () => {
+		// Arrange
+		// Act
+		const actual = Array.from("123", value => parseInt(value, 10));
+
+		// Assert
+		Assert.equal([1, 2, 3], actual);
+	})
 	.fact("from_Setから配列に変換する", () => {
 		// Arrange
 		const set = new Set([1, 2, 3]);
@@ -65,6 +81,26 @@ export const arrayTest = new Test("ArrayTest")
 
 		// Assert
 		Assert.equal([1, 2, 3], actual);
+	})
+	.fact("join_number型の配列からカンマ区切りで連結した文字列を取得する", () => {
+		// Arrange
+		const array = [1, 2, 3];
+
+		// Act
+		const actual = array.join();
+
+		// Assert
+		Assert.equal("1,2,3", actual);
+	})
+	.fact("join_number型の配列から空文字で連結した文字列を取得する", () => {
+		// Arrange
+		const array = [1, 2, 3];
+
+		// Act
+		const actual = array.join("");
+
+		// Assert
+		Assert.equal("123", actual);
 	})
 	.fact("map_試す", () => {
 		// Arrange
