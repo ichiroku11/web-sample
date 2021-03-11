@@ -11,6 +11,7 @@ import { promiseTest } from "./test/promise.test";
 import { rxjsCreatingOperatorsTest } from "./test/rxjs.test"
 import { setTest } from "./test/set.test"
 import { spreadSyntaxTest } from "./test/spread-syntax.test";
+import { stringTest } from "./test/string.test";
 import { templateStringsTest } from "./test/template-strings.test";
 import { urlSearchParamsTest } from "./test/url.test";
 
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		rxjsCreatingOperatorsTest,
 		setTest,
 		spreadSyntaxTest,
+		stringTest,
 		templateStringsTest,
 		urlSearchParamsTest,
 	];
