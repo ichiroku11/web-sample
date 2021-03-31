@@ -13,6 +13,7 @@ import { setTest } from "./test/set.test"
 import { spreadSyntaxTest } from "./test/spread-syntax.test";
 import { stringTest } from "./test/string.test";
 import { templateStringsTest } from "./test/template-strings.test";
+import { typeofTest } from "./test/typeof.test";
 import { urlSearchParamsTest } from "./test/url.test";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		spreadSyntaxTest,
 		stringTest,
 		templateStringsTest,
+		typeofTest,
 		urlSearchParamsTest,
 	];
 	const promises = tests.map(test => test.run());
