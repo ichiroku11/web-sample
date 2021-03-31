@@ -1,5 +1,7 @@
 import { Assert, Test } from "../unittestlib";
 
+// https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams
+
 export const urlSearchParamsTest = new Test("URLSearchParamsTest")
 	.fact("toString_クエリ文字列を取得できる", () => {
 		// Arrange
