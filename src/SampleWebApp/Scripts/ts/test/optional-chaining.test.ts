@@ -14,4 +14,16 @@ export const optionalChainingTest = new Test("OptionalChainingTest")
 
 		// Assert
 		Assert.equal(undefined, actual);
+	})
+	.fact("optionalChaining_存在しないメソッド呼び出しでundefinedが返される", () => {
+		// Arrange
+		const obj: any = {
+		};
+
+		// Act
+		// 存在しないメソッドを呼び出す
+		const actual = obj.method?.();
+
+		// Assert
+		Assert.equal(undefined, actual);
 	});
