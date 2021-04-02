@@ -7,6 +7,7 @@ import { fetchTest } from "./test/fetch.test";
 import { functionAsteriskTest } from "./test/function-asterisk.test";
 import { instanceofTest } from "./test/instanceof.test";
 import { mapTest } from "./test/map.test"
+import { optionalChainingTest } from "./test/optional-chaining.test"
 import { promiseTest } from "./test/promise.test";
 import { rxjsCreatingOperatorsTest } from "./test/rxjs.test"
 import { setTest } from "./test/set.test"
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		functionAsteriskTest,
 		instanceofTest,
 		mapTest,
+		optionalChainingTest,
 		promiseTest,
 		rxjsCreatingOperatorsTest,
 		setTest,

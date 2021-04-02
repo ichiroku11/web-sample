@@ -13,6 +13,12 @@ export const assertTest = new Test("AssertTest")
 		// Assert
 		Assert.equal([1, 2, 3], [1, 2, 3]);
 	})
+	.fact("equal_undefinedが等しいと判断できる", () => {
+		// Arrange
+		// Act
+		// Assert
+		Assert.equal(undefined, undefined);
+	})
 	.fact("true_判断できる", () => {
 		// Arrange
 		// Act
