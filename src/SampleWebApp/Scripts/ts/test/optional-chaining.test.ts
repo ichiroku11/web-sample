@@ -26,4 +26,14 @@ export const optionalChainingTest = new Test("OptionalChainingTest")
 
 		// Assert
 		Assert.equal(undefined, actual);
+	})
+	.fact("optionalChaining_参照がnullの場合にundefinedが返される", () => {
+		// Arrange
+		const obj: any = null;
+
+		// Act
+		const actual = obj?.value;
+
+		// Assert
+		Assert.equal(undefined, actual);
 	});
