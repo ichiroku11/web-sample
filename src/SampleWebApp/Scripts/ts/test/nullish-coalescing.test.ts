@@ -13,4 +13,10 @@ export const nullishCoalescingTest = new Test("NullishCoalescingTest")
 		const value = undefined ?? 1;
 
 		Assert.equal(1, value);
+	})
+	.fact("nullishCoalescing_左辺がnullとundefined以外の場合は左辺の値が返る", () => {
+		// 左辺がnull・undefined以外のfalsy
+		const value = 0 ?? 1;
+
+		Assert.equal(0, value);
 	});
