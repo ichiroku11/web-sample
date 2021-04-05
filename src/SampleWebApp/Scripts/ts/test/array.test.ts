@@ -1,5 +1,8 @@
 import { Assert, Test } from "../unittestlib";
 
+// Array
+// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array
+
 // Array.fromを使ってEnumerable.Rangeのようなメソッドを作る
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 const range = (start: number, count: number) => Array.from({ length: count }, (_, index) => start + index);
