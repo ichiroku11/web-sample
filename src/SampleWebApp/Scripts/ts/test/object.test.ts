@@ -18,6 +18,22 @@ export const objectTest = new Test("ObjectTest")
 		// Assert
 		Assert.equal([["a", 1], ["b", "2"]], actual);
 	})
+	.fact("entries_分割代入と一緒に使ってみる", () => {
+		// Arrange
+		const obj = {
+			a: 1,
+			b: "2"
+		};
+
+		// Act
+		const actual: string[] = [];
+		for (const [key, value] of Object.entries(obj)) {
+			actual.push(`${key}:${value}`);
+		}
+
+		// Assert
+		Assert.equal(["a:1", "b:2"], actual);
+	})
 	.fact("keys_", () => {
 		// todo:
 		Assert.fail();
