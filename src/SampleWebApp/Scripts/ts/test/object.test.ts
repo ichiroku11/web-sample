@@ -34,6 +34,26 @@ export const objectTest = new Test("ObjectTest")
 		// Assert
 		Assert.equal(["a:1", "b:2"], actual);
 	})
+	.fact("fromEntries_key/valueのコレクションからオブジェクトを生成する", () => {
+		// Arrange
+		// Act
+		const obj = Object.fromEntries<string | number>([["a", 1], ["b", "2"]]);
+
+		// Assert
+		Assert.equal(1, obj["a"]);
+		Assert.equal("2", obj["b"]);
+	})
+	.fact("fromEntries_Mapからオブジェクトを生成する", () => {
+		// Arrange
+		const map = new Map<string, string | number>([["a", 1], ["b", "2"]]);
+
+		// Act
+		const obj = Object.fromEntries<string | number>(map);
+
+		// Assert
+		Assert.equal(1, obj["a"]);
+		Assert.equal("2", obj["b"]);
+	})
 	.fact("keys_", () => {
 		// todo:
 		Assert.fail();
