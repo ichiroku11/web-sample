@@ -54,9 +54,22 @@ export const objectTest = new Test("ObjectTest")
 		Assert.equal(1, obj["a"]);
 		Assert.equal("2", obj["b"]);
 	})
-	.fact("keys_", () => {
-		// todo:
-		Assert.fail();
+	.fact("keys_オブジェクトのプロパティ名の配列を取得する", () => {
+		// Arrange
+		const obj = {
+			a: 1,
+			b: "2"
+		};
+
+		// Act
+		const keys = Object.keys(obj);
+		const set = new Set(keys);
+
+		// Assert
+		// 並び順はどうなる？
+		Assert.equal(2, set.size);
+		Assert.true(set.has("a"));
+		Assert.true(set.has("b"));
 	})
 	.fact("values_", () => {
 		// todo:
