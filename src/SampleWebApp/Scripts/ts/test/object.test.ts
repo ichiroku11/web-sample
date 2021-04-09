@@ -71,7 +71,18 @@ export const objectTest = new Test("ObjectTest")
 		Assert.true(set.has("a"));
 		Assert.true(set.has("b"));
 	})
-	.fact("values_", () => {
-		// todo:
-		Assert.fail();
+	.fact("values_オブジェクトのプロパティ値の配列を取得する", () => {
+		// Arrange
+		const obj = {
+			a: 1,
+			b: "2"
+		};
+
+		// Act
+		const values = Object.values(obj);
+		const set = new Set(values);
+
+		// Assert
+		Assert.true(set.has(1));
+		Assert.true(set.has("2"));
 	});
