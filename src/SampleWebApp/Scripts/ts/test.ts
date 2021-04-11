@@ -8,6 +8,7 @@ import { functionAsteriskTest } from "./test/function-asterisk.test";
 import { instanceofTest } from "./test/instanceof.test";
 import { mapTest } from "./test/map.test"
 import { nullishCoalescingTest } from "./test/nullish-coalescing.test"
+import { objectTest } from "./test/object.test"
 import { optionalChainingTest } from "./test/optional-chaining.test"
 import { promiseTest } from "./test/promise.test";
 import { rxjsCreatingOperatorsTest } from "./test/rxjs.test"
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		instanceofTest,
 		mapTest,
 		nullishCoalescingTest,
+		objectTest,
 		optionalChainingTest,
 		promiseTest,
 		rxjsCreatingOperatorsTest,
