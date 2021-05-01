@@ -1,4 +1,4 @@
-
+/** 結果UIのヘルパー */
 class ResultHelper {
 	// モジュールをdetails、summaryを使って表す
 	private readonly _details: HTMLDetailsElement;
@@ -44,26 +44,39 @@ class ResultHelper {
 	}
 }
 
+/** テスト関数 */
 type TestFunc = () => void | Promise<void>;
 
+/** テストケース（テスト名とテスト関数のペア） */
 type TestCase = {
 	testName: string;
 	testFunc: TestFunc;
 };
 
+/** テストランナー */
 export class Test {
 	private readonly _moduleName: string;
 	private readonly _testCases: TestCase[] = [];
 
+	/**
+	 * 
+	 * @param moduleName テストモジュール名
+	 */
 	constructor(moduleName: string) {
 		this._moduleName = moduleName;
 	}
 
+	/**
+	 * テストを登録する
+	 * @param testName テスト名
+	 * @param testFunc テスト関数
+	 */
 	public fact(testName: string, testFunc: TestFunc): this {
 		this._testCases.push({ testName, testFunc });
 		return this;
 	}
 
+	/** すべてのテストを実行する */
 	public async run(): Promise<void> {
 		const resultHelper = new ResultHelper(this._moduleName);
 
