@@ -76,6 +76,21 @@ export class Test {
 		return this;
 	}
 
+	// Variadic Tuple Typesを使うとそれなりに良い感じにtheoryメソッドを作れた気もするが、
+	// パラメータ部分をもう少し改善できるとよい
+	// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types
+	// 使い方
+	/*
+		.theory(
+			"test",
+			() => [
+				[1, 1],
+				[2, 2],
+			],
+			(expected, actual) => {
+				Assert.equal(expected, actual);
+			});
+	*/
 	/**
 	 * 引数があるテストを登録する
 	 * @param testName
