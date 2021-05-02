@@ -76,6 +76,29 @@ export class Test {
 		return this;
 	}
 
+	/**
+	 * 引数があるテストを登録する
+	 * @param testName
+	 * @param testArgs
+	 * @param testFunc
+	 */
+	public theory<TValue extends readonly any[]>(
+		testName: string,
+		testArgs: () => [...TValue][],
+		testFunc: (...arg: readonly [...TValue]) => void): this {
+
+		const args = testArgs();
+
+		for (const arg of args) {
+			this._testCases.push({
+				testName: `${testName}(${JSON.stringify(arg)})`,
+				testFunc: () => testFunc(...arg)
+			});
+		}
+
+		return this;
+	}
+
 	/** すべてのテストを実行する */
 	public async run(): Promise<void> {
 		const resultHelper = new ResultHelper(this._moduleName);
