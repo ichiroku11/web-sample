@@ -10,7 +10,12 @@ namespace SampleWebApp.Pages.Sass {
 		[BindProperty(SupportsGet = true)]
 		public int Pattern { get; set; } = 1;
 
-		public void OnGet() {
+		public IActionResult OnGet() {
+			if (Pattern is not (1 or 2)) {
+				return NotFound();
+			}
+
+			return Page();
 		}
 	}
 }
