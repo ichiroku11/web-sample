@@ -9,10 +9,8 @@
 	background-color: #ddd;
 	height: 500px;
 	width: 500px;
-
-	padding: .5rem;
-
 	overflow-y: scroll;
+	padding: .5rem;
 
 	> * {
 		border: dashed 2px #000;
@@ -24,21 +22,25 @@
 		}
 	}
 
-	.ps-header {
-	}
-
 	.ps-main {
 		height: 700px;
-	}
-
-	.ps-footer {
 	}
 }
 
 // ヘッダーがsticky
 .ps-container-1 {
+	.ps-header {
+		border-color: red;
+		top: 0;
+		position: sticky;
+	}
 }
 
 // フッターがsticky
 .ps-container-2 {
+	.ps-footer {
+		border-color: red;
+		bottom: 0;
+		position: sticky;
+	}
 }
