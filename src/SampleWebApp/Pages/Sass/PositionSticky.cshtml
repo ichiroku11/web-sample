@@ -1,0 +1,17 @@
+@page "{pattern:int?}"
+@model PositionStickyModel
+@{
+	// "position: sticky;"のサンプル
+	// 参考
+	// position: sticky; の仕組みや実際の使い方をやさしく解説 | コリス
+	// https://coliss.com/articles/build-websites/operation/css/css-position-sticky-how-it-really-works.html
+
+	ViewBag.Title = "position: sticky; サンプル";
+}
+<section class="app-sample">
+	<div class="ps-container ps-container-@Model.Pattern">
+		<div class="ps-header">header</div>
+		<div class="ps-main">main</div>
+		<div class="ps-footer">footer</div>
+	</div>
+</section>
