@@ -1,0 +1,22 @@
+@page "{id}"
+@model ShortHtmlModel
+@{
+	ViewBag.Title = "短いHTMLコードで実装できる小技テク17選";
+	ViewBag.Subtitle = "olのstart属性";
+}
+
+@if (Model.Tip == ShortHtmlTip.OlStart) {
+	<section class="app-sample">
+		<ol start="11">
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+		</ol>
+	</section>
+}
+
+<section class="app-reference">
+	<ul>
+		<li><a href="https://photoshopvip.net/129002">【HTML】知っておくと便利！短いHTMLコードで実装できる小技テク17選 - PhotoshopVIP</a></li>
+	</ul>
+</section>
