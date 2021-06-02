@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SampleWebApp.Pages.Html {
 	public enum ShortHtmlTip {
-		// todo: URLを文字列にしたいが・・・
-		OlStart = 1,
+		OlStart,
+	}
+
+	public static class ShortHtmlTipExtensions {
+		public static string GetDisplayName(this ShortHtmlTip tip) {
+			return tip switch {
+				ShortHtmlTip.OlStart => "olのstart属性",
+				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
+			};
+		}
 	}
 
 	public class ShortHtmlModel : PageModel {

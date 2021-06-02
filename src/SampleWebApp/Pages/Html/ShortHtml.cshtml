@@ -1,8 +1,8 @@
-@page "{id}"
+@page "{tip}"
 @model ShortHtmlModel
 @{
 	ViewBag.Title = "短いHTMLコードで実装できる小技テク17選";
-	ViewBag.Subtitle = "olのstart属性";
+	ViewBag.Subtitle = Model.Tip.GetDisplayName();
 }
 
 @if (Model.Tip == ShortHtmlTip.OlStart) {
