@@ -8,12 +8,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace SampleWebApp.Pages.Html {
 	public enum ShortHtmlTip {
 		OlStart,
+		Meter,
 	}
 
 	public static class ShortHtmlTipExtensions {
 		public static string GetDisplayName(this ShortHtmlTip tip) {
 			return tip switch {
 				ShortHtmlTip.OlStart => "olのstart属性",
+				ShortHtmlTip.Meter => "meter",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
 			};
 		}

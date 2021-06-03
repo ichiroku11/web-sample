@@ -5,15 +5,23 @@
 	ViewBag.Subtitle = Model.Tip.GetDisplayName();
 }
 
-@if (Model.Tip == ShortHtmlTip.OlStart) {
-	<section class="app-sample">
+<section class="app-sample">
+	@if (Model.Tip == ShortHtmlTip.OlStart) {
 		<ol start="11">
 			<li>HTML</li>
 			<li>CSS</li>
 			<li>JavaScript</li>
 		</ol>
-	</section>
-}
+	} else if (Model.Tip == ShortHtmlTip.Meter) {
+		foreach (var (id, label, value) in new[] {
+			 ("value1", "Low", 25),
+			 ("value2", "Medium", 50),
+			 ("value3", "High", 90) }) {
+			<label for="@id">@label</label>
+			<meter id="@id" min="0" max="100" low="30" high="75" optimum="80" value="@value"></meter>
+		}
+	}
+</section>
 
 <section class="app-reference">
 	<ul>

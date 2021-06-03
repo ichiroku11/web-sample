@@ -7,7 +7,9 @@
 	<li>
 		短いHTMLコードで実装できる小技テク
 		<ul>
-			<li><a asp-page="./ShortHtml" asp-route-tip="@ShortHtmlTip.OlStart">@ShortHtmlTip.OlStart.GetDisplayName()</a></li>
+			@foreach (var tip in Enum.GetValues(typeof(ShortHtmlTip)).Cast<ShortHtmlTip>()) {
+				<li><a asp-page="./ShortHtml" asp-route-tip="@tip">@tip.GetDisplayName()</a></li>
+			}
 		</ul>
 	</li>
 </ul>
