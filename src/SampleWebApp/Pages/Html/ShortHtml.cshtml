@@ -5,7 +5,7 @@
 	ViewBag.Subtitle = Model.Tip.GetDisplayName();
 }
 
-<section class="app-sample">
+<section class="app-sample shorthtml-sample-@Model.Tip.ToString().ToLower()">
 	@if (Model.Tip == ShortHtmlTip.OlStart) {
 		<ol start="11">
 			<li>HTML</li>

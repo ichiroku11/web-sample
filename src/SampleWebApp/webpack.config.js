@@ -13,6 +13,7 @@ const scssConfig = {
 		index: path.resolve(__dirname, "styles/index.scss"),
 		lib: path.resolve(__dirname, "styles/lib.scss"),
 		"html/detailssummary": path.resolve(__dirname, "styles/html/detailssummary.scss"),
+		"html/shorthtml": path.resolve(__dirname, "styles/html/shorthtml.scss"),
 		"sass/animation": path.resolve(__dirname, "styles/sass/animation.scss"),
 		"sass/boxsizing": path.resolve(__dirname, "styles/sass/boxsizing.scss"),
 		"sass/centering": path.resolve(__dirname, "styles/sass/centering.scss"),
