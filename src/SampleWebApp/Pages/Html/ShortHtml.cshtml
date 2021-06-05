@@ -20,6 +20,15 @@
 			<label for="@id">@label</label>
 			<meter id="@id" min="0" max="100" low="30" high="75" optimum="80" value="@value"></meter>
 		}
+	} else if (Model.Tip == ShortHtmlTip.DataList) {
+		<input list="items" />
+		<datalist id="items">
+			<option value="Apple" />
+			<option value="Bus" />
+			<option value="Cup" />
+			<option value="Duck" />
+			<option value="Frog" />
+		</datalist>
 	}
 </section>
 

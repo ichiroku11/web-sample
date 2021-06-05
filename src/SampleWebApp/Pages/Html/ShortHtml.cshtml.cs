@@ -9,6 +9,7 @@ namespace SampleWebApp.Pages.Html {
 	public enum ShortHtmlTip {
 		OlStart,
 		Meter,
+		DataList
 	}
 
 	public static class ShortHtmlTipExtensions {
@@ -16,6 +17,7 @@ namespace SampleWebApp.Pages.Html {
 			return tip switch {
 				ShortHtmlTip.OlStart => "olのstart属性",
 				ShortHtmlTip.Meter => "meter",
+				ShortHtmlTip.DataList => "datalist",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
 			};
 		}
