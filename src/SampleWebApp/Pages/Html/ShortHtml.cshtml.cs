@@ -7,9 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SampleWebApp.Pages.Html {
 	public enum ShortHtmlTip {
+		/*
+		ImageLoadingLazy,
+		*/
 		OlStart,
 		Meter,
-		DataList
+		DataList,
+		/*
+		// todo:
+		InputSlider,
+		Mark,
+		*/
+		AnchorDownload,
+		/*
+		InputSearch,
+		*/
 	}
 
 	public static class ShortHtmlTipExtensions {
@@ -18,6 +30,7 @@ namespace SampleWebApp.Pages.Html {
 				ShortHtmlTip.OlStart => "olのstart属性",
 				ShortHtmlTip.Meter => "meter",
 				ShortHtmlTip.DataList => "datalist",
+				ShortHtmlTip.AnchorDownload => "aのdownload属性",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
 			};
 		}
