@@ -19,9 +19,7 @@ namespace SampleWebApp.Pages.Html {
 		Mark,
 		*/
 		AnchorDownload,
-		/*
 		InputSearch,
-		*/
 	}
 
 	public static class ShortHtmlTipExtensions {
@@ -31,6 +29,7 @@ namespace SampleWebApp.Pages.Html {
 				ShortHtmlTip.Meter => "meter",
 				ShortHtmlTip.DataList => "datalist",
 				ShortHtmlTip.AnchorDownload => "aのdownload属性",
+				ShortHtmlTip.InputSearch => @"input type=""search""",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
 			};
 		}

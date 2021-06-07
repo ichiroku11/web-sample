@@ -36,6 +36,16 @@
 		<div>
 			<a href="~/sample.pdf" download>ダウンロード属性あり</a>
 		</div>
+	} else if (Model.Tip == ShortHtmlTip.InputSearch) {
+		<div>
+			<label for="input-text">text</label>
+			<input id="input-text" type="text" value="abc" />
+		</div>
+		@* type="search"は、取り消し用の「×」マークが表示される *@
+		<div>
+			<label for="input-search">search</label>
+			<input id="input-search" type="search" value="abc" />
+		</div>
 	}
 </section>
 
