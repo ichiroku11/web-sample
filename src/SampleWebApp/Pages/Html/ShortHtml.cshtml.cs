@@ -14,10 +14,7 @@ namespace SampleWebApp.Pages.Html {
 		Meter,
 		DataList,
 		InputRange,
-		/*
-		// todo:
 		Mark,
-		*/
 		AnchorDownload,
 		InputSearch,
 	}
@@ -29,6 +26,7 @@ namespace SampleWebApp.Pages.Html {
 				ShortHtmlTip.Meter => "meter",
 				ShortHtmlTip.DataList => "datalist",
 				ShortHtmlTip.InputRange => @"input type=""range""",
+				ShortHtmlTip.Mark => "mark",
 				ShortHtmlTip.AnchorDownload => "aのdownload属性",
 				ShortHtmlTip.InputSearch => @"input type=""search""",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
