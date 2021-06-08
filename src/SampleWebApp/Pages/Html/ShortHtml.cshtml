@@ -29,6 +29,24 @@
 			<option value="Duck" />
 			<option value="Frog" />
 		</datalist>
+	} else if (Model.Tip == ShortHtmlTip.InputRange) {
+		<div>
+			<label for="input-range">range</label>
+			<input id="input-range" type="range" min="0" max="20">
+		</div>
+		<div>
+			<label for="input-number">number</label>
+			<input id="input-number" type="number">
+		</div>
+		<script>
+			const range = document.querySelector("#input-range");
+			const number = document.querySelector("#input-number");
+			number.value = range.value;
+
+			range.addEventListener("change", () => {
+				number.value = range.value;
+			});
+		</script>
 	} else if (Model.Tip == ShortHtmlTip.AnchorDownload) {
 		<div>
 			<a href="~/sample.pdf">ダウンロード属性なし</a>

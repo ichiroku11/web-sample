@@ -13,6 +13,17 @@ body {
 	}
 }
 
+.shorthtml-sample-inputrange {
+	label {
+		display: block;
+		margin-top: 10px;
+	}
+
+	input[type=range] {
+		width: 200px;
+	}
+}
+
 .shorthtml-sample-inputsearch {
 	label {
 		display: block;

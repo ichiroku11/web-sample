@@ -13,9 +13,9 @@ namespace SampleWebApp.Pages.Html {
 		OlStart,
 		Meter,
 		DataList,
+		InputRange,
 		/*
 		// todo:
-		InputSlider,
 		Mark,
 		*/
 		AnchorDownload,
@@ -28,6 +28,7 @@ namespace SampleWebApp.Pages.Html {
 				ShortHtmlTip.OlStart => "olのstart属性",
 				ShortHtmlTip.Meter => "meter",
 				ShortHtmlTip.DataList => "datalist",
+				ShortHtmlTip.InputRange => @"input type=""range""",
 				ShortHtmlTip.AnchorDownload => "aのdownload属性",
 				ShortHtmlTip.InputSearch => @"input type=""search""",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
