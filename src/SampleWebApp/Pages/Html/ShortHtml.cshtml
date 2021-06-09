@@ -6,7 +6,10 @@
 }
 
 <section class="app-sample shorthtml-sample-@Model.Tip.ToString().ToLower()">
-	@if (Model.Tip == ShortHtmlTip.OlStart) {
+	@if (Model.Tip == ShortHtmlTip.ImageLoadingLazy) {
+		<img src="~/image/480x270.png" loading="lazy" />
+		<img src="~/image/960x540.png" loading="lazy" />
+	} else if (Model.Tip == ShortHtmlTip.OlStart) {
 		<ol start="11">
 			<li>HTML</li>
 			<li>CSS</li>

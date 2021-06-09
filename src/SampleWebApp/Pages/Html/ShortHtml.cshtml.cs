@@ -7,9 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SampleWebApp.Pages.Html {
 	public enum ShortHtmlTip {
-		/*
 		ImageLoadingLazy,
-		*/
 		OlStart,
 		Meter,
 		DataList,
@@ -22,12 +20,13 @@ namespace SampleWebApp.Pages.Html {
 	public static class ShortHtmlTipExtensions {
 		public static string GetDisplayName(this ShortHtmlTip tip) {
 			return tip switch {
-				ShortHtmlTip.OlStart => "olのstart属性",
+				ShortHtmlTip.ImageLoadingLazy => @"img loading=""lazy""",
+				ShortHtmlTip.OlStart => "ol start",
 				ShortHtmlTip.Meter => "meter",
 				ShortHtmlTip.DataList => "datalist",
 				ShortHtmlTip.InputRange => @"input type=""range""",
 				ShortHtmlTip.Mark => "mark",
-				ShortHtmlTip.AnchorDownload => "aのdownload属性",
+				ShortHtmlTip.AnchorDownload => "a download",
 				ShortHtmlTip.InputSearch => @"input type=""search""",
 				_ => throw new ArgumentOutOfRangeException(nameof(tip)),
 			};
