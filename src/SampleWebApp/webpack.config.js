@@ -79,6 +79,7 @@ const tsConfig = {
 		"ts/gameoflife": path.resolve(__dirname, "scripts/ts/gameoflife.ts"),
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
 		"ts/history": path.resolve(__dirname, "scripts/ts/history.ts"),
+		"ts/saizeriya": path.resolve(__dirname, "scripts/ts/saizeriya.ts"),
 		"ts/sudoku": {
 			import: path.resolve(__dirname, "scripts/ts/sudoku.ts"),
 			dependOn: "lib"
