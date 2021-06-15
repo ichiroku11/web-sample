@@ -35,8 +35,12 @@ const menuItems: Readonly<SaizeriyaMenuItem>[] = [
 	{ name: "セットプチフォッカ付きミラノ風ドリア", code: "DG05", category: "ドリア&グラタン", price: 400, calorie: 628 },
 ];
 
+
+// todo: 貪欲法による問題解決
+
+
 /**
- *
+ * 動的計画法による問題解決
  */
 export class SaizeriyaResolver {
 	private readonly _menuItems: Readonly<SaizeriyaMenuItem>[];
