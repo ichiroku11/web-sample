@@ -51,7 +51,7 @@ export class SaizeriyaResolver {
 	 * @param budget 予算（指定した予算以内であることを表す）
 	 * @returns 最高カロリー
 	 */
-	private resolveCore(count: number, budget: number): number {
+	private calcMaxCalorieCore(count: number, budget: number): number {
 		let result = 0;
 
 		// 終端条件
@@ -61,13 +61,13 @@ export class SaizeriyaResolver {
 
 		// count-1番目を選ばないとき
 		// todo: resultは必ず0じゃない?
-		result = Math.max(result, this.resolveCore(count - 1, budget));
+		result = Math.max(result, this.calcMaxCalorieCore(count - 1, budget));
 
 		// count-1番目を選ぶとき
 		if (budget >= this._menuItems[count - 1].price) {
 			result = Math.max(
 				result,
-				this.resolveCore(count - 1, budget - this._menuItems[count - 1].price)
+				this.calcMaxCalorieCore(count - 1, budget - this._menuItems[count - 1].price)
 					+ this._menuItems[count - 1].calorie;
 		}
 
@@ -75,10 +75,10 @@ export class SaizeriyaResolver {
 	}
 
 	/**
-	 *
+	 * 最大カロリーを計算する
 	 * @returns 最高カロリー
 	 */
-	public resolve(): number {
-		return this.resolveCore(menuItems.length, 1000);
+	public calcMaxCalorie(): number {
+		return this.calcMaxCalorieCore(menuItems.length, 1000);
 	}
 }
