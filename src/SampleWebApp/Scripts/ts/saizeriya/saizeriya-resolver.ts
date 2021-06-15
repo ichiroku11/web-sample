@@ -1,3 +1,10 @@
+// Software Design 2021.04 p.134～より
+// 「サイゼリアで1,000円以内で最高何kcal摂れるか」
+// サイゼリアのメニューの個数をNとし、1,000円で摂れる最高カロリーを求めるには、
+// 最後のメニューを注文する場合、最後のメニューを注文しない場合、2つの部分問題に分解できる
+// 最後のメニューを注文する場合：残りのN-1個のメニューから、1000-price[N-1]円で摂れる最高カロリーを求める
+// 最後のメニューを注文しない場合：残りのN-1個のメニューから、1000円で摂れる最高カロリーを求める
+// 2つの場合に得られるカロリーのうち、大きい方が最終的な最大カロリーになる
 
 
 type SaizeriyaMenuCategory = "ライス&パン" | "ピザ" | "パスタ" | "ドリア" | "ドリア&グラタン";
@@ -11,7 +18,7 @@ type SaizeriyaMenuItem = {
 }
 
 // 価格あたりのカロリーが高いメニュー
-const menuItems: SaizeriyaMenuItem[] = [
+const menuItems: Readonly<SaizeriyaMenuItem>[] = [
 	{ name: "ライス", code: "RP01", category: "ライス&パン", price: 150, calorie: 303 },
 	{ name: "ラージライス", code: "RP02", category: "ライス&パン", price: 200, calorie: 454 },
 	{ name: "スモールライス", code: "RP03", category: "ライス&パン", price: 100, calorie: 151 },
@@ -28,8 +35,50 @@ const menuItems: SaizeriyaMenuItem[] = [
 	{ name: "セットプチフォッカ付きミラノ風ドリア", code: "DG05", category: "ドリア&グラタン", price: 400, calorie: 628 },
 ];
 
+/**
+ *
+ */
 export class SaizeriyaResolver {
-	resolve(): void {
-		// todo:
+	private readonly _menuItems: Readonly<SaizeriyaMenuItem>[];
+
+	constructor(menuItems: Readonly<SaizeriyaMenuItem>[]) {
+		this._menuItems = menuItems;
+	}
+
+	/**
+	 * 
+	 * @param count 考慮するメニューの個数
+	 * @param budget 予算（指定した予算以内であることを表す）
+	 * @returns 最高カロリー
+	 */
+	private resolveCore(count: number, budget: number): number {
+		let result = 0;
+
+		// 終端条件
+		if (count === 0) {
+			return result;
+		}
+
+		// count-1番目を選ばないとき
+		// todo: resultは必ず0じゃない?
+		result = Math.max(result, this.resolveCore(count - 1, budget));
+
+		// count-1番目を選ぶとき
+		if (budget >= this._menuItems[count - 1].price) {
+			result = Math.max(
+				result,
+				this.resolveCore(count - 1, budget - this._menuItems[count - 1].price)
+					+ this._menuItems[count - 1].calorie;
+		}
+
+		return result;
+	}
+
+	/**
+	 *
+	 * @returns 最高カロリー
+	 */
+	public resolve(): number {
+		return this.resolveCore(menuItems.length, 1000);
 	}
 }
