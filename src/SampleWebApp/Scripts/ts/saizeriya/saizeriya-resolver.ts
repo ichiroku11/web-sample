@@ -18,7 +18,7 @@ type SaizeriyaMenuItem = {
 }
 
 // 価格あたりのカロリーが高いメニュー
-const menuItems: Readonly<SaizeriyaMenuItem>[] = [
+export const SaizeriyaMenuItems: Readonly<SaizeriyaMenuItem>[] = [
 	{ name: "ライス", code: "RP01", category: "ライス&パン", price: 150, calorie: 303 },
 	{ name: "ラージライス", code: "RP02", category: "ライス&パン", price: 200, calorie: 454 },
 	{ name: "スモールライス", code: "RP03", category: "ライス&パン", price: 100, calorie: 151 },
@@ -36,17 +36,20 @@ const menuItems: Readonly<SaizeriyaMenuItem>[] = [
 ];
 
 
+export type SaizeriyaLogger = (message: string) => void;
+
 // todo: 貪欲法による問題解決
 
-
 /**
- * 動的計画法による問題解決
+ * 予算で摂取できる最大カロリーを計算する（動的計画法による問題解決）
  */
-export class SaizeriyaResolver {
+export class SaizeriyaMaxCalorieResolver {
 	private readonly _menuItems: Readonly<SaizeriyaMenuItem>[];
+	private readonly _logger: SaizeriyaLogger;
 
-	constructor(menuItems: Readonly<SaizeriyaMenuItem>[]) {
+	constructor(menuItems: Readonly<SaizeriyaMenuItem>[], logger: SaizeriyaLogger = () => { }) {
 		this._menuItems = menuItems;
+		this._logger = logger;
 	}
 
 	/**
@@ -55,7 +58,9 @@ export class SaizeriyaResolver {
 	 * @param budget 予算（指定した予算以内であることを表す）
 	 * @returns 最高カロリー
 	 */
-	private calcMaxCalorieCore(count: number, budget: number): number {
+	private calcCore(count: number, budget: number): number {
+		this._logger(`calcCore: ${count}, ${budget}`);
+
 		let result = 0;
 
 		// 終端条件
@@ -65,24 +70,25 @@ export class SaizeriyaResolver {
 
 		// count-1番目を選ばないとき
 		// todo: resultは必ず0じゃない?
-		result = Math.max(result, this.calcMaxCalorieCore(count - 1, budget));
+		result = Math.max(result, this.calcCore(count - 1, budget));
 
 		// count-1番目を選ぶとき
 		if (budget >= this._menuItems[count - 1].price) {
 			result = Math.max(
 				result,
-				this.calcMaxCalorieCore(count - 1, budget - this._menuItems[count - 1].price)
-					+ this._menuItems[count - 1].calorie;
+				this.calcCore(count - 1, budget - this._menuItems[count - 1].price)
+					+ this._menuItems[count - 1].calorie);
 		}
 
 		return result;
 	}
 
 	/**
-	 * 最大カロリーを計算する
+	 * 予算で摂取できる最大カロリーを計算する
+	 * @param budget 予算
 	 * @returns 最高カロリー
 	 */
-	public calcMaxCalorie(): number {
-		return this.calcMaxCalorieCore(menuItems.length, 1000);
+	public calc(budget: number): number {
+		return this.calcCore(SaizeriyaMenuItems.length, budget);
 	}
 }
