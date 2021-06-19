@@ -61,16 +61,13 @@ export class SaizeriyaMaxCalorieResolver {
 	private calcCore(count: number, budget: number): number {
 		this._logger(`calcCore: ${count}, ${budget}`);
 
-		let result = 0;
-
 		// 終端条件
 		if (count === 0) {
-			return result;
+			return 0;
 		}
 
 		// count-1番目を選ばないとき
-		// todo: resultは必ず0じゃない?
-		result = Math.max(result, this.calcCore(count - 1, budget));
+		let result = this.calcCore(count - 1, budget);
 
 		// count-1番目を選ぶとき
 		if (budget >= this._menuItems[count - 1].price) {
