@@ -9,7 +9,7 @@
 
 type SaizeriyaMenuCategory = "ライス&パン" | "ピザ" | "パスタ" | "ドリア" | "ドリア&グラタン";
 
-type SaizeriyaMenuItem = {
+export type SaizeriyaMenuItem = {
 	name: string;
 	code: string;
 	category: SaizeriyaMenuCategory;
