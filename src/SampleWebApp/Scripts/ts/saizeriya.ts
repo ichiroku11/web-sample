@@ -48,8 +48,11 @@ document.addEventListener("DOMContentLoaded", _ => {
 		const resolver = new SaizeriyaMaxCalorieResolver(
 			SaizeriyaMenuItems,
 			message => console.log(message));
-	
+
+		const start = performance.now();
 		const calorie = resolver.calc(1000);
+		const end = performance.now();
+		console.log(end - start);
 
 		result.calorie.innerText = new Intl.NumberFormat().format(calorie);
 	});
