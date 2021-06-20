@@ -44,6 +44,9 @@ export type SaizeriyaLogger = (message: string) => void;
  * 予算で摂取できる最大カロリーを計算する（動的計画法による問題解決）
  */
 export class SaizeriyaMaxCalorieResolver {
+	// メニューの個数・予算をキーとした最大カロリーのキャッシュ（calcCoreの呼び出し結果のキャッシュ）
+	private readonly _cache = new Map<string, number>();
+
 	private readonly _menuItems: Readonly<SaizeriyaMenuItem>[];
 	private readonly _logger: SaizeriyaLogger;
 
@@ -66,6 +69,12 @@ export class SaizeriyaMaxCalorieResolver {
 			return 0;
 		}
 
+		// まずキャッシュを確認
+		const key = `${count}-${budget}`;
+		if (this._cache.has(key)) {
+			return this._cache.get(key) as number;
+		}
+
 		// count-1番目を選ばないとき
 		let result = this.calcCore(count - 1, budget);
 
@@ -77,6 +86,9 @@ export class SaizeriyaMaxCalorieResolver {
 					+ this._menuItems[count - 1].calorie);
 		}
 
+		// キャッシュ
+		this._cache.set(key, result);
+
 		return result;
 	}
 
@@ -86,6 +98,9 @@ export class SaizeriyaMaxCalorieResolver {
 	 * @returns 最高カロリー
 	 */
 	public calc(budget: number): number {
+		// キャッシュをクリア
+		this._cache.clear();
+
 		return this.calcCore(SaizeriyaMenuItems.length, budget);
 	}
 }
