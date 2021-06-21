@@ -93,14 +93,29 @@ export class SaizeriyaMaxCalorieResolver {
 	}
 
 	/**
-	 * 予算で摂取できる最大カロリーを計算する
-	 * @param budget 予算
-	 * @returns 最高カロリー
+	 * 
+	 * @param budget
 	 */
-	public calc(budget: number): number {
+	private reconstruct(budget: number): Readonly<SaizeriyaMenuItem>[] {
+		const selectedItems: Readonly<SaizeriyaMenuItem>[] = [];
+
+
+
+		// todo:
+		return selectedItems;
+	}
+
+	/**
+	 * 予算で摂取できる最大カロリーを計算し、そのメニュー一覧を取得する
+	 * @param budget 予算
+	 * @returns 最大カロリーを摂取できるメニュー一覧
+	 */
+	public calc(budget: number): Readonly<SaizeriyaMenuItem>[] {
 		// キャッシュをクリア
 		this._cache.clear();
 
-		return this.calcCore(SaizeriyaMenuItems.length, budget);
+		const calorie = this.calcCore(this._menuItems.length, budget);
+
+		return this.reconstruct(budget)
 	}
 }

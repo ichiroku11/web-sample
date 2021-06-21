@@ -50,7 +50,11 @@ document.addEventListener("DOMContentLoaded", _ => {
 			message => console.log(message));
 
 		const start = performance.now();
-		const calorie = resolver.calc(1000);
+
+		const items = resolver.calc(1000);
+		const calorie = items
+			.map(item => item.calorie)
+			.reduce((previous, current) => previous + current);
 		const end = performance.now();
 		console.log(end - start);
 
