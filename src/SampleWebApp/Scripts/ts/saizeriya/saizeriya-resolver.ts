@@ -35,7 +35,6 @@ export const SaizeriyaMenuItems: Readonly<SaizeriyaMenuItem>[] = [
 	{ name: "セットプチフォッカ付きミラノ風ドリア", code: "DG05", category: "ドリア&グラタン", price: 400, calorie: 628 },
 ];
 
-
 export type SaizeriyaLogger = (message: string) => void;
 
 // todo: 貪欲法による問題解決
@@ -93,16 +92,28 @@ export class SaizeriyaMaxCalorieResolver {
 	}
 
 	/**
-	 * 
+	 * メニューを復元する
 	 * @param budget
 	 */
 	private reconstruct(budget: number): Readonly<SaizeriyaMenuItem>[] {
 		const selectedItems: Readonly<SaizeriyaMenuItem>[] = [];
 
+		// N個のメニューで1,000円のカロリー == N-1個のメニューで1000-price[N-1]円のカロリー + calorie[N-1]
+		// であれば最後の品物を選ぶものと判断できる
+		// （らしいがよくわからず）
+		for (let index = this._menuItems.length; index >= 1; index--) {
+			const key1 = `${index}-${budget - this._menuItems[index - 1].price}`;
+			const key2 = `${index}-${budget}`;
+			if (budget >= this._menuItems[index - 1].price &&
+				this._cache.get(key1)! + this._menuItems[index - 1].calorie === this._cache.get(key2)!) {
 
+				budget -= this._menuItems[index - 1].price;
 
-		// todo:
-		return selectedItems;
+				selectedItems.push(this._menuItems[index - 1]);
+			}
+		}
+
+		return selectedItems.reverse();
 	}
 
 	/**
@@ -115,6 +126,7 @@ export class SaizeriyaMaxCalorieResolver {
 		this._cache.clear();
 
 		const calorie = this.calcCore(this._menuItems.length, budget);
+		this._logger(new Intl.NumberFormat().format(calorie));
 
 		return this.reconstruct(budget)
 	}

@@ -52,13 +52,12 @@ document.addEventListener("DOMContentLoaded", _ => {
 		const start = performance.now();
 
 		const items = resolver.calc(1000);
-		const calorie = items
-			.map(item => item.calorie)
-			.reduce((previous, current) => previous + current);
+		const calorie = items.map(item => item.calorie).reduce((previous, current) => previous + current);
 		const end = performance.now();
 		console.log(end - start);
 
 		result.calorie.innerText = new Intl.NumberFormat().format(calorie);
+		result.menu.appendChild(createMenu(items));
 	});
 });
 
