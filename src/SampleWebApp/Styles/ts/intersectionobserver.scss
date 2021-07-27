@@ -1,0 +1,10 @@
+
+#io-container {
+	height: 200%;
+}
+
+#io-viewport {
+	padding-top: calc(var(--height-header) + var(--height-main-title));
+	position: fixed;
+	inset: 0;
+}

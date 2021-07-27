@@ -1,6 +1,12 @@
 :root {
 	--color-header-item: #f0f6fc;
 	--color-header-item-hover: rgba(240, 246, 252, 0.7);
+	--height-header-padding: 16px;
+	--height-header-nav: 24px;
+	--height-header: calc(var(--height-header-padding) * 2 + var(--height-header-nav));
+	--height-main-h1: 48px;
+	--height-main-h1-margin: .5rem;
+	--height-main-title: calc(var(--height-main-h1) + var(--height-main-h1-margin) * 2);
 }
 
 * {
@@ -13,7 +19,7 @@ body {
 
 header {
 	.app-header-container {
-		padding: 16px 32px;
+		padding: var(--height-header-padding) 32px;
 		align-items: center;
 		background-color: #0d1117;
 		color: var(--color-header-item);
@@ -22,6 +28,7 @@ header {
 
 	nav {
 		font-weight: 600;
+		height: var(--height-header-nav);
 
 		a {
 			text-decoration: none;
@@ -46,7 +53,9 @@ main {
 		margin: 0 1.5rem;
 
 		> h1 {
-			margin: .5rem 0;
+			height: var(---height-main-h1);
+			margin: var(--height-main-h1-margin) 0;
+
 			small {
 				display: block;
 			}
