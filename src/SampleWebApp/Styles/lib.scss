@@ -43,9 +43,10 @@ header {
 
 main {
 	.app-main-container {
-		margin: 3px;
+		margin: 0 1.5rem;
 
 		> h1 {
+			margin: .5rem 0;
 			small {
 				display: block;
 			}
