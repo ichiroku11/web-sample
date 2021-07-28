@@ -1,10 +1,21 @@
 
-#io-container {
-	height: 200%;
+#io-viewport {
+	background-color: #eee;
+	border: 3px dashed #aaa;
+	color: #aaa;
+	height: calc(100vh - (var(--height-header) + var(--height-main-title)));
+	overflow-y: scroll;
+	text-align: center;
 }
 
-#io-viewport {
-	padding-top: calc(var(--height-header) + var(--height-main-title));
-	position: fixed;
-	inset: 0;
+#io-container {
+	height: 200vh;
+}
+
+#io-target {
+	background-color: #08f;
+	color: #fff;
+	display: inline-block;
+	padding: 4em;
+	margin: 100vh auto 100vh;
 }
