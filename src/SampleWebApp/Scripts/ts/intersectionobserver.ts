@@ -8,8 +8,14 @@ document.addEventListener("DOMContentLoaded", _ => {
 		return;
 	}
 
-	const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-		// todo:
+	// entries: 監視対象の要素が接している（交わっている）場合複数になるらしい
+	const callback = (entries: IntersectionObserverEntry[], _: IntersectionObserver) => {
+		// 今回のサンプルでは常に1つのはず
+		console.log(`entries.length: ${entries.length}`);
+		for (const entry of entries) {
+			console.log(`entry.isIntersecting: ${entry.isIntersecting}`);
+			console.log(`entry.intersectionRatio: ${entry.intersectionRatio}`);
+		}
 	};
 
 	const options: IntersectionObserverInit = {
