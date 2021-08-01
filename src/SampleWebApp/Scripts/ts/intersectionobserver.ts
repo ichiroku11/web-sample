@@ -28,7 +28,10 @@ document.addEventListener("DOMContentLoaded", _ => {
 	};
 
 	const options: IntersectionObserverInit = {
+		// root: 観察するエリア
 		root: viewport,
+		// threshold: コールバックを呼び出す閾値（デフォルトは0）
+		//threshold: [0, 0.25, 0.5, 0.75, 1]
 	};
 
 	const observer = new IntersectionObserver(callback, options);
