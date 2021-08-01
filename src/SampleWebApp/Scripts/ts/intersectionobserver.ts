@@ -7,15 +7,24 @@ document.addEventListener("DOMContentLoaded", _ => {
 	if (!target) {
 		return;
 	}
+	const status = document.querySelector("#io-status");
+	if (!status) {
+		return;
+	}
 
 	// entries: 監視対象の要素が接している（交わっている）場合複数になるらしい
 	const callback = (entries: IntersectionObserverEntry[], _: IntersectionObserver) => {
 		// 今回のサンプルでは常に1つのはず
 		console.log(`entries.length: ${entries.length}`);
-		for (const entry of entries) {
-			console.log(`entry.isIntersecting: ${entry.isIntersecting}`);
-			console.log(`entry.intersectionRatio: ${entry.intersectionRatio}`);
+		const entry = entries.shift();
+		if (!entry) {
+			return;
 		}
+		console.log(`entry.isIntersecting: ${entry.isIntersecting}`);
+		console.log(`entry.intersectionRatio: ${entry.intersectionRatio}`);
+
+		status.innerHTML = `isIntersecting: ${entry.isIntersecting}<br />intersectionRatio: ${entry.intersectionRatio}`;
+		status.classList.toggle("io-intersecting", entry.isIntersecting);
 	};
 
 	const options: IntersectionObserverInit = {
