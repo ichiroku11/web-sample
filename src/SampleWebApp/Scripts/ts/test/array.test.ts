@@ -113,6 +113,18 @@ export const arrayTest = new Test("ArrayTest")
 		// Assert
 		Assert.equal([2, 3, 4], actual);
 	})
+	.fact("pop_配列の最後の要素を取り除く", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 配列の最後の要素を取り除き、取得する
+		const value = values.pop();
+
+		// Assert
+		Assert.equal(3, value);
+		Assert.equal([1, 2], values);
+	})
 	.fact("reduce_試す", () => {
 		// Arrange
 		// Act
