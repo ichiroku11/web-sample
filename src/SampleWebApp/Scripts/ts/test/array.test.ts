@@ -125,6 +125,31 @@ export const arrayTest = new Test("ArrayTest")
 		Assert.equal(3, value);
 		Assert.equal([1, 2], values);
 	})
+	.fact("push_配列の最後に要素を追加する", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 配列の最後に要素を追加する
+		// 戻り値は配列の長さ
+		const length = values.push(4);
+
+		// Assert
+		Assert.equal(4, length);
+		Assert.equal([1, 2, 3, 4], values);
+	})
+	.fact("push_配列の最後に要素を複数追加する", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 要素を複数追加できる
+		const length = values.push(4, 5);
+
+		// Assert
+		Assert.equal(5, length);
+		Assert.equal([1, 2, 3, 4, 5], values);
+	})
 	.fact("reduce_試す", () => {
 		// Arrange
 		// Act
