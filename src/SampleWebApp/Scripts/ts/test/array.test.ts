@@ -157,4 +157,30 @@ export const arrayTest = new Test("ArrayTest")
 
 		// Assert
 		Assert.equal(6, actual);
+	})
+	.fact("unshift_配列の先頭に要素を追加する", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 配列の先頭に要素を追加する
+		// 戻り値は配列の長さ
+		const length = values.unshift(0);
+
+		// Assert
+		Assert.equal(4, length);
+		Assert.equal([0, 1, 2, 3], values);
+	})
+	.fact("unshift_配列の先頭に要素を追加する", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 要素を複数追加する
+		// 配列の先頭に引数で渡された順の塊が挿入される
+		const length = values.unshift(-1, 0);
+
+		// Assert
+		Assert.equal(5, length);
+		Assert.equal([-1, 0, 1, 2, 3], values);
 	});
