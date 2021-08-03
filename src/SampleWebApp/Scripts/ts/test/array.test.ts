@@ -158,6 +158,18 @@ export const arrayTest = new Test("ArrayTest")
 		// Assert
 		Assert.equal(6, actual);
 	})
+	.fact("shift_配列の先頭の要素を取り除く", () => {
+		// Arrange
+		const values = [1, 2, 3];
+
+		// Act
+		// 配列の先頭の要素を取り除き、取得する
+		const value = values.shift();
+
+		// Assert
+		Assert.equal(1, value);
+		Assert.equal([2, 3], values);
+	})
 	.fact("unshift_配列の先頭に要素を追加する", () => {
 		// Arrange
 		const values = [1, 2, 3];
