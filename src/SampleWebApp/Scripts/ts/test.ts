@@ -5,6 +5,7 @@ import { destructuringAssignmentTest } from "./test/destructuring-assignment.tes
 import { errorTest } from "./test/error.test";
 import { fetchTest } from "./test/fetch.test";
 import { functionAsteriskTest } from "./test/function-asterisk.test";
+import { functionDefaultParameterTest } from "./test/function-default-parameter.test";
 import { instanceofTest } from "./test/instanceof.test";
 import { mapTest } from "./test/map.test"
 import { nullishCoalescingTest } from "./test/nullish-coalescing.test"
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		errorTest,
 		fetchTest,
 		functionAsteriskTest,
+		functionDefaultParameterTest,
 		instanceofTest,
 		mapTest,
 		nullishCoalescingTest,
