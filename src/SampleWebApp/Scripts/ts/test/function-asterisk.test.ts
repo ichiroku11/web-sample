@@ -42,4 +42,4 @@ export const functionAsteriskTest = new Test("FunctionAsteriskTest")
 
 		// Assert
 		Assert.equal([1, 2, 3], actual);
-	})
+	});
