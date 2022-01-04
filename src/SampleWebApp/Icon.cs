@@ -60,5 +60,5 @@ public static class IconHelper {
 	/// <summary>
 	/// 
 	/// </summary>
-	public static IEnumerable<Icon> All = Enum.GetValues<Icon>().Cast<Icon>().Where(icon => icon != Icon.None);
+	public static readonly IEnumerable<Icon> All = Enum.GetValues<Icon>().Cast<Icon>().Where(icon => icon != Icon.None);
 }
