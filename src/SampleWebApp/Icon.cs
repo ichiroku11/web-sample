@@ -1,69 +1,64 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+namespace SampleWebApp;
 
-namespace SampleWebApp {
-	/// <summary>
-	/// アイコン
-	/// </summary>
-	public enum Icon {
-		None = 0,
+/// <summary>
+/// アイコン
+/// </summary>
+public enum Icon {
+	None = 0,
 
-		Archive,
+	Archive,
 
-		AwardFill,
+	AwardFill,
 
-		Cart,
+	Cart,
 
-		ChatLeft,
+	ChatLeft,
 
-		ChevronLeft,
+	ChevronLeft,
 
-		// </>
-		CodeSlash,
+	// </>
+	CodeSlash,
 
-		// 水滴、インク
-		DropletFill,
+	// 水滴、インク
+	DropletFill,
 
-		GearFill,
+	GearFill,
 
-		HandThumbsUp,
+	HandThumbsUp,
 
-		HouseDoorFill,
+	HouseDoorFill,
 
-		PersonCircle,
+	PersonCircle,
 
-		Star,
+	Star,
 
-		// ★
-		StarFill,
+	// ★
+	StarFill,
 
-		Sliders,
+	Sliders,
 
-		Tag,
+	Tag,
 
-		TagsFill,
+	TagsFill,
 
-		ThreeDots,
+	ThreeDots,
 
-		Trash,
+	Trash,
 
-		TrophyFill,
+	TrophyFill,
 
-		// トラック
-		Truck,
+	// トラック
+	Truck,
 
-		Upload,
-	}
+	Upload,
+}
 
+/// <summary>
+/// 
+/// </summary>
+public static class IconHelper {
 	/// <summary>
 	/// 
 	/// </summary>
-	public static class IconHelper {
-		/// <summary>
-		/// 
-		/// </summary>
-		public static IEnumerable<Icon> All = Enum.GetValues<Icon>().Cast<Icon>().Where(icon => icon != Icon.None);
-	}
+	public static readonly IEnumerable<Icon> All = Enum.GetValues<Icon>().Cast<Icon>().Where(icon => icon != Icon.None);
 }
