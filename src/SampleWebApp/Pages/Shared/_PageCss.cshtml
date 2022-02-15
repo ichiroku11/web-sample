@@ -1,7 +1,7 @@
 @using Microsoft.AspNetCore.Hosting
 @inject IWebHostEnvironment Env
 @{
-	var page = ViewContext.RouteData.Values["page"] as string;
+	var page = ViewContext.RouteData.Values["page"] as string ?? throw new InvalidOperationException();
 
 	// 現在のページに対応するcssファイルが見つかればlinkタグを作成する
 	// 例

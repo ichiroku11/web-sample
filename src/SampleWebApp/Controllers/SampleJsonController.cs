@@ -7,7 +7,7 @@ namespace TypeScriptWebApp.Controllers;
 public class SampleJsonController : ControllerBase {
 	public class Sample {
 		public int Number { get; set; }
-		public string Text { get; set; }
+		public string Text { get; set; } = "";
 	}
 
 	public object Get() {
