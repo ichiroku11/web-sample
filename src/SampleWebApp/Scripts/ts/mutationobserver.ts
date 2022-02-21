@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", _ => {
 		return;
 	}
 
+	const log = document.querySelector<HTMLTextAreaElement>("#mo-log");
+	if (!log) {
+		return;
+	}
+
 	const callback: MutationCallback = (mutations: MutationRecord[], _: MutationObserver) => {
 		mutations.forEach(mutation => {
 			// todo:
@@ -15,12 +20,26 @@ document.addEventListener("DOMContentLoaded", _ => {
 	};
 	new MutationObserver(callback).observe(target, options);
 
+	const numbers = "0123456789";
+	let index = 0;
+
 	document.querySelector<HTMLButtonElement>("#mo-button-append")?.addEventListener("click", _ => {
-		// todo:
-		alert("append");
+		if (index >= numbers.length) {
+			return;
+		}
+
+		const item = document.createElement("span");
+		item.textContent = numbers[index];
+		target.appendChild(item);
+		index++;
 	});
+
 	document.querySelector<HTMLButtonElement>("#mo-button-remove")?.addEventListener("click", _ => {
-		// todo:
-		alert("remove");
+		if (!target.lastChild) {
+			return;
+		}
+
+		target.removeChild(target.lastChild);
+		index--;
 	});
 });
