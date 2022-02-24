@@ -11,8 +11,27 @@ document.addEventListener("DOMContentLoaded", _ => {
 
 	const callback: MutationCallback = (mutations: MutationRecord[], _: MutationObserver) => {
 		mutations.forEach(mutation => {
-			// todo:
 			console.log(mutation);
+
+			if (log.textLength > 0) {
+				log.textContent += "\n";
+			}
+
+			const added: string[] = [];
+			const removed: string[] = [];
+			mutation.addedNodes.forEach(node => {
+				if (node.textContent && node.textContent?.length > 0) {
+					added.push(node.textContent);
+				}
+			});
+			mutation.removedNodes.forEach(node => {
+				if (node.textContent && node.textContent?.length > 0) {
+					removed.push(node.textContent);
+				}
+			});
+
+			const json = JSON.stringify({ added, removed });
+			log.textContent += json;
 		});
 	};
 	const options: MutationObserverInit = {
