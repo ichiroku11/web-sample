@@ -35,6 +35,7 @@ const scssConfig = {
 		"ts/eightpuzzle": path.resolve(__dirname, "styles/ts/eightpuzzle.scss"),
 		"ts/imagedataurl": path.resolve(__dirname, "styles/ts/imagedataurl.scss"),
 		"ts/intersectionobserver": path.resolve(__dirname, "styles/ts/intersectionobserver.scss"),
+		"ts/mutationobserver": path.resolve(__dirname, "styles/ts/mutationobserver.scss"),
 		"ts/sudoku": path.resolve(__dirname, "styles/ts/sudoku.scss"),
 		"ts/test": path.resolve(__dirname, "styles/ts/test.scss")
 	},
@@ -81,6 +82,7 @@ const tsConfig = {
 		"ts/imagedataurl": path.resolve(__dirname, "scripts/ts/imagedataurl.ts"),
 		"ts/history": path.resolve(__dirname, "scripts/ts/history.ts"),
 		"ts/intersectionobserver": path.resolve(__dirname, "scripts/ts/intersectionobserver.ts"),
+		"ts/mutationobserver": path.resolve(__dirname, "scripts/ts/mutationobserver.ts"),
 		"ts/saizeriya": path.resolve(__dirname, "scripts/ts/saizeriya.ts"),
 		"ts/sudoku": {
 			import: path.resolve(__dirname, "scripts/ts/sudoku.ts"),
