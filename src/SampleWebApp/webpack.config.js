@@ -22,6 +22,7 @@ const scssConfig = {
 		"sass/flexboxgridwrapper": path.resolve(__dirname, "styles/sass/flexboxgridwrapper.scss"),
 		"sass/flexboxsample": path.resolve(__dirname, "styles/sass/flexboxsample.scss"),
 		"sass/focuswithin": path.resolve(__dirname, "styles/sass/focuswithin.scss"),
+		"sass/gradient": path.resolve(__dirname, "styles/sass/gradient.scss"),
 		"sass/grid": path.resolve(__dirname, "styles/sass/grid.scss"),
 		"sass/gridfullbleed": path.resolve(__dirname, "styles/sass/gridfullbleed.scss"),
 		"sass/gridlayout": path.resolve(__dirname, "styles/sass/gridlayout.scss"),
