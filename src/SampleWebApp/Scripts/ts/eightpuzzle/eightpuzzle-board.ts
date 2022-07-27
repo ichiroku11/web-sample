@@ -55,7 +55,7 @@ export class EightPuzzleBoard {
 	public static fromJson(json: string): EightPuzzleBoard {
 		const tiles = JSON.parse(json);
 
-		if (!Array.isArray<Tile>(tiles)) {
+		if (!Array.isArray(tiles)) {
 			// todo:
 			throw new Error();
 		}
