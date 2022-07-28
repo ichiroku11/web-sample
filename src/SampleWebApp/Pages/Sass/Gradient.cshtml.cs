@@ -15,6 +15,11 @@ public class GradientModel : PageModel {
 	[FromRoute(Name = "type")]
 	public GradientType GradientType { get; set; }
 
-	public void OnGet() {
+	public IActionResult OnGet() {
+		if (GradientType != GradientType.Linear) {
+			return NotFound();
+		}
+
+		return Page();
 	}
 }
