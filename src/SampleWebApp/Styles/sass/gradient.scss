@@ -1,2 +1,19 @@
-﻿body {
+:root {
+	--color1: #e66465;
+	--color2: #9198e5;
+}
+
+.app-sample {
+	h3 {
+	}
+
+	.grad-image {
+		height: 200px;
+	}
+}
+
+.grad-sample1 {
+	.grad-image {
+		background: linear-gradient(var(--color1), var(--color2));
+	}
 }
