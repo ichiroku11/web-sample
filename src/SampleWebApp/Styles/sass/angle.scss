@@ -4,9 +4,10 @@
 	}
 
 	.agl-target {
-		height: 100px;
-		width: 100px;
 		background: #ffa07a;
+
+		height: 100px;
+		width: 150px;
 
 		// 中央寄せ
 		display: flex;
@@ -15,28 +16,37 @@
 	}
 }
 
-// deg ... 度数
+.agl-sample-container {
+	display: flex;
+	gap: 30px;
 
-// 正の値は時計回り
-.agl-sample1 {
-	.agl-target {
-		transform: rotate(45deg);
+	.agl-sample {
+		h3 {
+			margin-bottom: 50px;
+		}
 	}
-}
-.agl-sample2 {
-	.agl-target {
-		transform: rotate(90deg);
-	}
-}
 
-// 念のため負の値
-.agl-sample3 {
-	.agl-target {
-		transform: rotate(-45deg);
+	// deg ... 度数
+	// 負の値は反時計周り
+	.agl-sample1 {
+		.agl-target {
+			transform: rotate(-90deg);
+		}
 	}
-}
-.agl-sample4 {
-	.agl-target {
-		transform: rotate(-90deg);
+	.agl-sample2 {
+		.agl-target {
+			transform: rotate(-45deg);
+		}
+	}
+	// 正の値は時計回り
+	.agl-sample3 {
+		.agl-target {
+			transform: rotate(45deg);
+		}
+	}
+	.agl-sample4 {
+		.agl-target {
+			transform: rotate(90deg);
+		}
 	}
 }
