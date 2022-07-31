@@ -24,8 +24,9 @@
 		h3 {
 			margin-bottom: 50px;
 		}
-	}
 
+		width: 200px;
+	}
 	// deg ... 度数
 	// 負の値は反時計周り
 	.agl-sample1 {
@@ -33,6 +34,7 @@
 			transform: rotate(-90deg);
 		}
 	}
+
 	.agl-sample2 {
 		.agl-target {
 			transform: rotate(-45deg);
@@ -44,9 +46,34 @@
 			transform: rotate(45deg);
 		}
 	}
+
 	.agl-sample4 {
 		.agl-target {
 			transform: rotate(90deg);
+		}
+	}
+	// turn ... 回転数
+	.agl-sample5 {
+		.agl-target {
+			transform: rotate(-0.25turn);
+		}
+	}
+
+	.agl-sample6 {
+		.agl-target {
+			transform: rotate(-0.125turn);
+		}
+	}
+
+	.agl-sample7 {
+		.agl-target {
+			transform: rotate(0.125turn);
+		}
+	}
+
+	.agl-sample8 {
+		.agl-target {
+			transform: rotate(0.25turn);
 		}
 	}
 }
