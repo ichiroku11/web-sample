@@ -14,3 +14,29 @@
 		align-items: center;
 	}
 }
+
+// deg ... 度数
+
+// 正の値は時計回り
+.agl-sample1 {
+	.agl-target {
+		transform: rotate(45deg);
+	}
+}
+.agl-sample2 {
+	.agl-target {
+		transform: rotate(90deg);
+	}
+}
+
+// 念のため負の値
+.agl-sample3 {
+	.agl-target {
+		transform: rotate(-45deg);
+	}
+}
+.agl-sample4 {
+	.agl-target {
+		transform: rotate(-90deg);
+	}
+}
