@@ -1,24 +1,17 @@
 
 .app-sample {
-	h3 {
-	}
+	display: flex;
+	gap: 30px;
 
 	.agl-target {
 		background: #ffa07a;
-
 		height: 100px;
 		width: 150px;
-
 		// 中央寄せ
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-}
-
-.agl-sample-container {
-	display: flex;
-	gap: 30px;
 
 	.agl-sample {
 		h3 {
@@ -29,51 +22,45 @@
 	}
 	// deg ... 度数
 	// 負の値は反時計周り
-	.agl-sample1 {
-		.agl-target {
-			transform: rotate(-90deg);
-		}
-	}
-
-	.agl-sample2 {
-		.agl-target {
-			transform: rotate(-45deg);
-		}
-	}
 	// 正の値は時計回り
-	.agl-sample3 {
-		.agl-target {
-			transform: rotate(45deg);
-		}
+	.agl-rotate-minus90deg {
+		transform: rotate(-90deg);
 	}
 
-	.agl-sample4 {
-		.agl-target {
-			transform: rotate(90deg);
-		}
+	.agl-rotate-minus45deg {
+		transform: rotate(-45deg);
 	}
+
+	.agl-rotate-0deg {
+		transform: rotate(0deg);
+	}
+
+	.agl-rotate-45deg {
+		transform: rotate(45deg);
+	}
+
+	.agl-rotate-90deg {
+		transform: rotate(90deg);
+	}
+
 	// turn ... 回転数
-	.agl-sample5 {
-		.agl-target {
-			transform: rotate(-0.25turn);
-		}
+	.agl-rotate-minus025turn {
+		transform: rotate(-0.25turn);
 	}
 
-	.agl-sample6 {
-		.agl-target {
-			transform: rotate(-0.125turn);
-		}
+	.agl-rotate-minus0125turn {
+		transform: rotate(-0.125turn);
 	}
 
-	.agl-sample7 {
-		.agl-target {
-			transform: rotate(0.125turn);
-		}
+	.agl-rotate-025turn {
+		transform: rotate(0turn);
 	}
 
-	.agl-sample8 {
-		.agl-target {
-			transform: rotate(0.25turn);
-		}
+	.agl-rotate-0125turn {
+		transform: rotate(0.125turn);
+	}
+
+	.agl-rotate-025turn {
+		transform: rotate(0.25turn);
 	}
 }
