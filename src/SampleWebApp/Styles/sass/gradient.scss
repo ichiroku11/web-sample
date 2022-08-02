@@ -1,5 +1,7 @@
 :root {
+	// 赤っぽい色
 	--color1: #e66465;
+	// 青っぽい色
 	--color2: #9198e5;
 }
 
@@ -14,6 +16,21 @@
 
 .grad-sample1 {
 	.grad-image {
+		// color1からcolor2へ下に向かう
 		background: linear-gradient(var(--color1), var(--color2));
+	}
+}
+
+.grad-sample2 {
+	.grad-image {
+		// 上に向かうグラーデション
+		background: linear-gradient(0deg, var(--color1), var(--color2));
+	}
+}
+
+.grad-sample3 {
+	.grad-image {
+		// 右上に向かうグラデーション
+		background: linear-gradient(45deg, var(--color1), var(--color2));
 	}
 }
