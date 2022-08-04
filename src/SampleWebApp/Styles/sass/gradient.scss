@@ -68,3 +68,35 @@
 		background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3));
 	}
 }
+
+.grad-sample5 {
+	.grad-image {
+		height: 50px;
+	}
+
+	.grad-image + .grad-image {
+		margin-top: 10px;
+	}
+	// 1つ目と2つ目は等値らしい
+	.grad-image:first-of-type {
+		background: linear-gradient(90deg, var(--color1), var(--color2));
+	}
+
+	.grad-image:nth-of-type(2) {
+		background: linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%);
+	}
+
+	.grad-image:nth-of-type(3) {
+		background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+	}
+
+	.grad-image:nth-of-type(4) {
+		background: linear-gradient(90deg, var(--color1) 40%, var(--color2) 60%);
+	}
+
+	// 隣り合う色で同じ経由地があるいため縞模様になる
+	.grad-image:nth-of-type(5) {
+		background: linear-gradient(90deg, var(--color1) 50%, var(--color2) 50%);
+	}
+}
+
