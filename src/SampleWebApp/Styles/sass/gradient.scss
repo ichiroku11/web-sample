@@ -1,12 +1,15 @@
 :root {
 	// 赤っぽい色
-	--color1: #e66465;
+	--color1: #e59198;
 	// 青っぽい色
 	--color2: #9198e5;
+	// 緑っぽい色
+	--color3: #98e591;
 }
 
 .app-sample {
 	h3 {
+		margin-bottom: .1rem;
 	}
 
 	.grad-image {
@@ -18,11 +21,8 @@
 	display: flex;
 
 	& > * {
-		color: #ccc;
-
 		height: 50px;
 		width: 100px;
-
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -34,6 +34,10 @@
 
 	.grad-color2 {
 		background-color: var(--color2);
+	}
+
+	.grad-color3 {
+		background-color: var(--color3);
 	}
 }
 
@@ -55,5 +59,12 @@
 	.grad-image {
 		// 右上に向かうグラデーション
 		background: linear-gradient(45deg, var(--color1), var(--color2));
+	}
+}
+
+.grad-sample4 {
+	.grad-image {
+		// color1、color2、color3へ左から右に向かう
+		background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3));
 	}
 }
