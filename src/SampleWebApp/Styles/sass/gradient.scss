@@ -77,6 +77,7 @@
 	.grad-image + .grad-image {
 		margin-top: 10px;
 	}
+
 	// 1つ目と2つ目は等値らしい
 	.grad-image:first-of-type {
 		background: linear-gradient(90deg, var(--color1), var(--color2));
@@ -97,6 +98,30 @@
 	// 隣り合う色で同じ経由地があるいため縞模様になる
 	.grad-image:nth-of-type(5) {
 		background: linear-gradient(90deg, var(--color1) 50%, var(--color2) 50%);
+	}
+}
+
+.grad-sample6 {
+	.grad-image {
+		height: 50px;
+	}
+
+	.grad-image + .grad-image {
+		margin-top: 10px;
+	}
+
+	.grad-image:first-of-type {
+		background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3));
+	}
+
+	// 40%～60％あたりはcolor2
+	.grad-image:nth-of-type(2) {
+		background: linear-gradient(90deg, var(--color1), var(--color2) 40% 60%, var(--color3));
+	}
+
+	// 隣り合う色で同じ経由地があるいため縞模様になる
+	.grad-image:nth-of-type(3) {
+		background: linear-gradient(90deg, var(--color1) 30%, var(--color2) 30% 70%, var(--color3) 70%);
 	}
 }
 
