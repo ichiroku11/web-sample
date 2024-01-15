@@ -7,9 +7,13 @@
 @functions {
 	private string GetSamplePdfBase64() {
 		var file = Env.WebRootFileProvider.GetFileInfo("sample.pdf");
-		var base64 = file.Exists
-			? Convert.ToBase64String(System.IO.File.ReadAllBytes(file.PhysicalPath))
-			: "";
+
+		var base64 = "";
+		if (file is not null &&
+			file.Exists &&
+			file.PhysicalPath is not null) {
+			base64 = Convert.ToBase64String(System.IO.File.ReadAllBytes(file.PhysicalPath));
+		}
 
 		return $"data:application/pdf;base64,{base64}";
 	}
