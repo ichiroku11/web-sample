@@ -7,7 +7,7 @@
 	// 例
 	// 現在のページ：/index
 	// jsファイル：~/js/index.js
-	var jsPath = @$"js{page.ToLower()}.js";
+	var jsPath = $@"js{page.ToLower()}.js";
 	var jsFile = Env.WebRootFileProvider.GetFileInfo(jsPath);
 }
 @if (jsFile.Exists) {
