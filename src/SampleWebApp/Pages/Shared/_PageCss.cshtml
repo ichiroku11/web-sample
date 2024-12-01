@@ -7,7 +7,7 @@
 	// 例
 	// 現在のページ：/index
 	// cssファイル：~/css/index.css
-	var cssPath = @$"css{page.ToLower()}.css";
+	var cssPath = $@"css{page.ToLower()}.css";
 	var cssFile = Env.WebRootFileProvider.GetFileInfo(cssPath);
 }
 @if (cssFile.Exists) {
