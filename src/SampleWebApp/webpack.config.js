@@ -32,6 +32,7 @@ const scssConfig = {
 		"sass/media": path.resolve(__dirname, "styles/sass/media.scss"),
 		"sass/onelinelayout": path.resolve(__dirname, "styles/sass/onelinelayout.scss"),
 		"sass/positionsticky": path.resolve(__dirname, "styles/sass/positionsticky.scss"),
+		"sass/tablestyling": path.resolve(__dirname, "styles/sass/tablestyling.scss"),
 		"sass/transform": path.resolve(__dirname, "styles/sass/transform.scss"),
 		"sass/transition": path.resolve(__dirname, "styles/sass/transition.scss"),
 		"ts/eightpuzzle": path.resolve(__dirname, "styles/ts/eightpuzzle.scss"),
