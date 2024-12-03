@@ -1,17 +1,36 @@
+
+table {
+	border-collapse: collapse;
+	caption-side: bottom;
+	// OSのUIに使われているフォント
+	//font-family: system-ui;
+
+	caption {
+		margin-block: 1rlh;
+	}
+
+	:is(td, th) {
+		border-color: #c7c7c7;
+		border-style: solid;
+		padding: .5ch 1ch;
+	}
+}
+
 .ts-bordered {
+}
+
+.ts-zebra-stripe-column {
 	table {
-		border-collapse: collapse;
-		caption-side: bottom;
-		// OSのUIに使われているフォント
-		//font-family: system-ui;
-
-		caption {
-			margin-block: 1rlh;
+		col:nth-of-type(even) {
+			background: #f2f2f2;
 		}
+	}
+}
 
-		:is(td, th) {
-			border-style: solid;
-			padding: .5ch 1ch;
+.ts-zebra-stripe-row {
+	table {
+		tr:nth-of-type(odd) {
+			background: #f2f2f2;
 		}
 	}
 }
