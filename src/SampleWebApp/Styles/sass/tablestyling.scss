@@ -37,3 +37,17 @@ table {
 
 .ts-rounded-corner {
 }
+
+.ts-hover {
+	table {
+		td:hover {
+			background: #666666;
+		}
+
+		tr:hover {
+			background: #e6e6e6;
+		}
+
+		// colもしたいが
+	}
+}
