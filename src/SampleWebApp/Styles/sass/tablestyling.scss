@@ -48,6 +48,12 @@ table {
 			background: #e6e6e6;
 		}
 
-		// colもしたいが
+		// col
+		&:has(:is(td, th):nth-child(1):hover) col:nth-child(1),
+		&:has(:is(td, th):nth-child(2):hover) col:nth-child(2),
+		&:has(:is(td, th):nth-child(3):hover) col:nth-child(3),
+		&:has(:is(td, th):nth-child(4):hover) col:nth-child(4) {
+			background: #e6e6e6;
+		}
 	}
 }
