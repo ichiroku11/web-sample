@@ -1,0 +1,95 @@
+
+table {
+	border-collapse: collapse;
+	caption-side: bottom;
+	// OSのUIに使われているフォント
+	//font-family: system-ui;
+
+	caption {
+		margin-block: 1rlh;
+	}
+
+	:is(td, th) {
+		border-color: #c7c7c7;
+		border-style: solid;
+		padding: .5ch 1ch;
+	}
+}
+
+.ts-bordered {
+}
+
+.ts-zebra-stripe-column {
+	table {
+		col:nth-of-type(even) {
+			background: #f2f2f2;
+		}
+	}
+}
+
+.ts-zebra-stripe-row {
+	table {
+		tr:nth-of-type(odd) {
+			background: #f2f2f2;
+		}
+	}
+}
+
+.ts-rounded-corner {
+	table {
+		// collapseではダメ
+		border-collapse: separate;
+		border-spacing: 0;
+		// 角丸：上
+		th {
+			&:first-of-type {
+				border-start-start-radius: .5em;
+			}
+
+			&:last-of-type {
+				border-start-end-radius: .5em;
+			}
+		}
+		// 角丸：下
+		tr:last-of-type td {
+			&:first-of-type {
+				border-end-start-radius: .5em;
+			}
+
+			&:last-of-type {
+				border-end-end-radius: .5em;
+			}
+		}
+		// 罫線（水平方向）の重なりを消す
+		td {
+			border-block-start-width: 0;
+		}
+		// 罫線（垂直方向）の重なりを消す
+		th:not(:first-of-type) {
+			border-inline-start-width: 0;
+		}
+
+		tr td:not(:first-of-type) {
+			border-inline-start-width: 0;
+		}
+	}
+}
+
+.ts-hover {
+	table {
+		td:hover {
+			background: #666666;
+		}
+
+		tr:hover {
+			background: #e6e6e6;
+		}
+		// col
+		&:has(:is(td, th):nth-child(1):hover) col:nth-child(1),
+		&:has(:is(td, th):nth-child(2):hover) col:nth-child(2),
+		&:has(:is(td, th):nth-child(3):hover) col:nth-child(3),
+		&:has(:is(td, th):nth-child(4):hover) col:nth-child(4) {
+			background: #e6e6e6;
+		}
+	}
+}
