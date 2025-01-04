@@ -14,12 +14,14 @@ public class SampleEventStreamController(ILogger<SampleEventStreamController> lo
 		Response.StatusCode = 200;
 
 		try {
-			// 最大5回（5sほど）のループ
-			var index = 0;
-			while (index < 5 && !requestAborted.IsCancellationRequested) {
-				index++;
+			var progress = 0;
+			while (progress < 100 && !requestAborted.IsCancellationRequested) {
+				progress += Random.Shared.Next(10, 30);
+				if (progress > 100) {
+					progress = 100;
+				}
 
-				var message = $"data:{index} {DateTime.Now}\n\n";
+				var message = $"data: {progress}\n\n";
 
 				await Response.WriteAsync(message, requestAborted);
 				await Response.Body.FlushAsync(requestAborted);
