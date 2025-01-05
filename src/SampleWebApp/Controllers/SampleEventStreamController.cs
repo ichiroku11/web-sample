@@ -21,15 +21,21 @@ public class SampleEventStreamController(ILogger<SampleEventStreamController> lo
 					progress = 100;
 				}
 
-				var message = $"data: {progress}\n\n";
-
-				await Response.WriteAsync(message, requestAborted);
+				// "event:"を指定しない場合、"message"イベントが発生する
+				// "event:"を指定すると指定したイベントが発生する
+				// 例："event: prgress\n" => "progress"イベント
+				//await Response.WriteAsync($"event: progress\n", requestAborted);
+				await Response.WriteAsync($"data: {progress}\n\n", requestAborted);
 				await Response.Body.FlushAsync(requestAborted);
 
+				if(progress == 100) {
+					break;
+				}
 				await Task.Delay(1000, requestAborted);
 			}
 		} catch (TaskCanceledException exception) {
 			_logger.LogInformation(exception, "Request was canceled.");
+			// todo:
 		}
 
 		return Empty;

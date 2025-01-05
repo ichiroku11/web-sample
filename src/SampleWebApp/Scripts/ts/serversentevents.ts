@@ -23,15 +23,19 @@ document.addEventListener("DOMContentLoaded", _ => {
 		eventSource = new EventSource("/api/sampleeventstream");
 
 		eventSource.onmessage = (event: MessageEvent<string>) => {
-			console.dir({
-				type: event.type,
-				data: event.data,
-			});
+			console.log(`progress ${event.data}`);
+			var value = parseInt(event.data, 10);
 
-			if (event.type === "message") {
-				console.log(`progress ${event.data}`);
-				var value = parseInt(event.data, 10);
-				progress.value = value;
+			progress.value = value;
+
+			if (value >= 100) {
+				console.log(`completed`);
+
+				startButton.disabled = false;
+				cancelButton.disabled = true;
+
+				eventSource?.close();
+				eventSource = null;
 			}
 		};
 	});
