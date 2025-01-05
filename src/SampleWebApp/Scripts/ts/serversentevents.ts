@@ -1,31 +1,24 @@
 document.addEventListener("DOMContentLoaded", _ => {
 	// https://developer.mozilla.org/ja/docs/Web/API/Server-sent_events/Using_server-sent_events
-
-	const buttons = {
-		start: document.querySelector<HTMLButtonElement>("#sse-button-start"),
-		cancel: document.querySelector<HTMLButtonElement>("#sse-button-cancel"),
-	};
-	if (buttons.start === null) {
-		return;
-	}
-	if (buttons.cancel === null) {
-		return;
-	}
-
-	// todo:
-	/*
+	const startButton = document.querySelector<HTMLButtonElement>("#sse-button-start");
+	const cancelButton = document.querySelector<HTMLButtonElement>("#sse-button-cancel");
 	const progress = document.querySelector<HTMLProgressElement>("#sse-progress");
-	if (progress === null) {
+	if (startButton === null || cancelButton === null || progress === null) {
 		return;
 	}
-	*/
 
 	var eventSource: EventSource | null = null;
 
-	buttons.start.addEventListener("click", _ => {
+	startButton.addEventListener("click", _ => {
+		console.log("started");
+
 		if (eventSource !== null) {
 			return;
 		}
+
+		startButton.disabled = true;
+		cancelButton.disabled = false;
+		progress.value = 0;
 
 		eventSource = new EventSource("/api/sampleeventstream");
 
@@ -34,14 +27,24 @@ document.addEventListener("DOMContentLoaded", _ => {
 				type: event.type,
 				data: event.data,
 			});
-			//console.log(event.data);
+
+			if (event.type === "message") {
+				console.log(`progress ${event.data}`);
+				var value = parseInt(event.data, 10);
+				progress.value = value;
+			}
 		};
 	});
 
-	buttons.cancel.addEventListener("click", _ => {
+	cancelButton.addEventListener("click", _ => {
+		console.log("canceled");
+
 		if (eventSource === null) {
 			return;
 		}
+
+		startButton.disabled = false;
+		cancelButton.disabled = true;
 
 		eventSource.close();
 		eventSource = null;
