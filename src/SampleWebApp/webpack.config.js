@@ -87,6 +87,7 @@ const tsConfig = {
 		"ts/intersectionobserver": path.resolve(__dirname, "scripts/ts/intersectionobserver.ts"),
 		"ts/mutationobserver": path.resolve(__dirname, "scripts/ts/mutationobserver.ts"),
 		"ts/saizeriya": path.resolve(__dirname, "scripts/ts/saizeriya.ts"),
+		"ts/serversentevents": path.resolve(__dirname, "scripts/ts/serversentevents.ts"),
 		"ts/sudoku": {
 			import: path.resolve(__dirname, "scripts/ts/sudoku.ts"),
 			dependOn: "lib"
