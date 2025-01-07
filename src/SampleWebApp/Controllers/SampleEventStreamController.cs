@@ -35,7 +35,6 @@ public class SampleEventStreamController(ILogger<SampleEventStreamController> lo
 			}
 		} catch (TaskCanceledException exception) {
 			_logger.LogInformation(exception, "Request was canceled.");
-			// todo:
 		}
 
 		return Empty;
