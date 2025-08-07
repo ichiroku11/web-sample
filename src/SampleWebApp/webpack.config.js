@@ -86,6 +86,7 @@ const tsConfig = {
 		"ts/history": path.resolve(__dirname, "scripts/ts/history.ts"),
 		"ts/intersectionobserver": path.resolve(__dirname, "scripts/ts/intersectionobserver.ts"),
 		"ts/mutationobserver": path.resolve(__dirname, "scripts/ts/mutationobserver.ts"),
+		"ts/publickeycredential": path.resolve(__dirname, "scripts/ts/publickeycredential.ts"),
 		"ts/saizeriya": path.resolve(__dirname, "scripts/ts/saizeriya.ts"),
 		"ts/serversentevents": path.resolve(__dirname, "scripts/ts/serversentevents.ts"),
 		"ts/sudoku": {
